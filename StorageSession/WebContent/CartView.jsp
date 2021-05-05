@@ -46,15 +46,15 @@
 			<td><%=beancart.getPrice() %> € </td>
 			<td><a href="product?action=deleteC&id=<%=beancart.getCode()%>">Rimuovi dal carrello</a></td>
 		</tr>
-		<% tot += beancart.getTot();} %>
+		<% tot += beancart.getTot(); } %>
 	</table>
 		<h4> Totale: <%=tot %> €</h4>		
 	<% } else { %>	
 		<h1>Il tuo carrello è vuoto</h1>
 	<% } %>
 	<br/><form class="" action="product" method="get">
-		<a href="product?action=goCatalogue"> <input type="submit" value="Ritorna al catalogo"></a>
-		<a href="product?action=deleteALL"><input type="submit" value="Checkout"></a>
+		<a href="product?action=goCatalogue"><input type="submit" value="Ritorna al catalogo"></a>
 	</form>
+		<a href="product?action=deleteALL"><input type=submit value=Checkout></a>
 </body>
 </html>
