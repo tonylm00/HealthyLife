@@ -114,8 +114,8 @@ public class ProductControl extends HttpServlet {
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
 					
-				}else if (action.equalsIgnoreCase("deleteCart")) {
-					request.getSession().setAttribute("cart", new Cart());
+				}else if (action.equalsIgnoreCase("deleteALL")) {
+					request.getSession().setAttribute("cart", cart.svuota());
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
 				
@@ -130,8 +130,8 @@ public class ProductControl extends HttpServlet {
 					}
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
-				}
-				else if (action.equalsIgnoreCase("increaseQD")) {
+				
+				}else if (action.equalsIgnoreCase("increaseQD")) {
 					ProductBean b= cart.getProduct(Integer.parseInt(request.getParameter("id")));
 					if(b.getCartQuantity()<b.getQuantity()) {
 						b.setCartQuantity(b.getCartQuantity()+1);
