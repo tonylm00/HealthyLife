@@ -105,8 +105,10 @@ public class ProductControl extends HttpServlet {
 					bean.setPrice(price);
 					bean.setQuantity(quantity);
 					model.doSave(bean);
+					
 					request.removeAttribute("products");
 					request.setAttribute("products", model.doRetrieveAll(sort));
+				//	response.sendRedirect("/ProductView.jsp");
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
 					dispatcher.forward(request, response);
 					
@@ -118,7 +120,7 @@ public class ProductControl extends HttpServlet {
 					request.getSession().setAttribute("cart", cart.svuota());
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
-				
+					
 				}else if (action.equalsIgnoreCase("decreaseQD")) {
 					ProductBean b= cart.getProduct(Integer.parseInt(request.getParameter("id")));
 					if(b.getCartQuantity()>0) {

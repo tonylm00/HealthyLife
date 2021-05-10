@@ -9,8 +9,8 @@
 	}
 	
 	ProductBean product = (ProductBean) request.getAttribute("product");
-	
 	Cart cart = (Cart) request.getAttribute("cart");
+	
 %>
 
 <!DOCTYPE html>
@@ -30,7 +30,6 @@
 			<th><a href="product?sort=id">Codice</a></th>
 			<th><a href="product?sort=nome">Nome </a></th>
 			<th><a href="product?sort=descrizione">Descrizione </a></th>
-			
 		</tr>
 		<%
 			if (products != null && products.size() != 0) {
@@ -48,7 +47,6 @@
 							<a href="product?action=addC&id=<%=bean.getCode()%>">Aggiungi al carrello</a>
 						</td>
 					</tr>
-					
 		<%
 				}
 			}
@@ -57,16 +55,13 @@
 		<tr>
 			<td colspan="5">Nessun prodotto disponibile</td>
 		</tr>
-		<%
-			}
-		%>
+		<% } %>
 	</table>
 	<br>
 	<a href="product?action=car"><input type="submit" value="Vai al carrello"></a>
 	<br><br>
 	<h2>Inserisci prodotto</h2>
-	<form action="product" method="post">
-		<input type="hidden" name="action" value="insert">
+	<form action="product?action=insert" method="post">
 		
 		<label for="nome">Nome:</label><br> 
 		<input name="nome" type="text" maxlength="20" required placeholder="inserisci nome"><br> 
