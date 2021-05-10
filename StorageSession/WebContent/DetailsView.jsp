@@ -33,7 +33,7 @@
 					<td><%=product.getDescription()%></td>
 					<td><%=product.getPrice()%></td>
 					<td><%=product.getQuantity()%></td>
-					<td> <a href="product?action=addC&id=<%=product.getCode()%>">Aggiungi al carrello</a> </td>
+					<td> <a href="CartControl?action=addC&id=<%=product.getCode()%>">Aggiungi al carrello</a> </td>
 				</tr>
 			</table>
 	<%

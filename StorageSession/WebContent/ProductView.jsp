@@ -44,7 +44,7 @@
 						<td>
 							<a href="product?action=delete&id=<%=bean.getCode()%>">Rimuovi</a><br>
 							<a href="product?action=read&id=<%=bean.getCode()%>">Dettagli</a><br>
-							<a href="product?action=addC&id=<%=bean.getCode()%>">Aggiungi al carrello</a>
+							<a href="CartControl?action=addC&id=<%=bean.getCode()%>">Aggiungi al carrello</a>
 						</td>
 					</tr>
 		<%
@@ -58,7 +58,7 @@
 		<% } %>
 	</table>
 	<br>
-	<a href="product?action=car"><input type="submit" value="Vai al carrello"></a>
+	<a href="CartControl?action=car"><input type="submit" value="Vai al carrello"></a>
 	<br><br>
 	<h2>Inserisci prodotto</h2>
 	<form action="product?action=insert" method="post">

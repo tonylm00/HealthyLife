@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import it.unisa.model.ProductModelDS;
 import it.unisa.model.Cart;
 import it.unisa.model.ProductBean;
-/**
- * Servlet implementation class ProductControl
- */
+
 public class ProductControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,12 +25,6 @@ public class ProductControl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Cart cart = (Cart)request.getSession().getAttribute("cart");
-		if(cart == null) {
-			cart = new Cart();
-			request.getSession().setAttribute("cart", cart);
-		}
-		
 		String sort = request.getParameter("sort");
 
 		try {
@@ -46,39 +38,8 @@ public class ProductControl extends HttpServlet {
 
 		try {
 			if (action != null) {
-				if (action.equalsIgnoreCase("addC") || action.equalsIgnoreCase("addCartDetails")) {
-					int id = Integer.parseInt(request.getParameter("id"));
-					ProductBean b=cart.getProduct(id);
-					if(cart.isInCart(id)) {
-						if(b.getCartQuantity()<b.getQuantity()) {
-							b.setCartQuantity(b.getCartQuantity()+1);
-							b.setTot(b.getCartQuantity()*b.getPrice());
-						}
-					}
-					else {
-						ProductBean bean= (ProductBean) model.doRetrieveByKey(id);
-						bean.setCartQuantity(1);
-						bean.setTot(bean.getPrice());
-						cart.addProduct(bean);
-					}
-					request.getSession().setAttribute("cart", cart);
-					request.setAttribute("cart", cart);
-					if(action.equalsIgnoreCase("addCartDetails")) {
-						request.removeAttribute("product");
-						request.setAttribute("product", model.doRetrieveByKey(id));
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DetailsView.jsp");
-						dispatcher.forward(request, response);
-					}
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
-					dispatcher.forward(request, response);
 				
-				} else if (action.equalsIgnoreCase("deleteC")) {
-					int id = Integer.parseInt(request.getParameter("id"));
-					cart.deleteProduct(model.doRetrieveByKey(id));
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
-					dispatcher.forward(request, response);
-				
-				} else if (action.equalsIgnoreCase("read")) {
+				if (action.equalsIgnoreCase("read")) {
 					int id = Integer.parseInt(request.getParameter("id"));
 					request.removeAttribute("product");
 					request.setAttribute("product", model.doRetrieveByKey(id));
@@ -108,53 +69,18 @@ public class ProductControl extends HttpServlet {
 					
 					request.removeAttribute("products");
 					request.setAttribute("products", model.doRetrieveAll(sort));
-				//	response.sendRedirect("/ProductView.jsp");
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
-					dispatcher.forward(request, response);
-					
-				}else if (action.equalsIgnoreCase("car")) {
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
-					dispatcher.forward(request, response);
-					
-				}else if (action.equalsIgnoreCase("deleteALL")) {
-					request.getSession().setAttribute("cart", cart.svuota());
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
-					dispatcher.forward(request, response);
-					
-				}else if (action.equalsIgnoreCase("decreaseQD")) {
-					ProductBean b= cart.getProduct(Integer.parseInt(request.getParameter("id")));
-					if(b.getCartQuantity()>0) {
-						b.setCartQuantity(b.getCartQuantity()-1);
-						b.setTot(b.getCartQuantity()*b.getPrice());
-						cart.replaceProduct(b);
-						request.getSession().setAttribute("cart", cart);
-						request.setAttribute("cart", cart);
-					}
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
-					dispatcher.forward(request, response);
-				
-				}else if (action.equalsIgnoreCase("increaseQD")) {
-					ProductBean b= cart.getProduct(Integer.parseInt(request.getParameter("id")));
-					if(b.getCartQuantity()<b.getQuantity()) {
-						b.setCartQuantity(b.getCartQuantity()+1);
-						b.setTot(b.getCartQuantity()*b.getPrice());
-						cart.replaceProduct(b);
-						request.getSession().setAttribute("cart", cart);
-						request.setAttribute("cart", cart);
-					}
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
 				}
 			}
 			else {
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
-				dispatcher.forward(request, response);
-			}
-		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+				dispatcher.forward(request, response); }
 		}
+			catch (SQLException e) {
+					System.out.println("Error:" + e.getMessage());}
 	}
-
+			
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
