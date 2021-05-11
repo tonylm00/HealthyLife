@@ -11,17 +11,18 @@ pageEncoding="windows-1256"
 </head>
 <body>
 	<h2>Login</h2>
-	<form action="LoginServlet">
-		Inserisci username
-	<input type="text" name="username"/><br>
-		Inserisci password
-	<input type="password" name="password"/>
+	<form action="LoginServlet" method="post">
+		
+		<label for=username>Inserisci username </label>
+		<input type="text" name="username"><br>
+		
+		<label for=password>Inserisci password </label>
+		<input type="password" name="password"/>
 	
-	<a href="LoginServlet?action=login"><input type="submit" value="Entra"></a>
-	
+		<a href="LoginServlet?action=login">Login</a>
+		<br>
+		<a href="LoginServlet?action=registra">Registrati qui</a>
 	</form>
-	 
-	 <a href="LoginServlet?action=registra"><input type="submit" value="Registrati"></a>
 	 
 </body>
 </html>

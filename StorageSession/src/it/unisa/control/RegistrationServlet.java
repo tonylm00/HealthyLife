@@ -56,11 +56,14 @@ public class RegistrationServlet extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/LoginPage.jsp");
+				bean.setValid(true);
+				request.getSession().setAttribute("utente", bean);
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userLogged.jsp");
 				dispatcher.forward(request, response);
 				
 			}
-			else if(action.equalsIgnoreCase("cancella"))
+			else if(action.equalsIgnoreCase("goHome"))
 			{
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
 				dispatcher.forward(request, response);
@@ -69,7 +72,7 @@ public class RegistrationServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

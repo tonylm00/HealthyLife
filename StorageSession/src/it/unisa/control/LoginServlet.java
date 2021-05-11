@@ -9,30 +9,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import it.unisa.model.UserBean;
 import it.unisa.model.UserDAO;
 
-/**
- * Servlet implementation class LoginServlet
- */
+
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	static UserDAO model = new UserDAO();
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		// TODO Auto-generated method stub
@@ -44,18 +37,25 @@ public class LoginServlet extends HttpServlet {
 		{
 			if(action.equalsIgnoreCase("login"))
 			{
-				String username = request.getParameter("username");
-				String password = request.getParameter("password");
+				HttpSession session = request.getSession(true);
 				
 				UserBean bean = new UserBean();
-				bean.setEmail(username);
-				bean.setFirstName(password);
-				model.doRetrieve(bean);
+				bean.setUserName(request.getParameter("username"));
+				bean.setPassword(request.getParameter("password"));
 				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userLogged.jsp");
-				dispatcher.forward(request, response);
+				bean = UserDAO.doRetrieve(bean);
 				
-				
+				if (bean.isValid())
+				{
+                    session.setAttribute("currentSessionUser", bean);
+                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userLogged.jsp");
+                    dispatcher.forward(request, response);
+                }
+                else
+                {
+                    response.sendRedirect("invalidLogin.jsp");  
+                }
+
 			}
 			else if(action.equalsIgnoreCase("registra"))
 			{
@@ -65,11 +65,8 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

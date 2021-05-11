@@ -13,7 +13,6 @@ if ((currentUser==null)||(!currentUser.isValid()))
 }
 
 %>
- 
    <!DOCTYPE html>
 
    <html>
@@ -21,17 +20,10 @@ if ((currentUser==null)||(!currentUser.isValid()))
       <head>
          <meta http-equiv="Content-Type" 
             content="text/html; charset=windows-1256">
-         <title>   User Logged Successfully   </title>
+         <title>  Utente Loggato Correttamente   </title>
       </head>
-	
       <body>
-
-         <center>
-            
-			
-            Welcome <%= currentUser.getFirstName() + " " + currentUser.getLastName() %>
-         </center>
-
+            <h1> Benvenuto <%= currentUser.getFirstName() + " " + currentUser.getLastName() %></h1>
       </body>
 	
    </html>
