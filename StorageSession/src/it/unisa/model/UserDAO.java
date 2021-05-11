@@ -13,6 +13,10 @@ import java.sql.*;
 public class UserDAO 	
 {
 	private static DataSource ds;
+	private static final String TABLE_NAME = "utente";
+	private static Connection connection = null;
+	private static PreparedStatement preparedStatement = null;
+	private static ResultSet rs;
 	
 	static {
 		try {
@@ -26,12 +30,8 @@ public class UserDAO
 		}
 	}
 	
-	private static final String TABLE_NAME = "utente";
-
 	public synchronized void doSave(UserBean user) throws SQLException {
 
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + UserDAO.TABLE_NAME
 				+ " (username, password, nome, cognome, email) VALUES (?, ?, ?, ?, ?)";
@@ -106,12 +106,9 @@ public class UserDAO
          bean.setValid(true);
       }
    } 
-
-   catch (Exception ex) 
-   {
+   catch (Exception ex) {
       System.out.println("Log In failed: An Exception has occurred! " + ex);
    } 
-	    
    //some exception handling
    finally 
    {
@@ -122,20 +119,20 @@ public class UserDAO
             rs = null;
          }
 	
-      if (stmt != null) {
+      if (preparedStatement != null) {
          try {
-            stmt.close();
+        	 preparedStatement.close();
          } catch (Exception e) {}
-            stmt = null;
+         preparedStatement = null;
          }
 	
-      if (currentCon != null) {
+      if (connection != null) {
          try {
-            currentCon.close();
+            connection.close();
          } catch (Exception e) {
          }
 
-         currentCon = null;
+         connection = null;
       }
    }
 
