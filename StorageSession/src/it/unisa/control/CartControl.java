@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.unisa.model.Cart;
 import it.unisa.model.ProductBean;
-import it.unisa.model.ProductModelDS;
+import it.unisa.model.ProductDAO;
 
 
 @WebServlet("/CartControl")
 public class CartControl extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	static ProductModelDS model = new ProductModelDS();
+	static ProductDAO model = new ProductDAO();
 	
 	public CartControl() {
 		super();
