@@ -6,6 +6,8 @@ public class UserBean {
     private String password;
     private String firstName;
     private String lastName;
+    private String email;
+    
     public boolean valid;
 	
 	
@@ -17,6 +19,10 @@ public class UserBean {
        firstName = newFirstName;
 	}
 
+    public void setEmail(String newEmail)
+    {
+    	email = newEmail;
+    }
 	
     public String getLastName() {
        return lastName;
@@ -25,7 +31,11 @@ public class UserBean {
     public void setLastName(String newLastName) {
        lastName = newLastName;
 			}
-			
+		
+    public String getEmail() {
+    	return email;
+    }
+    
 
     public String getPassword() {
        return password;
