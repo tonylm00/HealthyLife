@@ -78,6 +78,11 @@ public class CartControl extends HttpServlet {
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
 					
+				}else if (action.equalsIgnoreCase("checkout")) { //TODO da modificare, aggiungere insert
+					
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/LoginPage.jsp");
+					dispatcher.forward(request, response);
+					
 				}else if (action.equalsIgnoreCase("decreaseQD")) {
 					ProductBean b= cart.getProduct(Integer.parseInt(request.getParameter("id")));
 					if(b.getCartQuantity()>0) {

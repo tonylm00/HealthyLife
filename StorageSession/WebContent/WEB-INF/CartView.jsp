@@ -55,8 +55,6 @@
 	<br/><form class="" action="product" method="get">
 		<a href="CartControl?action=goCatalogue"><input type="submit" value="Ritorna al catalogo"></a>
 	</form>
-		<a href="CartControl?action=checkout"><input type=submit value=Checkout></a>
-		<br>
-		<a href="CartControl?action=deleteAll">Svuota carrello</a>
+		<a href="CartControl?action=deleteALL"><input type=submit value=Checkout></a>
 </body>
 </html>
