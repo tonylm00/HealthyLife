@@ -15,18 +15,25 @@ import it.unisa.model.ProductBean;
 import it.unisa.model.ProductDAO;
 
 
-@WebServlet("/CartControl")
-public class CartControl extends HttpServlet {
-	
+@WebServlet("/cart")
+public class CartControl extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-	static ProductDAO model = new ProductDAO();
 	
-	public CartControl() {
-		super();
-	}
+	static ProductDAO model = new ProductDAO();   
+	
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CartControl() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		Cart cart = (Cart)request.getSession().getAttribute("cart");
 		if(cart == null) {
 			cart = new Cart();
@@ -34,18 +41,14 @@ public class CartControl extends HttpServlet {
 		}
 		
 		String action = request.getParameter("action");
-		
+
 		try {
 			if (action != null) {
-				if (action.equalsIgnoreCase("addC") || action.equalsIgnoreCase("addCartDetails")) {
+				if (action.equalsIgnoreCase("add") || action.equalsIgnoreCase("addCartDetails")) {
 					int id = Integer.parseInt(request.getParameter("id"));
 					ProductBean b=cart.getProduct(id);
-					if(cart.isInCart(id)) {
-						if(b.getCartQuantity()<b.getQuantity()) {
-							b.setCartQuantity(b.getCartQuantity()+1);
-							b.setTot(b.getCartQuantity()*b.getPrice());
-						}
-					}
+					if(cart.isInCart(id))
+						cart.increaseProductQ(b);
 					else {
 						ProductBean bean= (ProductBean) model.doRetrieveByKey(id);
 						bean.setCartQuantity(1);
@@ -53,7 +56,6 @@ public class CartControl extends HttpServlet {
 						cart.addProduct(bean);
 					}
 					request.getSession().setAttribute("cart", cart);
-					request.setAttribute("cart", cart);
 					if(action.equalsIgnoreCase("addCartDetails")) {
 						request.removeAttribute("product");
 						request.setAttribute("product", model.doRetrieveByKey(id));
@@ -62,62 +64,43 @@ public class CartControl extends HttpServlet {
 					}
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
 					dispatcher.forward(request, response);
-				
-				} else if (action.equalsIgnoreCase("deleteC")) {
+				} else if (action.equalsIgnoreCase("delete")) {
 					int id = Integer.parseInt(request.getParameter("id"));
 					cart.deleteProduct(model.doRetrieveByKey(id));
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
-						
-				}else if (action.equalsIgnoreCase("car")) {
+				}
+				else if (action.equalsIgnoreCase("Cart")) {
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
-					
-				}else if (action.equalsIgnoreCase("deleteALL")) {
-					request.getSession().setAttribute("cart", cart.svuota());
+				}else if (action.equalsIgnoreCase("deleteCart")) {
+					request.getSession().setAttribute("cart", new Cart());
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
-					
-				}else if (action.equalsIgnoreCase("checkout")) { //TODO da modificare, aggiungere insert
-					
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/LoginPage.jsp");
-					dispatcher.forward(request, response);
-					
-				}else if (action.equalsIgnoreCase("decreaseQD")) {
+				}
+				else if (action.equalsIgnoreCase("decreaseQ")) {
 					ProductBean b= cart.getProduct(Integer.parseInt(request.getParameter("id")));
-					if(b.getCartQuantity()>0) {
-						b.setCartQuantity(b.getCartQuantity()-1);
-						b.setTot(b.getCartQuantity()*b.getPrice());
-						cart.replaceProduct(b);
-						request.getSession().setAttribute("cart", cart);
-						request.setAttribute("cart", cart);
-					}
+					cart.decreaseProductQ(b);
+					request.getSession().setAttribute("cart", cart);
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
-				
-				}else if (action.equalsIgnoreCase("increaseQD")) {
+				}
+				else if (action.equalsIgnoreCase("increaseQ")) {
 					ProductBean b= cart.getProduct(Integer.parseInt(request.getParameter("id")));
-					if(b.getCartQuantity()<b.getQuantity()) {
-						b.setCartQuantity(b.getCartQuantity()+1);
-						b.setTot(b.getCartQuantity()*b.getPrice());
-						cart.replaceProduct(b);
-						request.getSession().setAttribute("cart", cart);
-						request.setAttribute("cart", cart);
-					}
+					cart.increaseProductQ(b);
+					request.getSession().setAttribute("cart", cart);
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartView.jsp");
 					dispatcher.forward(request, response);
 				}
 			}
-			else {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
-				dispatcher.forward(request, response);
-			}
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
-		
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

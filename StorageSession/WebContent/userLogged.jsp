@@ -1,18 +1,23 @@
 <%@ page language="java" 
          contentType="text/html; charset=windows-1256"
          pageEncoding="windows-1256"
-         import="it.unisa.model.UserBean"
+         import="java.util.Collection"
+         import="java.util.Iterator"
+         import="it.unisa.model.*"
    %>
 <% 
-// Verifico credenziali utente
+// Check user credentials
   UserBean currentUser = (UserBean) (session.getAttribute("currentSessionUser"));
 if ((currentUser==null)||(!currentUser.isValid()))
 {	
-    response.sendRedirect("./invalidLogin.jsp");
+    %> <br/>Utente non valido<% 
     return;
 }
 
+	Collection<?> orders = (Collection<?>) request.getSession().getAttribute("orders");
+
 %>
+ 
    <!DOCTYPE html>
 
    <html>
@@ -20,10 +25,48 @@ if ((currentUser==null)||(!currentUser.isValid()))
       <head>
          <meta http-equiv="Content-Type" 
             content="text/html; charset=windows-1256">
-         <title>  Utente Loggato Correttamente   </title>
+         <title>   User Logged Successfully   </title>
       </head>
+	
       <body>
-            <h1> Benvenuto <%= currentUser.getFirstName() + " " + currentUser.getLastName() %></h1>
+
+         <center>
+            
+			
+            Welcome <%=currentUser.getFirstName() + " " + currentUser.getLastName() %>
+         </center>
+<h4>Ordini effettuati</h4>
+	<table border="1">
+		<tr>
+			<th>Code </th>
+			<th>Data </th>
+			<th>Prezzo Totale</th>
+			<th></th>
+		</tr>
+		<%
+			if (orders != null && orders.size() != 0) {
+				Iterator<?> it = orders.iterator();
+				while (it.hasNext()) {
+					OrderBean bean = (OrderBean) it.next();
+		%>
+					<tr>
+						<td><%=bean.getId()%></td>
+						<td><%=bean.getDataEff()%></td>
+						<td><%=bean.getPrezzoTot()%></td>
+						<td><a href="order?action=detail&id=<%=bean.getId()%>">Dettaglio ordine</a></td>
+					</tr>
+		<%
+				}
+			}
+			else {
+		%>
+		<tr>
+			<td colspan="6">No orders available</td>
+		</tr>
+		<%
+			}
+		%>
+	</table><br/>
       </body>
 	
    </html>

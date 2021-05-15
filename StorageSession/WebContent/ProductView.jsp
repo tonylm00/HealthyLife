@@ -42,9 +42,9 @@
 						<td><%=bean.getName()%></td>
 						<td><%=bean.getDescription()%></td>
 						<td>
-							<a href="product?action=delete&id=<%=bean.getCode()%>">Rimuovi</a><br>
-							<a href="product?action=read&id=<%=bean.getCode()%>">Dettagli</a><br>
-							<a href="CartControl?action=addC&id=<%=bean.getCode()%>">Aggiungi al carrello</a>
+							<a href="product?action=delete&id=<%=bean.getCode()%>">Delete</a><br>
+							<a href="product?action=read&id=<%=bean.getCode()%>">Details</a><br>
+							<a href="cart?action=add&id=<%=bean.getCode()%>">Add to cart</a>
 						</td>
 					</tr>
 		<%
@@ -58,10 +58,10 @@
 		<% } %>
 	</table>
 	<br>
-	<a href="CartControl?action=car"><input type="submit" value="Vai al carrello"></a>
+	<a href="cart?action=Cart"><input type="submit" value="Vai al carrello"></a>
 	<br><br>
 	<h2>Inserisci prodotto</h2>
-	<form action="product?action=insert" method="post">
+	<form action="product" method="post">
 		
 		<label for="nome">Nome:</label><br> 
 		<input name="nome" type="text" maxlength="20" required placeholder="inserisci nome"><br> 

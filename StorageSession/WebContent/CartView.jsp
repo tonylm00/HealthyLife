@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<% Cart cart = (Cart) request.getSession().getAttribute("cart"); %>
+<% Cart cart = (Cart) request.getSession().getAttribute("cart");%>
 
 <!DOCTYPE html>
 <html>
@@ -10,53 +10,53 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="ProductStyle.css" rel="stylesheet" type="text/css">
-	<title>Healthy Life - Carrello</title>
+	<title>Il tuo carrello</title>
 </head>
 
 <body>
-	<% if(cart != null) { %>
-		<h2>Carrello</h2>
+	<a href="ProductView.jsp">Home</a><br/>
+	<% if(cart != null && cart.getSize()!=0) { %>
+		<h2>Cart</h2>
 		<table border="1">
 		<tr>
-			<th>Codice</th>
-			<th>Nome</th>
-			<th>Quantità</th>
-			<th>Prezzo Totale per articolo</th>
-			
+			<th>Name</th>
+			<th>Quantity</th>
+			<th>Total Price</th>
+			<th>Action</th>
 		</tr>
 		<% List<ProductBean> prodcart = cart.getProducts(); 	
-		   double tot=0.0;
 		   for(ProductBean beancart: prodcart) {
 		%>
 		<tr>
-			<td><a href="product?action=read&id=<%=beancart.getCode()%>"><%=beancart.getCode()%></a></td>
 			<td><%=beancart.getName()%></td>
-			<td>
-				<form action="product">
-					<input type="hidden" name="action" value="increaseQD">
+			<td> 
+				<form action="cart">
+					<input type="hidden" name="action" value="increaseQ">
 					<input type="hidden" name="id" value="<%=beancart.getCode()%>">
 					<input type="submit" value="+" >
 				</form>
 				<%=beancart.getCartQuantity()%>
-				<form action="product">
-					<input type="hidden" name="action" value="decreaseQD">
+				<form action="cart">
+					<input type="hidden" name="action" value="decreaseQ">
 					<input type="hidden" name="id" value="<%=beancart.getCode()%>">
 					<input type="submit" value="-" >
-				</form></td>
-			<td><%=beancart.getPrice() %> € </td>
-			<td><a href="CartControl?action=deleteC&id=<%=beancart.getCode()%>">Rimuovi dal carrello</a></td>
+				</form>
+			</td>
+			
+			<td><%=beancart.getTot()%></td>
+			<td><a href="cart?action=delete&id=<%=beancart.getCode()%>">Delete from cart</a></td>
 		</tr>
-		<% tot += beancart.getTot(); } %>
+		<%} %>
 	</table>
-		<h4> Totale: <%=tot %> €</h4>		
+	<p><%
+	%>
+		Prezzo totale:<%=cart.getTotPrice()%>
+		</p>
 	<% } else { %>	
 		<h1>Il tuo carrello è vuoto</h1>
 	<% } %>
-	<br/><form class="" action="product" method="get">
-		<a href="CartControl?action=goCatalogue"><input type="submit" value="Ritorna al catalogo"></a>
-	</form>
-		<a href="CartControl?action=checkout"><input type=submit value=Checkout></a>
-		<br>
-		<a href="CartControl?action=deleteAll">Svuota carrello</a>
+	
+	<br/><a href="order?action=checkout">
+		<input type="submit" name="submit" value="Checkout"></a>
 </body>
 </html>
