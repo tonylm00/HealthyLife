@@ -7,23 +7,27 @@
 <body>
 	<h1>REGISTRAZIONE UTENTE</h1>
 	<form action="login" method="post">
-	<fieldset>
-		<legend>NOME E COGNOME</legend>
-		<label>Nome: </label><input id="name" name="name" type="text" placeholder="Mario" required><br><br>
-		<label>Cognome: </label><input id="surname" name ="surname" type="text" placeholder="Rossi" required>
-	</fieldset><br>
-	<fieldset>
-		<legend>Email e PASSWORD</legend>
-		<label>Email: </label> <input id="email" name="email" type="text" placeholder="email" required>
+	
+		<label for=name>Nome: </label><br>
+		<input id="name" name="name" type="text" required><br><br>
+		
+		<label for=surname>Cognome: </label><br>
+		<input id="surname" name ="surname" type="text" required><br><br>
+	
+		<label for=email>Email: </label> <br>
+		<input id="email" name="email" type="email"required>
+		
 		<% 
 			if(request.getSession().getAttribute("email")!=null && request.getSession().getAttribute("email").equals("false"))
 			{	
 				%>   email già utilizzata, scegline un altro
 			<%}%>
 		<br><br>
-		<label>Password: </label><input id="pw" name="pw" type="password" placeholder="password" required>
-	</fieldset><br>
-	<input type="submit"> <input type="reset">
-	<input type="hidden" name="action" value="registration">
+		
+		<label for=pw>Password: </label><br>
+		<input id="pw" name="pw" type="password" required><br><br>
+		
+		<input type="submit"> <input type="reset">
+		<input type="hidden" name="action" value="registration">
 	</form>
 </body>

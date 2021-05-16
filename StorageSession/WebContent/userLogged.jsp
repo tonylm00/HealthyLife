@@ -29,16 +29,12 @@ if ((currentUser==null)||(!currentUser.isValid()))
       </head>
 	
       <body>
-
-         <center>
-            
-			
             Welcome <%=currentUser.getFirstName() + " " + currentUser.getLastName() %>
-         </center>
+        
 <h4>Ordini effettuati</h4>
 	<table border="1">
 		<tr>
-			<th>Code </th>
+			<th>Codice </th>
 			<th>Data </th>
 			<th>Prezzo Totale</th>
 			<th></th>
@@ -61,7 +57,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
 			else {
 		%>
 		<tr>
-			<td colspan="6">No orders available</td>
+			<td colspan="6">Nessun ordine effettuato</td>
 		</tr>
 		<%
 			}

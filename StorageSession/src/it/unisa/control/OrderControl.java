@@ -15,17 +15,12 @@ import it.unisa.model.*;
 public class OrderControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;  
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
     public OrderControl() {
-        super();
-        // TODO Auto-generated constructor stub
+        super();  
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		UserBean user=(UserBean)request.getSession().getAttribute("currentSessionUser");
@@ -71,11 +66,7 @@ public class OrderControl extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

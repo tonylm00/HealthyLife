@@ -4,13 +4,12 @@
     import="it.unisa.model.UserBean"
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <html>
 	<head>
          <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
-		<title>Login Page</title>
+		<title>Login</title>
 	</head>
 
 	<body>
@@ -21,16 +20,18 @@
 		<%}%>
 		<form action="login" method="post">
 			<input type="hidden" name="action" value="checkout">
-			Please enter your email 		
-			<input type="text" name="email"/><br>		
+			
+			<label for=email>Inserisci email</label><br>
+			<input type="email" name="email"/><br>		
 		
-			Please enter your password
+			<label for=pw>Inserisci password</label><br>
 			<input type="password" name="pw"/>
 			
 			<input type="submit" value="submit">			
 		
 		</form>
-		<a href="guest.jsp">Acquista senza registrarti</a><br/>
-		<a href="registrazioneUtente.jsp">Registrati</a>
+		<br>
+		<a href="guest.jsp">Procedi senza registrarti</a><br/>
+		<a href="registrazioneUtente.jsp">Registrati qui</a>
 	</body>
 </html>

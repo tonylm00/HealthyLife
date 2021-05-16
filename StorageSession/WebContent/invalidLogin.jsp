@@ -10,7 +10,7 @@
       <head>
          <meta http-equiv="Content-Type" 
             content="text/html; charset=windows-1256">
-         <title>  Errore LOGIN   </title>
+         <title>  Errore   </title>
       </head>
 	
       <body>

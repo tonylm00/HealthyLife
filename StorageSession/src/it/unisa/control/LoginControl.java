@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import it.unisa.model.*;
 
 
-@WebServlet("/LoginControl")
+@WebServlet("/login")
 public class LoginControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

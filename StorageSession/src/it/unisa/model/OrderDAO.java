@@ -44,7 +44,6 @@ public class OrderDAO {
 			preparedStatement = connection.prepareStatement(insertSQL);
 			LocalDateTime now=LocalDateTime.now();
 			String n= now.getYear()+"-"+now.getMonthValue()+"-"+now.getDayOfMonth()+" "+now.getHour()+":"+now.getMinute()+":"+now.getSecond();
-			System.out.println(n);
 			preparedStatement.setString(1, n);
 			preparedStatement.setDouble(2, order.getPrezzoTot());
 			preparedStatement.setString(3, order.getUtente());

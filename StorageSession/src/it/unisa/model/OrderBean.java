@@ -4,16 +4,17 @@ import java.time.LocalDateTime;
 
 public class OrderBean {
 
-	private LocalDateTime dataEff;
+	private String data;
 	private String utente;
 	private double prezzoTot;
 	private int id;
 	
-	public LocalDateTime getDataEff() {
-		return dataEff;
+	public String getData() {
+		return data;
 	}
-	public void setData(LocalDateTime dataEff) {
-		this.dataEff = dataEff;
+	
+	public void setData(String newData) {
+		this.data = newData;
 	}
 	public String getUtente() {
 		return utente;

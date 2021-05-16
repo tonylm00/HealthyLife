@@ -19,10 +19,9 @@
 		<h2>Cart</h2>
 		<table border="1">
 		<tr>
-			<th>Name</th>
-			<th>Quantity</th>
-			<th>Total Price</th>
-			<th>Action</th>
+			<th>Nome</th>
+			<th>Quantità</th>
+			<th>Prezzo Totale</th>
 		</tr>
 		<% List<ProductBean> prodcart = cart.getProducts(); 	
 		   for(ProductBean beancart: prodcart) {
@@ -44,7 +43,7 @@
 			</td>
 			
 			<td><%=beancart.getTot()%></td>
-			<td><a href="cart?action=delete&id=<%=beancart.getCode()%>">Delete from cart</a></td>
+			<td><a href="cart?action=delete&id=<%=beancart.getCode()%>">Rimuovi dal carrello</a></td>
 		</tr>
 		<%} %>
 	</table>

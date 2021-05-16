@@ -10,24 +10,22 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="ProductStyle.css" rel="stylesheet" type="text/css">
-	<title>Details <%=product.getName()%> </title>
+	<title>Dettagli: <%=product.getName()%> </title>
 </head>
 
 <body>
 <a href="ProductView.jsp">Home</a>
-	<h2>Details</h2>
+	<h2>Dettagli</h2>
 	<%
 		if (product != null) {
 	%>
 			<table border="1">
 				<tr>
-					<th>Code</th>
-					<th>Name</th>
-					<th>Description</th>
-					<th>Price</th>
-					<th>Quantity</th>
-					<th>Action</th>
-			
+					<th>Codice</th>
+					<th>Nome</th>
+					<th>Descrizione</th>
+					<th>Prezzo</th>
+					<th>Quantità</th>		
 				</tr>
 				<tr>
 					<td><%=product.getCode()%></td>
