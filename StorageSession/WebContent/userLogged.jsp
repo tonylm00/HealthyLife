@@ -23,7 +23,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
       <head>
          <meta http-equiv="Content-Type" 
             content="text/html; charset=windows-1256">
-         <title>   User Logged Successfully   </title>
+         <title>   Utente loggato correttamente   </title>
       </head>
 	
       <body>
@@ -55,7 +55,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
 			else {
 		%>
 		<tr>
-			<td colspan="6">Nessun ordine effettuato</td>
+			<td colspan =1000> Nessun ordine effettuato</td>
 		</tr>
 		<%
 			}

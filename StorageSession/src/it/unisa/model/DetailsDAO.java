@@ -88,7 +88,7 @@ public class DetailsDAO {
 	   
 	   public static boolean doSave(Cart cart, int ordine) {
 		   
-		   String insert="insert into aggiunta(id_prodotto, id_ordine, quantita, prezzounitario) values(?, ?, ?, ?)";
+		   String insert="insert into aggiunta(id_prodotto, id_ordine, quantita, prezzo_unitario) values(?, ?, ?, ?)";
 		   try{
 			      System.out.println(ordine);
 				  currentCon = ds.getConnection();

@@ -27,7 +27,7 @@ public class Cart {
 	}
 	
 	public void decreaseProductQ(ProductBean b) {
-		if(b.getCartQuantity()>0) {
+		if(b.getCartQuantity()>1) {
 			b.setCartQuantity(b.getCartQuantity()-1);
 			b.setTot(b.getCartQuantity()*b.getPrice());
 			this.replaceProduct(b);

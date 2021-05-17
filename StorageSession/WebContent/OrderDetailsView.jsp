@@ -13,16 +13,16 @@
 <meta charset="ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="ProductStyle.css" rel="stylesheet" type="text/css">
-	<title>Detail order </title>
+	<title>Healthy Life - Dettagli ordine </title>
 </head>
 <body>
-	<h2>Detail</h2>
+	<h2>Dettagli</h2>
 			<table border="1">
 				<tr>
-					<th>Code</th>
-					<th>Name</th>
-					<th>Description</th>
-					<th>Unit Price</th>
+					<th>Codice</th>
+					<th>Nome</th>
+					<th>Descrizione</th>
+					<th>Prezzo Unitario</th>
 			
 				</tr>
 				<%
