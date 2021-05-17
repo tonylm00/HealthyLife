@@ -18,6 +18,7 @@
 		if ((currentUser!=null)&&(!currentUser.isValid())){	
 		%><br> Utente non valido, reinserisci le credenziali<br/><br/>   
 		<%}%>
+		
 		<form action="login" method="post">
 			<input type="hidden" name="action" value="checkout">
 			

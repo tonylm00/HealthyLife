@@ -11,16 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.unisa.model.*;
 
-@WebServlet("/order")
 public class OrderControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;  
 	
-   
     public OrderControl() {
         super();  
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		UserBean user=(UserBean)request.getSession().getAttribute("currentSessionUser");

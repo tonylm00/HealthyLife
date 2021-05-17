@@ -7,7 +7,7 @@
 <body>
 	<h1>REGISTRAZIONE UTENTE</h1>
 	<form action="login" method="post">
-	
+		
 		<label for=name>Nome: </label><br>
 		<input id="name" name="name" type="text" required><br><br>
 		
@@ -27,7 +27,8 @@
 		<label for=pw>Password: </label><br>
 		<input id="pw" name="pw" type="password" required><br><br>
 		
-		<input type="submit"> <input type="reset">
 		<input type="hidden" name="action" value="registration">
+		<input type="submit"> <input type="reset">
+		
 	</form>
 </body>

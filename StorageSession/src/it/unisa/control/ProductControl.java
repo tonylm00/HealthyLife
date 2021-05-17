@@ -5,16 +5,12 @@ import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import it.unisa.model.ProductDAO;
-import it.unisa.model.Cart;
-import it.unisa.model.ProductBean;
+import it.unisa.model.*;
 
-@WebServlet("/product")
 public class ProductControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

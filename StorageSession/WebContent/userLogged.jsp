@@ -10,16 +10,14 @@
   UserBean currentUser = (UserBean) (session.getAttribute("currentSessionUser"));
 if ((currentUser==null)||(!currentUser.isValid()))
 {	
-    %> <br/>Utente non valido<% 
+    %> <h1> Utente non valido </h1> <%
     return;
 }
 
 	Collection<?> orders = (Collection<?>) request.getSession().getAttribute("orders");
 
 %>
- 
    <!DOCTYPE html>
-
    <html>
 
       <head>
@@ -29,8 +27,8 @@ if ((currentUser==null)||(!currentUser.isValid()))
       </head>
 	
       <body>
-            Welcome <%=currentUser.getFirstName() + " " + currentUser.getLastName() %>
-        
+           Benvenuto: <%=currentUser.getFirstName() + " " + currentUser.getLastName() %>
+   
 <h4>Ordini effettuati</h4>
 	<table border="1">
 		<tr>
@@ -47,9 +45,9 @@ if ((currentUser==null)||(!currentUser.isValid()))
 		%>
 					<tr>
 						<td><%=bean.getId()%></td>
-						<td><%=bean.getDataEff()%></td>
+						<td><%=bean.getData()%></td>
 						<td><%=bean.getPrezzoTot()%></td>
-						<td><a href="order?action=detail&id=<%=bean.getId()%>">Dettaglio ordine</a></td>
+						<td><a href="order?action=detail&id=<%=bean.getId()%>">Dettagli ordine</a></td>
 					</tr>
 		<%
 				}

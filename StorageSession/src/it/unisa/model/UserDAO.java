@@ -1,8 +1,5 @@
 package it.unisa.model;
 
-import java.text.*;
-import java.util.*;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -24,7 +21,7 @@ public class UserDAO{
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-			ds = (DataSource) envCtx.lookup("jdbc/healtylife");
+			ds = (DataSource) envCtx.lookup("jdbc/healthylife");
 
 		} catch (NamingException e) {
 			System.out.println("Error:" + e.getMessage());
@@ -32,9 +29,6 @@ public class UserDAO{
 	}
    
    public static UserBean doRetrieve(UserBean bean) {
-	
-      //preparing some objects for connection 
-      
 	
       String email = bean.getEmail();    
       String password = bean.getPassword();   
@@ -47,7 +41,6 @@ public class UserDAO{
 	   System.out.println("Query: "+searchQuery);
    
 	   try{
-	      //connect to DB 
 		  currentCon = ds.getConnection();
 	      preparedStatement=currentCon.prepareStatement(searchQuery);
 	      preparedStatement.setString(1, email);
