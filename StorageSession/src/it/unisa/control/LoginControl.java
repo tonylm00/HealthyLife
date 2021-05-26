@@ -66,6 +66,28 @@ public class LoginControl extends HttpServlet {
 			    	dispatcher.forward(request, response); 
 				}
 			}
+			
+			else if(action.equalsIgnoreCase("admin")) {
+				String username = request.getParameter("username");
+				String password = request.getParameter("password");
+				
+				String redirectedPage;
+				try {
+					AdminBean ad= new AdminBean();
+					ad.setUserName(username);
+					ad.setPassword(password);
+					AdminDAO.doRetrieve(ad);
+					if(ad.isValid()) {
+						request.getSession().setAttribute("adminRoles", true);
+						redirectedPage = "/admin/adminView.jsp";
+					}
+					else throw new Exception();
+				} catch (Exception e) {
+					request.getSession().setAttribute("adminRoles", false);
+					redirectedPage = "/adminLogin.jsp";
+				}
+				response.sendRedirect(request.getContextPath() + redirectedPage);
+			}
 		}
 	}
 

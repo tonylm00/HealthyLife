@@ -6,19 +6,23 @@ public class ProductBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	int code;
-	String name;
-	String description;
-	int price;
-	int quantity;
+	int codice;
+	String nome;
+	String descrizione;
+	String informazioni;
+	double prezzo;
+	double sconto;
+	double prezzoscontato;
+	int quantita;
+	int iva;
 	int cartQuantity;
 	double tot;
 	
 	public ProductBean() {
-		code = -1;
-		name = "";
-		description = "";
-		quantity = 0;
+		codice = -1;
+		nome = "";
+		descrizione = "";
+		quantita = 0;
 		cartQuantity = 0;
 		tot=0;
 	}
@@ -32,43 +36,74 @@ public class ProductBean implements Serializable {
 	}
 	
 	public int getCode() {
-		return code;
+		return codice;
 	}
 
 	public void setCode(int code) {
-		this.code = code;
+		this.codice = code;
 	}
 
+	public int getIva() {
+		return iva;
+	}
+
+	public void setIva(int code) {
+		this.iva = code;
+	}
+	
 	public String getName() {
-		return name;
+		return nome;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.nome = name;
 	}
 
 	public String getDescription() {
-		return description;
+		return descrizione;
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.descrizione = description;
 	}
 
-	public int getPrice() {
-		return price;
+	public String getInfo() {
+		return informazioni;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setInfo(String description) {
+		this.informazioni = description;
+	}
+	
+	public double getPrice() {
+		return prezzo;
+	}
+	
+	public void setPrice(double price) {
+		this.prezzo = price;
+	}
+	
+	public double getPrezzoScontato() {
+		return prezzoscontato;
+	}
+	public void setPrezzoScontato(double prezzoScontato) {
+		this.prezzoscontato = prezzoScontato;
+	}
+	
+	public double getSconto() {
+		return sconto;
+	}
+	
+	public void setSconto(double sconto) {
+		this.sconto = sconto;
 	}
 
 	public int getQuantity() {
-		return quantity;
+		return quantita;
 	}
 
 	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+		this.quantita = quantity;
 	}
 	
 	public int getCartQuantity() {
@@ -81,7 +116,7 @@ public class ProductBean implements Serializable {
 
 	@Override
 	public String toString() {
-		return name + " (" + code + "), " + price + " " + quantity + ". " + description;
+		return nome + " (" + codice + "), " + prezzo + " " + quantita + ". " + descrizione;
 	}
 
 }

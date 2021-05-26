@@ -19,13 +19,21 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="ProductStyle.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/styles/header.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/footer.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/ProductStyle.css" type="text/css"/>
 	<title>Healthy Life</title>
 </head>
 
 <body>
+	<header>
+		<%@ include file="/fragment/header.jsp" %>
+	</header>
+	
 	<h2>Prodotti</h2>
-	<table border="1">
+	<table border="1" class=elencoprodotti>
 		<tr>
 			<th><a href="product?sort=id">Codice</a></th>
 			<th><a href="product?sort=nome">Nome </a></th>
@@ -58,24 +66,10 @@
 		<% } %>
 	</table>
 	<br>
-	<a href="cart?action=Cart"><input type="submit" value="Vai al carrello"></a>
+	<a href="cart?action=Cart" class=scelta> Vai al carrello</a>
 	<br><br>
-	<h2>Inserisci prodotto</h2>
-	<form action="product" method="post">
-		
-		<label for="nome">Nome:</label><br> 
-		<input name="nome" type="text" maxlength="20" required placeholder="inserisci nome"><br> 
-		
-		<label for="descrizione">Descrizione:</label><br>
-		<textarea name="descrizione" maxlength="100" rows="3" required placeholder="inserisci descrizione"></textarea><br>
-		
-		<label for="prezzo">Prezzo:</label><br> 
-		<input name="prezzo" type="number" min="0" value="0" required><br>
-
-		<label for="quantita">Quantità:</label><br> 
-		<input name="quantita" type="number" min="1" value="1" required><br>
-
-		<input type="submit" value="Aggiungi"><input type="reset" value="Cancella">
-	</form>
+	<footer>
+	<%@ include file="/fragment/footer.jsp" %>
+</footer>
 </body>
 </html>

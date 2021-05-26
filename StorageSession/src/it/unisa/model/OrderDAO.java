@@ -44,6 +44,7 @@ public class OrderDAO {
 			preparedStatement = connection.prepareStatement(insertSQL);
 			LocalDateTime now=LocalDateTime.now();
 			String n= now.getYear()+"-"+now.getMonthValue()+"-"+now.getDayOfMonth()+" "+now.getHour()+":"+now.getMinute()+":"+now.getSecond();
+			System.out.println(n);
 			preparedStatement.setString(1, n);
 			preparedStatement.setDouble(2, order.getPrezzoTot());
 			preparedStatement.setString(3, order.getUtente());
@@ -184,6 +185,87 @@ public class OrderDAO {
 		return orders;
 	}
 	
+	public static synchronized Collection<OrderBean> doRetrieveAllbyDate(String inizio, String fine) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<OrderBean> orders = new LinkedList<OrderBean>();
+
+		String selectSQL = "SELECT * FROM " + OrderDAO.TABLE_NAME + " where dataOrdine between ? and ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, inizio);
+			preparedStatement.setString(2, fine);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				OrderBean bean = new OrderBean();
+				bean.setId(rs.getInt("id"));
+				bean.setData(rs.getString("dataOrdine"));
+				bean.setUtente(rs.getString("idUtente"));
+				bean.setPrezzoTot(rs.getDouble("prezzoIva"));
+				orders.add(bean);
+			}
+		}
+		catch (Exception ex){
+		      System.out.println("OrderDAO.doRetriveAllbyDate failed: An Exception has occurred! " + ex);
+		      ex.printStackTrace();
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return orders;
+	}
+	
+	public static synchronized Collection<OrderBean> doRetrieveAllbyUser(String user) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<OrderBean> orders = new LinkedList<OrderBean>();
+
+		String selectSQL = "SELECT * FROM " + OrderDAO.TABLE_NAME + " where idUtente= ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, user);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				OrderBean bean = new OrderBean();
+				bean.setId(rs.getInt("id"));
+				bean.setData(rs.getString("dataOrdine"));
+				bean.setUtente(rs.getString("idUtente"));
+				bean.setPrezzoTot(rs.getDouble("prezzoIva"));
+				orders.add(bean);
+			}
+		}
+		catch (Exception ex){
+		      System.out.println("OrderDAO.doRetriveAllbyUser failed: An Exception has occurred! " + ex);
+		      ex.printStackTrace();
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return orders;
+	}
+	
 	public static synchronized Collection<OrderBean> doRetrieveByUser(String user) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -202,7 +284,7 @@ public class OrderDAO {
 				OrderBean bean = new OrderBean();
 				bean.setId(rs.getInt("id"));
 				bean.setData(rs.getString("dataOrdine"));
-				bean.setUtente(rs.getString("idUtente"));
+				bean.setUtente(rs.getString("utente"));
 				bean.setPrezzoTot(rs.getDouble("prezzoIva"));
 				orders.add(bean);
 			}

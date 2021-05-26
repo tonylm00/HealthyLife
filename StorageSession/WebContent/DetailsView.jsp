@@ -24,6 +24,7 @@
 					<th>Codice</th>
 					<th>Nome</th>
 					<th>Descrizione</th>
+					<th>Informazioni</th>
 					<th>Prezzo</th>
 					<th>Quantità</th>		
 				</tr>
@@ -31,9 +32,10 @@
 					<td><%=product.getCode()%></td>
 					<td><%=product.getName()%></td>
 					<td><%=product.getDescription()%></td>
-					<td><%=product.getPrice()%></td>
+					<td><%=product.getInfo() %>
+					<td><%=product.getPrice()%> €</td>
 					<td><%=product.getQuantity()%></td>
-					<td><a href="cart?action=addCartDetails&id=<%=product.getCode()%>">Add to cart</a></td>
+					<td><a href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello</a></td>
 				</tr>
 			</table>
 	<%

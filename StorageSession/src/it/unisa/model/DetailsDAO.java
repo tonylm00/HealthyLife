@@ -98,7 +98,7 @@ public class DetailsDAO {
 				      preparedStatement.setInt(1, product.getCode());
 				      preparedStatement.setInt(2, ordine);
 				      preparedStatement.setInt(3, product.getCartQuantity());
-				      preparedStatement.setInt(4, product.getPrice());
+				      preparedStatement.setDouble(4, product.getPrice());
 				      if(preparedStatement.executeUpdate()!=1) {
 				    	  return false;
 				      }

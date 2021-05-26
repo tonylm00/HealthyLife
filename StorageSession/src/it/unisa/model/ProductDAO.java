@@ -30,7 +30,7 @@ public class ProductDAO{
 
 	private static final String TABLE_NAME = "prodotto";
 
-	public synchronized void doSave(ProductBean product) throws SQLException {
+	public synchronized static void doSave(ProductBean product) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -43,7 +43,7 @@ public class ProductDAO{
 			preparedStatement = connection.prepareStatement(insertSQL);
 			preparedStatement.setString(1, product.getName());
 			preparedStatement.setString(2, product.getDescription());
-			preparedStatement.setInt(3, product.getPrice());
+			preparedStatement.setDouble(3, product.getPrice());
 			preparedStatement.setInt(4, product.getQuantity());
 
 			preparedStatement.executeUpdate();
@@ -60,7 +60,7 @@ public class ProductDAO{
 		}
 	}
 
-	public synchronized ProductBean doRetrieveByKey(int code) throws SQLException {
+	public synchronized static ProductBean doRetrieveByKey(int code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -79,10 +79,14 @@ public class ProductDAO{
 				bean.setCode(rs.getInt("id"));
 				bean.setName(rs.getString("nome"));
 				bean.setDescription(rs.getString("descrizione"));
-				bean.setPrice(rs.getInt("prezzo"));
+				bean.setPrice(rs.getDouble("prezzo"));
 				bean.setQuantity(rs.getInt("quantita"));
+				bean.setIva(rs.getInt("iva"));
+				bean.setSconto(rs.getDouble("sconto"));
+				bean.setPrezzoScontato(rs.getDouble("prezzoscontato"));
+				bean.setInfo(rs.getString("informazioni"));		
 			}
-
+			
 		} finally {
 			try {
 				if (preparedStatement != null)
@@ -95,7 +99,7 @@ public class ProductDAO{
 		return bean;
 	}
 
-	public synchronized boolean doDelete(int code) throws SQLException {
+	public static synchronized boolean doDelete(int code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -121,8 +125,42 @@ public class ProductDAO{
 		}
 		return (result != 0);
 	}
+	
+	public static synchronized boolean doUpdate(ProductBean bean) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
 
-	public synchronized Collection<ProductBean> doRetrieveAll(String order) throws SQLException {
+		int result = 0;
+
+		String deleteSQL = "update " + ProductDAO.TABLE_NAME + " SET nome= ?, prezzo= ?, descrizione= ?, sconto= ?, prezzoscontato= ?, "
+				+ " informazioni= ?, iva= ?, quantita= ? WHERE id = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setString(1, bean.getName());
+			preparedStatement.setDouble(2, bean.getPrice());
+			preparedStatement.setString(3, bean.getDescription());
+			preparedStatement.setDouble(4, bean.getSconto());
+			preparedStatement.setDouble(5, bean.getPrezzoScontato());
+			preparedStatement.setString(6, bean.getInfo());
+			preparedStatement.setDouble(7, bean.getIva());
+			preparedStatement.setInt(8, bean.getQuantity());
+			preparedStatement.setInt(9, bean.getCode());
+			result = preparedStatement.executeUpdate();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
+	}
+
+	public static synchronized Collection<ProductBean> doRetrieveAll(String order) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -146,8 +184,12 @@ public class ProductDAO{
 				bean.setCode(rs.getInt("id"));
 				bean.setName(rs.getString("nome"));
 				bean.setDescription(rs.getString("descrizione"));
-				bean.setPrice(rs.getInt("prezzo"));
+				bean.setPrice(rs.getDouble("prezzo"));
 				bean.setQuantity(rs.getInt("quantita"));
+				bean.setIva(rs.getInt("iva"));
+				bean.setSconto(rs.getDouble("sconto"));
+				bean.setPrezzoScontato(rs.getDouble("prezzoscontato"));
+				bean.setInfo(rs.getString("informazioni"));	
 				products.add(bean);
 			}
 

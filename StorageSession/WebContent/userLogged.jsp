@@ -10,7 +10,7 @@
   UserBean currentUser = (UserBean) (session.getAttribute("currentSessionUser"));
 if ((currentUser==null)||(!currentUser.isValid()))
 {	
-    %> <h1> Utente non valido </h1> <%
+    %> <br> Utente non valido <br> <%
     return;
 }
 
@@ -55,12 +55,12 @@ if ((currentUser==null)||(!currentUser.isValid()))
 			else {
 		%>
 		<tr>
-			<td colspan =1000> Nessun ordine effettuato</td>
+			<td colspan=6> Nessun ordine effettuato</td>
 		</tr>
 		<%
 			}
 		%>
-	</table><br/>
+	</table><br>
       </body>
 	
    </html>

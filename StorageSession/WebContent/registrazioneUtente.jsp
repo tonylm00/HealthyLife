@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+ <link rel="stylesheet" href="styles/credenziali.css">
 <title>Registrazione utente</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
 		<input id="pw" name="pw" type="password" required><br><br>
 		
 		<input type="hidden" name="action" value="registration">
-		<input type="submit"> <input type="reset">
+		<input type="submit" value="Conferma registrazione"> <input type="reset" value="Annulla registrazione">
 		
 	</form>
 </body>

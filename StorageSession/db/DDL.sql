@@ -2,12 +2,16 @@ DROP DATABASE IF EXISTS healthylife;
 CREATE DATABASE healthylife;
 USE healthylife;
 
+CREATE TABLE amministratore(
+username varchar(15) primary key,
+pw varchar(16) NOT NULL
+);
+
 CREATE TABLE utente(
   email varchar(30) PRIMARY KEY,
   pw varchar(30) NOT NULL,
   nome varchar(20) NOT NULL,
   cognome varchar(20) NOT NULL
-  
 );
 
 CREATE TABLE guest(
@@ -25,13 +29,17 @@ CREATE TABLE prodotto (
   prezzo int default 0,
   sconto int default 0,
   disponibilita boolean,
-  quantita int default 0
+  iva int,
+  quantita int default 0,
   
+  username varchar(15),
+  FOREIGN KEY(username) REFERENCES amministratore(username)
+  on delete restrict
+  on update cascade
 );
 
 CREATE TABLE ordine(
   id int primary key AUTO_INCREMENT,
-  nome char(20) not null,
   descrizione char(100),
   dataOrdine datetime,
   prezzoNotIva double,
