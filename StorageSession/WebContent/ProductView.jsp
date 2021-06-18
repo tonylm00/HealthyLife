@@ -19,12 +19,10 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width , initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
     <link rel="stylesheet" href="<%= request.getContextPath() %>/styles/header.css" type="text/css"/>
 	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/footer.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/ProductStyle.css" type="text/css"/>
+	
 	<title>Healthy Life</title>
 </head>
 
@@ -70,7 +68,7 @@
 	<a href="cart?action=Cart" class=scelta> Vai al carrello</a>
 	<br><br>
 	<footer>
-	<%@ include file="/fragment/footer.jsp" %>
-</footer>
+		<%@ include file="/fragment/footer.jsp" %>
+	</footer>
 </body>
 </html>
