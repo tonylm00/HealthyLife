@@ -54,7 +54,7 @@ html{
 
 }
 
-  @media (max-width:767px) {
+@media (max-width:767px) {
     .headerbutton {
       text-align:center;
       padding-bottom:20px;
@@ -73,3 +73,20 @@ html{
       margin-top:20px;
     }
   }
+  
+@media screen and (max-width:767px)
+{
+	.logo .imgsh .search .navbar
+	{
+		float: none;
+		display: block;
+		padding:15px;
+	}
+	.navbar
+	{
+		/*background-color: #a8d43e; */
+		float : none;
+		display: block;
+		width:100%;
+	}
+}

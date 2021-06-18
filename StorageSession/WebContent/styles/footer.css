@@ -1,102 +1,44 @@
-html{
-   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.footer
+{
+	
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	padding: 20px;
+	display: flex;
+	background-color: #a8d43e;
+	justify-content: space-between;
+	align-items: stretch;
+}
+.footer a{
+	padding: 10px 15px;
+	text-decoration: none;
+	color: #FFF;
+}
+.footer a:hover{
+	opacity:0.8;
+}
+.img
+{
+	width: 50%;
+	height: 50%;
+}
+.footer .footer-left {
+	align-items: center;
+    display: flex;
 }
 
-/* FOOTER STYLE */
- footer {
- 	bottom: 0;
- 	position: absolute;
- 	width: 100%;
- }
- 
- .footer-dark {
-  padding:50px 0;
-  color:#000000;
-  background-color:#a8d43e;
+.footer .footer-right {
+	align-items: center;
+    display: flex;
 }
 
-.footer-dark h3 {
-  margin-top:0;
-  margin-bottom:12px;
-  font-weight:bold;
-  font-size:16px;
+@media screen and (max-width: 768px){
+	.footer-right{
+		float: none;
+		display: block;
+	}
+	.footer-left{
+	 	float: none;
+	}
 }
-
-.footer-dark ul {
-  padding:0;
-  list-style:none;
-  line-height:1.6;
-  font-size:14px;
-  margin-bottom:0;
-}
-
-.footer-dark ul a {
-  color:inherit;
-  text-decoration:none;
-  opacity:0.6;
-}
-
-.footer-dark ul a:hover {
-  opacity:0.8;
-}
-
-@media (max-width:767px) {
-  .footer-dark .item:not(.social) {
-    text-align:center;
-    padding-bottom:20px;
-  }
-}
-
-.footer-dark .item.text {
-  margin-bottom:36px;
-}
-
-@media (max-width:767px) {
-  .footer-dark .item.text {
-    margin-bottom:0;
-  }
-}
-
-.footer-dark .item.text p {
-  opacity:0.6;
-  margin-bottom:0;
-}
-
-.footer-dark .item.social {
-  text-align:center;
-
-}
-
-@media (max-width:991px) {
-  .footer-dark .item.social {
-    text-align:center;
-    margin-top:20px;
-  }
-}
-
-.footer-dark .item.social > a  {
-  font-size:20px;
-  width:40px;
-  height:40px;
-  line-height:36px;
-  display:inline-block;
-  text-align:center;
-  border-radius:50%;
-  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
-  margin:0 8px;
-  color:#fff;
-  opacity:0.8;
-}
-
-.footer-dark .item.social > a:hover {
-  opacity:0.3;
-}
-
-.footer-dark .copyright {
-  text-align:center;
-  padding-top:25px;
-  opacity:0.35;
-  font-size:13px;
-  margin-bottom:0;
-}
-

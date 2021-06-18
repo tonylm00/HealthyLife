@@ -1,27 +1,9 @@
- <div class="footer-dark">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Chi siamo:</h3>
-                        <ul>
-                            <li><a href="#">La Marca Antonio</a></li>
-                            <li><a href="#">Amato Francesco</a> </li>
-                            <li><a href="#">Iannello Giorgio</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Ulteriori informazioni</h3>
-                        <ul>
-                            <li><a href="#">info@healthylife.com</a></li>
-                            <li><a href="#">80030, NAPOLI</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 item text">
-                        <h3>Healthy Life</h3>
-                        <p>Healthy Life si propone di diventare un punto di riferimento e-commerce per gli appassionati del mondo fitness. Per Healthy Life è importante stimolare le ambizioni delle persone indipendentemente dall’obiettivo che si vuole raggiungere. </p>
-                    </div>
-                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
-                </div>
-                <p class="copyright"> Healthy Life © 2021</p>
-            </div>
- </div>
+<div class="footer"> <!-- Footer -->
+	<div class="footer-left">
+		<a href="#facebook"><i class="facebook144x" aria-hidden="true"><img src="images/facebook.png" class="image" width=50 height=50></i></a>
+		<a href="#twitter"><i class="twitter144x" aria-hidden="true"><img src="images/twitter.png" class="image" width=50 height=50></i></a>
+		<a href="#instagram"><i class="instagram144x" aria-hidden="true"><img src="images/instagram.png" class="image" width=50 height=50></i></a>
+		<a href="AboutUs.jsp"><i class="aboutus144x" aria-hidden="true"><img src="images/about-us.png" class="image" width=50 height=50></i></a>
+	</div> <!-- Copyright -->
+	<div class="footer-right"><a class="copyright">@2021 Copyright: HealthyLife Group</a></div>
+</div>
