@@ -20,23 +20,24 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/styles/header.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/footer.css" type="text/css"/>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/ProductStyle.css" type="text/css"/>
 	
 	<title>Healthy Life</title>
 </head>
 
 <body>
 	<header>
-		<%@ include file="/fragment/header.jsp" %>
+		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	
-	<h2>Prodotti</h2>
-	<table border="1" class=elencoprodotti>
+	
+	<table border="1" class="elencoprodotti">
 		<tr>
-			<th><a href="product?sort=id">Codice</a></th>
-			<th><a href="product?sort=nome">Nome </a></th>
-			<th><a href="product?sort=descrizione">Descrizione </a></th>
+			<th><a class="cap" href="product?sort=id">Codice</a></th>
+			<th><a class="cap" href="product?sort=nome">Nome </a></th>
+			<th><a class="cap" href="product?sort=descrizione">Descrizione </a></th>
 		</tr>
 		<%
 			if (products != null && products.size() != 0) {
@@ -49,9 +50,9 @@
 						<td><%=bean.getName()%></td>
 						<td><%=bean.getDescription()%></td>
 						<td>
-							<a href="product?action=delete&id=<%=bean.getCode()%>">Elimina</a><br>
-							<a href="product?action=read&id=<%=bean.getCode()%>">Dettagli</a><br>
-							<a href="cart?action=add&id=<%=bean.getCode()%>">Aggiungi al carrello</a>
+							<a class="cap" href="product?action=delete&id=<%=bean.getCode()%>"><strong>Elimina</strong></a><br>
+							<a class="cap" href="product?action=read&id=<%=bean.getCode()%>"><strong>Dettagli</strong></a><br>
+							<a class="cap" href="cart?action=add&id=<%=bean.getCode()%>"><strong>Aggiungi al carrello</strong></a>
 						</td>
 					</tr>
 		<%
@@ -65,10 +66,10 @@
 		<% } %>
 	</table>
 	<br>
-	<a href="cart?action=Cart" class=scelta> Vai al carrello</a>
+	<a href="cart?action=Cart" class="goCart"> Vai al carrello</a>
 	<br><br>
 	<footer>
-		<%@ include file="/fragment/footer.jsp" %>
+		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>
 </body>
 </html>

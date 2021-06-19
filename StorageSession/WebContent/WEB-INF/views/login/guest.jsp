@@ -4,17 +4,16 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/footer.css" type="text/css"/>
+
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
 	<link rel="stylesheet" href="styles/credenziali.css">
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/header.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
 	<title>Guest Page</title>
 	
 </head>
 <body>
 	<header>
-		<%@ include file="/fragment/header.jsp" %>
+		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	<h1>ACQUISTA QUI SENZA REGISTRATI</h1>
 	<form action="order" method="post">
@@ -31,7 +30,7 @@
 		<input id="indirizzo" name="indirizzo" type="text" required><br>
 		<input type="submit" value="Invia"> <input type="reset">
 	</form>
-	<br><a href="LoginView.jsp" class=scelta>Accedi</a> <a class=scelta>o continua ad acquistare senza loggarti:</a>
+	<br><a href="login/LoginView.jsp" class=scelta>Accedi</a> <a class=scelta>o continua ad acquistare senza loggarti:</a>
 	
 
 </body>

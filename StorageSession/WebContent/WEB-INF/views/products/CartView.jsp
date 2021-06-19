@@ -9,22 +9,20 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/header.css" type="text/css"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/footer.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/ProductStyle.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/ProductStyle.css" type="text/css"/>
 	<title>Il mio carrello</title>
 </head>
 
 <body>
 	<header>
-		<%@ include file="/fragment/header.jsp" %>
+		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	
 	<% if(cart != null && cart.getSize()!=0) { %>
-		<h2>Il mio carrello</h2>
-		<table border="1">
+		
+		<table class="elencoprodotti">
 		<tr>
 			<th>Nome</th>
 			<th>Quantità</th>
@@ -50,11 +48,11 @@
 			</td>
 			
 			<td><%=beancart.getTot()%> €</td>
-			<td><a href="cart?action=delete&id=<%=beancart.getCode()%>">Rimuovi dal carrello</a></td>
+			<td><a class="cap" href="cart?action=delete&id=<%=beancart.getCode()%>"><strong>Rimuovi dal carrello</strong></a></td>
 		</tr>
 		<%} %>
 	</table>
-	<p><%
+	<p class="totale"><%
 	%>
 		Prezzo totale: <%=cart.getTotPrice()%> €
 		</p>
@@ -63,10 +61,10 @@
 	<% } %>
 	
 	<br/><a href="order?action=checkout">
-		<input type="submit" name="submit" value="Checkout"></a>
+		<input type="submit" name="submit" class="checkout" value="Checkout"></a>
 </body>
 <footer>
-	<%@ include file="/fragment/footer.jsp" %>
+	<%@ include file="/resources/fragment/footer.jsp" %>
 </footer>
 
 </html>
