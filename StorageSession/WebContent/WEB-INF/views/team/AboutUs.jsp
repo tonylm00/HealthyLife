@@ -4,16 +4,28 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/header.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/styles/footer.css" type="text/css"/>
-	<title>Insert title here</title>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
+	
+	<style>
+		.Tfoto{
+			height:300px;
+			width:250px;
+		}
+		.heading-title{
+			text-align :center;
+		}
+	</style>
+	
+	<title>About us</title>
 </head>
+
 <body>
 	<header>
-		<%@ include file="/fragment/header.jsp" %>
+		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	<footer>
-		<%@ include file="/fragment/footer.jsp" %>
+		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>
 	
 	<div class="container">
@@ -39,14 +51,5 @@
 		</div>
 	</div>
 	
-	<style>
-		.Tfoto{
-			height:300px;
-			width:250px;
-		}
-		.heading-title{
-			text-align :center;
-		}
-	</style>
 </body>
 </html>

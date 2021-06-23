@@ -27,11 +27,11 @@ public class OrderControl extends HttpServlet {
 				if(action.equalsIgnoreCase("checkout")){
 					Cart cart= (Cart) request.getSession().getAttribute("cart");
 					if(cart.getSize()==0) {
-						 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/CartView.jsp");
+						 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
 				    	 dispatcher.forward(request, response);
 					}
 					else if(user==null) {
-						response.sendRedirect("WEB-INF/views/login/LoginView.jsp");
+						response.sendRedirect("/WEB-INF/views/login/LoginView.jsp");
 					}
 					else{
 						OrderBean order=new OrderBean();
@@ -42,7 +42,7 @@ public class OrderControl extends HttpServlet {
 						request.getSession().setAttribute("cart", new Cart());
 						request.getSession().removeAttribute("orders");
 						request.getSession().setAttribute("orders", OrderDAO.doRetrieveByUser(user.getEmail()));
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/login/userLogged.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
 						dispatcher.forward(request, response);
 					}
 				}
@@ -50,7 +50,7 @@ public class OrderControl extends HttpServlet {
 					int id = Integer.parseInt(request.getParameter("id"));
 					request.getSession().removeAttribute("products");
 					request.getSession().setAttribute("products", DetailsDAO.doRetrieveProducts(id));
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/orders/OrderDetailsView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/orders/OrderDetailsView.jsp");
 					dispatcher.forward(request, response);
 				}
 				else if(action.equalsIgnoreCase("guest")){
@@ -61,14 +61,14 @@ public class OrderControl extends HttpServlet {
 					String fine=request.getParameter("fine");
 					Collection<?> orders = (Collection<?>) OrderDAO.doRetrieveAllbyDate(inizio, fine);
 					request.setAttribute("orders", orders);
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/admin/OrdersView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/OrdersView.jsp");
 					dispatcher.forward(request, response);
 				}
 				else if(action.equalsIgnoreCase("filterUser")){
 					String utente=request.getParameter("user");
 					Collection<?> orders = (Collection<?>) OrderDAO.doRetrieveAllbyUser(utente);
 					request.setAttribute("orders", orders);
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/admin/OrdersView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/OrdersView.jsp");
 					dispatcher.forward(request, response);
 				}
 			}

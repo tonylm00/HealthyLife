@@ -28,6 +28,28 @@
 </head>
 
 <body>
+<script>
+$(document).ready(function() {
+    $("#search").keyup(function() {
+        var search = $(this).val();
+        if(search != '') {
+        	var s="search="+search+"action=search";
+            $.ajax({
+                type : "POST",
+                url : "product",
+                data :  s,
+                success : function(html) {
+                    $("#result").html(html);
+                    $("#result").css({"color":"red"});
+                },
+                error: function (xmlHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+               }
+            });
+        }
+    });
+});
+</script>
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>

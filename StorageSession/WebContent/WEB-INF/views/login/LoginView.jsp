@@ -9,14 +9,14 @@
 <html>
 	<head>
          <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
-         <link rel="stylesheet" href="/resources/styles/credenziali.css">
-         <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
-	     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
-		
+	    <link rel="stylesheet" href="resources/styles/header.css" type="text/css"/>
+		<link rel="stylesheet" href="resources/styles/footer.css" type="text/css"/>
+		<link rel="stylesheet" href="resources/styles/credenziali.css" type="text/css"/>
 		<title>Login</title>
 	</head>
 
-	<body>
+	 <body>
+	
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
@@ -27,7 +27,7 @@
 		%><br> Utente non valido, reinserisci le credenziali<br/><br/>   
 		<%}%>
 		<h1>LOGIN</h1>
-		<form action="login" method="post">
+		 <form action="login" method="post">
 			<input type="hidden" name="action" value="checkout">
 			
 			<label for=email>Inserisci email</label><br>
@@ -38,7 +38,7 @@
 			
 			<input type="submit" class="act" value="Accedi">			
 		
-		</form>
+		</form> 
 		<br>
 		<a href="guest.jsp" class=scelta>Procedi senza registrarti</a>
 		<a href="registrazioneUtente.jsp" class=scelta>Registrati qui</a>

@@ -50,37 +50,37 @@ public class CartControl extends HttpServlet{
 					if(action.equalsIgnoreCase("addCartDetails")) {
 						request.removeAttribute("product");
 						request.setAttribute("product", model.doRetrieveByKey(id));
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/DetailsView.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/DetailsView.jsp");
 						dispatcher.forward(request, response);
 					}
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/ProductView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
 					dispatcher.forward(request, response);
 				} else if (action.equalsIgnoreCase("delete")) {
 					int id = Integer.parseInt(request.getParameter("id"));
 					cart.deleteProduct(model.doRetrieveByKey(id));
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/CartView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
 					dispatcher.forward(request, response);
 				}
 				else if (action.equalsIgnoreCase("Cart")) {
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/CartView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
 					dispatcher.forward(request, response);
 				}else if (action.equalsIgnoreCase("deleteCart")) {
 					request.getSession().setAttribute("cart", new Cart());
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/CartView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
 					dispatcher.forward(request, response);
 				}
 				else if (action.equalsIgnoreCase("decreaseQ")) {
 					ProductBean b= cart.getProduct(Integer.parseInt(request.getParameter("id")));
 					cart.decreaseProductQ(b);
 					request.getSession().setAttribute("cart", cart);
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/CartView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
 					dispatcher.forward(request, response);
 				}
 				else if (action.equalsIgnoreCase("increaseQ")) {
 					ProductBean b= cart.getProduct(Integer.parseInt(request.getParameter("id")));
 					cart.increaseProductQ(b);
 					request.getSession().setAttribute("cart", cart);
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/CartView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
 					dispatcher.forward(request, response);
 				}
 			}

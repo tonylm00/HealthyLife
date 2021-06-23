@@ -40,7 +40,7 @@ public class LoginControl extends HttpServlet {
 				    	 dispatcher.forward(request, response); 		
 				     }
 				     else{
-				    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/login/LoginView.jsp");
+				    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
 				    	 dispatcher.forward(request, response); 
 				     }
 				} 		
@@ -57,14 +57,19 @@ public class LoginControl extends HttpServlet {
 				if(UserDAO.doSave(bean)) {
 					bean.setValid(true);
 					request.getSession().setAttribute("currentSessionUser", bean);
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/login/userLogged.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
 			    	dispatcher.forward(request, response); 
 				}
 				else {
 					request.getSession().setAttribute("email", "false");
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/login/registrazioneUtente.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/registrazioneUtente.jsp");
 			    	dispatcher.forward(request, response); 
 				}
+			}
+			
+			else if(action.equalsIgnoreCase("goLogin")) {
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
+		    	dispatcher.forward(request, response); 
 			}
 			
 			else if(action.equalsIgnoreCase("admin")) {
@@ -79,12 +84,12 @@ public class LoginControl extends HttpServlet {
 					AdminDAO.doRetrieve(ad);
 					if(ad.isValid()) {
 						request.getSession().setAttribute("adminRoles", true);
-						redirectedPage = "WEB-INF/views/admin/adminView.jsp";
+						redirectedPage = "/WEB-INF/views/admin/adminView.jsp";
 					}
 					else throw new Exception();
 				} catch (Exception e) {
 					request.getSession().setAttribute("adminRoles", false);
-					redirectedPage = "WEB-INF/views/admin/adminLogin.jsp";
+					redirectedPage = "/WEB-INF/views/admin/adminLogin.jsp";
 				}
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}

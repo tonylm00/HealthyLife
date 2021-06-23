@@ -1,11 +1,11 @@
   <div class=topbar>
- 			<a href="ProductView.jsp"> <img src="./images/logo.png" class="logo" width=170 height=80></a>  
+ 			<a href="ProductView.jsp"> <img src="resources/images/logo.png" class="logo" width=170 height=80></a>  
  			
     		<input type="text" placeholder="CERCA NEL SITO" class="searchbar">
-   			<img src="./images/search.png" class="arrow" width=40 height=40>
+   			<a href="product?action=search"> <img src="resources/images/search.png" class="arrow" width=40 height=40></a>
    			
-         	<a href="CartView.jsp"> <img src="./images/cart.png" class="iconheader" width=50 height=50></a>
-         	<a href="LoginView.jsp"> <img src="./images/profile.png" class="iconheader" width=50 height=50></a>
+         	<a href="cart?action=Cart"> <img src="resources/images/cart.png" class="iconheader" width=50 height=50></a>
+         	<a href="login?action=goLogin"> <img src="resources/images/profile.png" class="iconheader" width=50 height=50></a>
    </div>
 <br><br>
 

@@ -2,6 +2,12 @@ DROP DATABASE IF EXISTS healthylife;
 CREATE DATABASE healthylife;
 USE healthylife;
 
+
+CREATE TABLE categoria(
+	nome varchar(20) primary key,
+    descrizione text
+    );
+    
 CREATE TABLE amministratore(
 username varchar(15) primary key,
 pw varchar(16) NOT NULL
@@ -30,9 +36,15 @@ CREATE TABLE prodotto (
   sconto int default 0,
   disponibilita boolean,
   iva int,
+  prezzoscontato int default 0,
   quantita int default 0,
-  
+  categoria varchar(20) ,
   username varchar(15),
+  
+FOREIGN KEY(categoria) REFERENCES categoria(nome)
+  on delete restrict
+  on update cascade,
+  
   FOREIGN KEY(username) REFERENCES amministratore(username)
   on delete restrict
   on update cascade

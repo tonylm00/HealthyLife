@@ -2,6 +2,7 @@ package it.unisa.control;
 
 import java.io.IOException; 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,7 +42,7 @@ public class ProductControl extends HttpServlet  {
 					ProductBean bean=ProductDAO.doRetrieveByKey(id);
 					request.setAttribute("product", bean );
 					ProductDAO.doUpdate(bean);
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/DetailsView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/DetailsView.jsp");
 					dispatcher.forward(request, response);
 				} else if (action.equalsIgnoreCase("delete")) {
 					int id = Integer.parseInt(request.getParameter("id"));
@@ -49,18 +50,30 @@ public class ProductControl extends HttpServlet  {
 					request.removeAttribute("products");
 					request.setAttribute("products", ProductDAO.doRetrieveAll(sort));
 					if(request.getSession().getAttribute("adminRoles")!=null) {
-						response.sendRedirect("WEB-INF/views/admin/adminView.jsp");
+						response.sendRedirect("/WEB-INF/views/admin/adminView.jsp");
 					}
 					else {
-						response.sendRedirect("products/ProductView.jsp");
+						response.sendRedirect("/ProductView.jsp");
 					}
 				} else if (action.equalsIgnoreCase("insert")) {
 					ProductDAO.doSave(getProductbyRequest(request, response));
 					request.removeAttribute("products");
 					request.setAttribute("products", ProductDAO.doRetrieveAll(sort));
 					if(request.getSession().getAttribute("adminRoles")!=null)
-						response.sendRedirect("WEB-INF/views/admin/adminView.jsp");
-					else response.sendRedirect("WEB-INF/views/products/ProductView.jsp");
+						response.sendRedirect("/WEB-INF/views/admin/adminView.jsp");
+					else response.sendRedirect("/ProductView.jsp");
+					
+				} else if (action.equalsIgnoreCase("search")) {
+					System.out.println("sono qui");
+					ArrayList<ProductBean> list =(ArrayList<ProductBean>)ProductDAO.doRetrieveAll("");
+					ArrayList<String> result=new ArrayList<String>();
+					String s=request.getParameter("search");
+					for (ProductBean productBean : list) {
+						if(productBean.getName().contains(s)) {
+							result.add(productBean.getName());
+						}
+					
+					}
 				}
 				 else if (action.equalsIgnoreCase("modify")) {
 					 ProductBean bean=ProductDAO.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));
@@ -70,12 +83,12 @@ public class ProductControl extends HttpServlet  {
 					 request.removeAttribute("products");
 					 request.setAttribute("products", ProductDAO.doRetrieveAll(sort));
 					 if(request.getSession().getAttribute("adminRoles")!=null)
-						 response.sendRedirect("WEB-INF/views/admin/adminView.jsp");
-					 else response.sendRedirect("WEB-INF/views/products/ProductView.jsp");
+						 response.sendRedirect("/WEB-INF/views/admin/adminView.jsp");
+					 else response.sendRedirect("/ProductView.jsp");
 				 }
 			}
 			else {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/views/products/ProductView.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
 				dispatcher.forward(request, response);
 			}
 		} catch (SQLException e) {
