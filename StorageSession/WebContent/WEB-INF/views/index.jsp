@@ -11,14 +11,14 @@
 
 <!-- Side Navigation -->
 <nav class="w3-sidebar w3-bar-block w3-animate-left w3-center" style="display:none" id="mySidebar">
-  <h1 ><img class="w3-center" src="resources/images/logo.png" width=250px height=120px></h1>
-  <button class="itemHamburger button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
-  <a href="login?action=goLogin" class="itemHamburger button">Accedi</a>
+  <h1 ><img class="logo" src="resources/images/logo.png" width=250px height=120px></h1>
+  <button onclick="w3_close()"> <i class="fa fa-remove"></i></button>
+  <a href="login?action=goLogin" class="itemHamburger">Accedi</a>
   <a href="<%= request.getContextPath() %>/WEB-INF/views/team/AboutUs.jsp" class="itemHamburger">Chi siamo</a>
-  <a href="#" class="itemHamburger button">Nutrizione</a>
-  <a href="#" class="itemHamburger button">Home gym</a>
-  <a href="#" class="itemHamburger button">Abbigliamento maschile</a>
-  <a href="#" class="itemHamburger button">Abbigliamento femminile</a>
+  <a href="#" class="itemHamburger">Nutrizione</a>
+  <a href="#" class="itemHamburger">Home gym</a>
+  <a href="#" class="itemHamburger">Abbigliamento maschile</a>
+  <a href="#" class="itemHamburger">Abbigliamento femminile</a>
 
 </nav>
 <!-- Header -->
@@ -26,7 +26,7 @@
   <i onclick="w3_open()" class="fa fa-bars w3-xlarge button w3-theme"></i> 
   <div class="w3-center">
   <h4>L'unica cosa che ti appartiene davvero, è il tuo corpo. Prenditene cura</h4>
-  <img class=w3-center src="resources/images/logo.png" width=250px height=120px>
+  <img class="logo" src="resources/images/logo.png" width=250px height=120px>
   <br>
   </div>
 </header>
