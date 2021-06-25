@@ -64,7 +64,7 @@ public class ProductControl extends HttpServlet  {
 					else response.sendRedirect("/ProductView.jsp");
 					
 				} else if (action.equalsIgnoreCase("search")) {
-					System.out.println("sono qui");
+					
 					ArrayList<ProductBean> list =(ArrayList<ProductBean>)ProductDAO.doRetrieveAll("");
 					ArrayList<String> result=new ArrayList<String>();
 					String s=request.getParameter("search");
@@ -74,6 +74,16 @@ public class ProductControl extends HttpServlet  {
 						}
 					
 					}
+				}
+				else if(action.equalsIgnoreCase("viewCategory")){
+					int id = Integer.parseInt(request.getParameter("id"));
+					String cat = request.getParameter("categoria");
+					request.removeAttribute("product");
+					ProductBean bean=ProductDAO.doRetrieveByCategory(id,cat);
+					request.setAttribute("product", bean );
+					ProductDAO.doUpdate(bean);
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/ProductView.jsp");
+					dispatcher.forward(request, response);	
 				}
 				 else if (action.equalsIgnoreCase("modify")) {
 					 ProductBean bean=ProductDAO.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));

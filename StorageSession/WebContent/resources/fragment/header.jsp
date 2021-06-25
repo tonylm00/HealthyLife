@@ -1,5 +1,5 @@
   <div class=topbar>
- 			<a href="ProductView.jsp"> <img src="resources/images/logo.png" class="logo" width=170 height=80></a>  
+ 			<a href="home"> <img src="resources/images/logo.png" class="logo" width=170 height=80></a>  
  			
     		<input type="text" placeholder="CERCA NEL SITO" class="searchbar">
    			<a href="product?action=search"> <img src="resources/images/search.png" class="arrow" width=40 height=40></a>
