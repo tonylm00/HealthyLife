@@ -7,5 +7,5 @@
         type="javax.sql.DataSource"
         username="root"
         password="12345678"
-        url="jdbc:mysql://localhost:3306/healthylife?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+        url="jdbc:mysql://localhost:3306/healthylife?allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=false"/>
 </Context>

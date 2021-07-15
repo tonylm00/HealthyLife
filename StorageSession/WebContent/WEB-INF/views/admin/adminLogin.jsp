@@ -3,22 +3,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="LoginStyle.css">
+<link rel="stylesheet" href="resources/styles/credenziali.css">
 <title>Login Amministratore</title>
 </head>
 <body>
-	<h3>Vista Amministratore</h3>
+	<h1>Vista Amministratore</h1>
 <form action="login" method="post"> 
 
      <input type="hidden" name="action" value="admin">
      <label for="username">Username</label>
-     <input id="username" type="text" name="username"> 
+     <input id="username" type="text" name="username" class=campo> 
      <br>   
      <label for="password">Password</label>
-     <input id="password" type="password" name="password"> 
+     <input id="password" type="password" name="password" class=campo> 
      <br>
-     <input type="submit" value="Login">
-     <input type="reset" value="Reset">
+     <input type="submit" value="Login" class=scelta>
+     <input type="reset" value="Reset" class=scelta>
 </form> 
 
 </body>

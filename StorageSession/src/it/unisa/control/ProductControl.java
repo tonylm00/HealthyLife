@@ -36,6 +36,11 @@ public class ProductControl extends HttpServlet  {
 
 		try {
 			if (action != null) {
+				
+				if (action.equalsIgnoreCase("gotoProduct")) {
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/ProductView.jsp");
+					dispatcher.forward(request, response);
+				} 
 				if (action.equalsIgnoreCase("read")) {
 					int id = Integer.parseInt(request.getParameter("id"));
 					request.removeAttribute("product");
@@ -53,7 +58,7 @@ public class ProductControl extends HttpServlet  {
 						response.sendRedirect("/WEB-INF/views/admin/adminView.jsp");
 					}
 					else {
-						response.sendRedirect("/ProductView.jsp");
+						response.sendRedirect("/WEB-INF/views/products/ProductView.jsp");
 					}
 				} else if (action.equalsIgnoreCase("insert")) {
 					ProductDAO.doSave(getProductbyRequest(request, response));
@@ -75,16 +80,7 @@ public class ProductControl extends HttpServlet  {
 					
 					}
 				}
-				else if(action.equalsIgnoreCase("viewCategory")){
-					int id = Integer.parseInt(request.getParameter("id"));
-					String cat = request.getParameter("categoria");
-					request.removeAttribute("product");
-					ProductBean bean=ProductDAO.doRetrieveByCategory(id,cat);
-					request.setAttribute("product", bean );
-					ProductDAO.doUpdate(bean);
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/ProductView.jsp");
-					dispatcher.forward(request, response);	
-				}
+					
 				 else if (action.equalsIgnoreCase("modify")) {
 					 ProductBean bean=ProductDAO.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));
 					 ProductBean nuovo=getProductbyRequest(request, response);
@@ -94,11 +90,12 @@ public class ProductControl extends HttpServlet  {
 					 request.setAttribute("products", ProductDAO.doRetrieveAll(sort));
 					 if(request.getSession().getAttribute("adminRoles")!=null)
 						 response.sendRedirect("/WEB-INF/views/admin/adminView.jsp");
-					 else response.sendRedirect("/ProductView.jsp");
+					 else 
+						 response.sendRedirect("/WEB-INF/views/products/ProductView.jsp");
 				 }
 			}
 			else {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/ProductView.jsp");
 				dispatcher.forward(request, response);
 			}
 		} catch (SQLException e) {

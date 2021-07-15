@@ -40,7 +40,7 @@ public class LoginControl extends HttpServlet {
 				    	 dispatcher.forward(request, response); 		
 				     }
 				     else{
-				    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
+				    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginCart.jsp");
 				    	 dispatcher.forward(request, response); 
 				     }
 				} 		
@@ -48,6 +48,31 @@ public class LoginControl extends HttpServlet {
 				     System.out.println(theException); 
 				}
 			}
+			else if(action.equalsIgnoreCase("goRegistration")) {
+	
+			    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/registrazioneUtente.jsp");
+			    	 dispatcher.forward(request, response); 		
+			     }
+			
+			else if(action.equalsIgnoreCase("goGuest")) {
+				
+		    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/guest.jsp");
+		    	 dispatcher.forward(request, response); 		
+		     }
+			
+			else if(action.equalsIgnoreCase("login")) {
+				 HttpSession session = request.getSession();
+		    	 UserBean user= new UserBean();
+			     user.setEmail(request.getParameter("email"));
+			     user.setPassword(request.getParameter("pw"));
+			     user = UserDAO.doRetrieve(user);
+			     if (user.isValid()){
+			    	 session.setAttribute("currentSessionUser", user);
+			    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
+			    	 dispatcher.forward(request, response); 		
+			     }
+			}
+			
 			else if(action.equalsIgnoreCase("registration")) {
 				UserBean bean= new UserBean();
 				bean.setFirstName(request.getParameter("name"));
@@ -72,26 +97,34 @@ public class LoginControl extends HttpServlet {
 		    	dispatcher.forward(request, response); 
 			}
 			
+			else if(action.equalsIgnoreCase("adminOrder")) {
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/OrdersView.jsp");
+		    	dispatcher.forward(request, response); 
+			}
+			
+			else if(action.equalsIgnoreCase("adminInsert")) {
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/insert.jsp");
+		    	dispatcher.forward(request, response); 
+			}
+			
 			else if(action.equalsIgnoreCase("admin")) {
 				String username = request.getParameter("username");
 				String password = request.getParameter("password");
 				
-				String redirectedPage;
 				try {
 					AdminBean ad= new AdminBean();
 					ad.setUserName(username);
 					ad.setPassword(password);
 					AdminDAO.doRetrieve(ad);
 					if(ad.isValid()) {
-						request.getSession().setAttribute("adminRoles", true);
-						redirectedPage = "/WEB-INF/views/admin/adminView.jsp";
+						request.getSession().setAttribute("adminRoles", true);		
 					}
 					else throw new Exception();
 				} catch (Exception e) {
 					request.getSession().setAttribute("adminRoles", false);
-					redirectedPage = "/WEB-INF/views/admin/adminLogin.jsp";
 				}
-				response.sendRedirect(request.getContextPath() + redirectedPage);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminView.jsp");
+				dispatcher.forward(request, response);
 			}
 		}
 	}

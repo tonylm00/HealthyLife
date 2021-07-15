@@ -9,10 +9,11 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/ProductStyle.css" type="text/css"/>
+    <style>
+		 <%@include file="/resources/styles/header.css" %>
+		 <%@include file="/resources/styles/footer.css" %>
+		 <%@include file="/resources/styles/prodotto.css" %>
+	</style>
 	<title>Dettagli: <%=product.getName()%> </title>
 </head>
 
@@ -21,33 +22,28 @@
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	
-	<h2>Dettagli</h2>
+	<h2> <%=product.getName()%></h2>
 	<%
 		if (product != null) {
 	%>
-			<table>
-				<tr>
-					<th>Codice</th>
-					<th>Nome</th>
-					<th>Descrizione</th>
-					<th>Informazioni</th>
-					<th>Prezzo</th>
-					<th>Quantità</th>		
-				</tr>
-				<tr>
-					<td><%=product.getCode()%></td>
-					<td><%=product.getName()%></td>
-					<td><%=product.getDescription()%></td>
-					<td><%=product.getInfo() %>
-					<td><%=product.getPrice()%> €</td>
-					<td><%=product.getQuantity()%></td>
-					<td><a href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello</a></td>
-				</tr>
-			</table>
+		<div class=product>
+			<div class=foto> <img class=fotoProd src="<%=product.getImmagine()%>"></div><br>
+			<div class=info>
+				<p>Descrizione:<br><%=product.getDescription()%></p><br> 
+				<p>Informazioni:<br><%=product.getInfo()%></p>
+			</div>
+			<div class=quantita>Affrettati, solo <%=product.getQuantity()%> pezzi rimanenti !!!</div><br><br><br>	
+			
+		</div>
+		
+		<div class=azioni>
+			<a class=scelta href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello: €<%=product.getPrice()%></a>
+		</div>
+		
 	<%
 		}
 	%>
-	<br/><a href="cart?action=Cart">Vai al carrello</a>
+	
 	<footer>
 	<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

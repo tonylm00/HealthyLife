@@ -5,7 +5,7 @@ USE healthylife;
 
 CREATE TABLE categoria(
 	nome varchar(20) primary key,
-    descrizione text
+    immagine text
     );
     
 CREATE TABLE amministratore(
@@ -17,14 +17,23 @@ CREATE TABLE utente(
   email varchar(30) PRIMARY KEY,
   pw varchar(30) NOT NULL,
   nome varchar(20) NOT NULL,
-  cognome varchar(20) NOT NULL
+  cognome varchar(20) NOT NULL,
+  indirizzo varchar(150),
+  telefono varchar(15),
+  intestatario varchar(50),
+  numeroCarta varchar(16),
+  dataScadenza varchar(7),
+  CVV char(3)
 );
 
 CREATE TABLE guest(
-  email varchar(30) PRIMARY KEY,
+  id int AUTO_INCREMENT PRIMARY KEY,
+  email varchar(30) NOT NULL,
   nome varchar(20) NOT NULL,
-  cognome varchar(20) NOT NULL
-  
+  cognome varchar(20) NOT NULL,
+  telefono varchar(15) not null,
+  indirizzo varchar(150) not null,
+  data_ora varchar(35)
 );
 
 CREATE TABLE prodotto (
@@ -32,43 +41,57 @@ CREATE TABLE prodotto (
   nome char(50) not null,
   descrizione text,
   informazioni text,
-  prezzo int default 0,
-  sconto int default 0,
-  disponibilita boolean,
-  iva int,
+  prezzo double default 0,
+  sconto double default 0,
+  iva double default 22,
   prezzoscontato int default 0,
   quantita int default 0,
-  categoria varchar(20) ,
-  username varchar(15),
-  
-FOREIGN KEY(categoria) REFERENCES categoria(nome)
-  on delete restrict
-  on update cascade,
-  
-  FOREIGN KEY(username) REFERENCES amministratore(username)
-  on delete restrict
-  on update cascade
+  immagine text
+);
+
+CREATE TRIGGER prezzoscontato_insert
+BEFORE INSERT ON Prodotto
+for each row
+set new.prezzoscontato=(new.prezzo-(new.prezzo*new.sconto/100));
+
+CREATE TRIGGER prezzoscontato_update
+BEFORE update ON Prodotto
+for each row
+set new.prezzoscontato=(new.prezzo-(new.prezzo*new.sconto/100));
+
+CREATE TABLE appartenenza(
+	categoria varchar(20),
+    prodotto int,
+    
+    PRIMARY KEY(categoria,prodotto),
+    FOREIGN KEY (prodotto) REFERENCES prodotto(id)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE,
+	
+    FOREIGN KEY (categoria) REFERENCES categoria(nome)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE
 );
 
 CREATE TABLE ordine(
   id int primary key AUTO_INCREMENT,
-  descrizione char(100),
   dataOrdine datetime,
   prezzoNotIva double,
   prezzoIva double,
 
   idUtente varchar (30),
-  idGuest varchar (30),
+  idGuest int,
   
   FOREIGN KEY(idUtente) REFERENCES utente(email)
   on delete restrict
   on update cascade,
   
-  FOREIGN KEY(idGuest) REFERENCES guest(email)
+  FOREIGN KEY(idGuest) REFERENCES guest(id)
   on delete restrict
   on update cascade
 );
-CREATE TABLE aggiunta(
+
+CREATE TABLE dettaglio(
   id_ordine int,
   id_prodotto int,
   quantita int NOT NULL,
@@ -84,3 +107,4 @@ CREATE TABLE aggiunta(
   on delete restrict
   on update cascade
 );
+

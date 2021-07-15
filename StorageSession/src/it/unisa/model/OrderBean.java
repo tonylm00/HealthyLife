@@ -1,7 +1,5 @@
 package it.unisa.model;
 
-import java.time.LocalDateTime;
-
 public class OrderBean {
 
 	private String data;

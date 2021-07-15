@@ -20,36 +20,17 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/ProductStyle.css" type="text/css"/>
+	<style>
+		 	<%@include file="/resources/styles/header.css" %>
+		 	<%@include file="/resources/styles/footer.css" %>
+		 	<%@include file="/resources/styles/ProductStyle.css" %>
+	</style>
 	
 	<title>Healthy Life</title>
 </head>
 
 <body>
-<script>
-$(document).ready(function() {
-    $("#search").keyup(function() {
-        var search = $(this).val();
-        if(search != '') {
-        	var s="search="+search+"action=search";
-            $.ajax({
-                type : "POST",
-                url : "product",
-                data :  s,
-                success : function(html) {
-                    $("#result").html(html);
-                    $("#result").css({"color":"red"});
-                },
-                error: function (xmlHttpRequest, textStatus, errorThrown) {
-                    alert(errorThrown);
-               }
-            });
-        }
-    });
-});
-</script>
+
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
@@ -57,6 +38,7 @@ $(document).ready(function() {
 	
 	<table border="1" class="elencoprodotti">
 		<tr>
+			<th>------</th>
 			<th><a class="cap" href="product?sort=id">Codice</a></th>
 			<th><a class="cap" href="product?sort=nome">Nome </a></th>
 			<th><a class="cap" href="product?sort=descrizione">Descrizione </a></th>
@@ -68,6 +50,7 @@ $(document).ready(function() {
 					ProductBean bean = (ProductBean) it.next();
 		%>
 					<tr>
+						<td><img src="file:///<%=bean.getImmagine()%>"></img></td>
 						<td><%=bean.getCode()%></td>
 						<td><%=bean.getName()%></td>
 						<td><%=bean.getDescription()%></td>

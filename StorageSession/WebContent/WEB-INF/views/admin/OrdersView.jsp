@@ -17,11 +17,18 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="/styles/ProductStyle.css"/>
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/styles/ProductStyle.css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/credenziali.css" type="text/css"/>
 	<title>HealthyLife</title>
 </head>
 
 <body>
+<header>
+		<%@ include file="/resources/fragment/header.jsp" %>
+	</header>
+	
 	<h2>Ordini</h2>
 	<table>
 		<tr>
@@ -56,19 +63,23 @@
 	</table><br/>
 
 
-Filtra prodotti per data:<br/>
+<h2>Filtra prodotti per data:</h2>
 	<form action="/order" method="post">
 		<input type="hidden" name="action" value="filterDate">
-		<input type="text" name="inizio" placeholder="inizio yyyy-mm-dd"><br/><br/>
-		<input type="text" name="fine" placeholder="fine yyyy-mm-dd"><br/><br/>
-		<input type="submit" value="Filtra"><input type="reset" value="Reset">
-	</form><br/><br/>
+		<input type="text" name="inizio" placeholder="inizio yyyy-mm-dd" class=campo><br/><br/>
+		<input type="text" name="fine" placeholder="fine yyyy-mm-dd" class=campo><br/><br/>
+		<input type="submit" value="Filtra" class=scelta>
+	</form><br/>
 	
-Filtra prodotti per utente:<br/>
+<h2>Filtra prodotti per utente:</h2>
 	<form action="/order" method="post">
-		<input type="hidden" name="action" value="filterUser">
-		<input type="text" name="user" placeholder="mariorossi@gmail.com"><br/><br/>
-		<input type="submit" value="Filtra"><input type="reset" value="Reset">
+		<input type="hidden" name="action" value="filterUser" class=campo>
+		<input type="text" name="user" placeholder="mariorossi@gmail.com" class=campo><br/><br/>
+		<input type="submit" value="Filtra" class=scelta>
 	</form>
+	
+	<footer>
+		<%@ include file="/resources/fragment/footer.jsp" %>
+	</footer>
 </body>
 </html>

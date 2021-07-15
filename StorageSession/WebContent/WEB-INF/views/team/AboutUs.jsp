@@ -40,9 +40,9 @@
 			</div>
 			<table style="width:100%">
 			<tr>
-				<th><img src="images/antonioFoto.jpg" class="Tfoto">
-				<th><img src="images/francescoFoto.jpg" class="Tfoto">
-				<th><img src="images/giorgioFoto.PNG" class="Tfoto">
+				<th><img src="resources/images/antonioFoto.jpg" class="Tfoto">
+				<th><img src="resources/images/francescoFoto.jpg" class="Tfoto">
+				<th><img src="resources/images/giorgioFoto.png" class="Tfoto">
 			<tr>
 				<th><Strong>Founder</Strong>
 				<th><Strong>CEO</Strong>

@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import it.unisa.model.ProductBean;
 import it.unisa.model.ProductDAO;
 
-@WebServlet("/Category")
 public class CategoryControl extends HttpServlet  {
 	private static final long serialVersionUID = 1L;
 	
@@ -54,7 +53,7 @@ public class CategoryControl extends HttpServlet  {
 	}
 
 	private ProductBean getProductbyRequest(HttpServletRequest request, HttpServletResponse response) {
-		String category = request.getParameter("catogoria");
+		String category = request.getParameter("categoria");
 		String name = request.getParameter("nome");
 		String description = request.getParameter("descrizione");
 		double price = Double.parseDouble(request.getParameter("prezzo"));

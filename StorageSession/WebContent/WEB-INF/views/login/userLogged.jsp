@@ -5,44 +5,52 @@
          import="java.util.Iterator"
          import="it.unisa.model.*"
    %>
+  <!DOCTYPE html>
+   <html>
 <% 
 // Check user credentials
   UserBean currentUser = (UserBean) (session.getAttribute("currentSessionUser"));
 if ((currentUser==null)||(!currentUser.isValid()))
 {	
-    %> <br> Utente non valido <br> <%
+    %>  <h3>Utente non valido</h3> <%
     return;
 }
 
 	Collection<?> orders = (Collection<?>) request.getSession().getAttribute("orders");
 
 %>
-   <!DOCTYPE html>
-   <html>
-
       <head>
-         <meta http-equiv="Content-Type" 
-            content="text/html; charset=windows-1256">
-         <title>   Utente loggato correttamente   </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+      	<style>
+		 	<%@include file="/resources/styles/header.css" %>
+		 	<%@include file="/resources/styles/footer.css" %>
+		 	<%@include file="/resources/styles/ProductStyle.css" %>
+		 </style>
+         <title>Area personale</title>
       </head>
 	
       <body>
-           Benvenuto: <%=currentUser.getFirstName() + " " + currentUser.getLastName() %>
+      <header>
+		<%@ include file="/resources/fragment/header.jsp" %>
+	</header>
+	<br>
+           <h2>Benvenuto: <%=currentUser.getFirstName() + " " + currentUser.getLastName() %></h2>
    
-<h4>Ordini effettuati</h4>
-	<table border="1">
-		<tr>
-			<th>Codice </th>
-			<th>Data </th>
-			<th>Prezzo Totale</th>
-			<th></th>
-		</tr>
+<h3>Storico ordini effettuati:</h3>
+	<table>
+		
 		<%
 			if (orders != null && orders.size() != 0) {
 				Iterator<?> it = orders.iterator();
 				while (it.hasNext()) {
 					OrderBean bean = (OrderBean) it.next();
 		%>
+					<tr>
+						<th>Codice </th>
+						<th>Data </th>
+						<th>Prezzo Totale</th>
+						<th></th>
+					</tr>
 					<tr>
 						<td><%=bean.getId()%></td>
 						<td><%=bean.getData()%></td>
@@ -61,6 +69,10 @@ if ((currentUser==null)||(!currentUser.isValid()))
 			}
 		%>
 	</table><br>
+	
+	<footer>
+		<%@ include file="/resources/fragment/footer.jsp" %>
+	</footer>
       </body>
 	
    </html>

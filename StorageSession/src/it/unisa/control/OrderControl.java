@@ -31,7 +31,7 @@ public class OrderControl extends HttpServlet {
 				    	 dispatcher.forward(request, response);
 					}
 					else if(user==null) {
-						response.sendRedirect("/WEB-INF/views/login/LoginView.jsp");
+						response.sendRedirect("/WEB-INF/views/login/LoginCart.jsp");
 					}
 					else{
 						OrderBean order=new OrderBean();

@@ -85,6 +85,7 @@ public class ProductDAO{
 				bean.setSconto(rs.getDouble("sconto"));
 				bean.setPrezzoScontato(rs.getDouble("prezzoscontato"));
 				bean.setInfo(rs.getString("informazioni"));		
+				bean.setImmagine(rs.getString("immagine"));
 			}
 			
 		} finally {
@@ -99,19 +100,18 @@ public class ProductDAO{
 		return bean;
 	}
 
-	public synchronized static ProductBean doRetrieveByCategory(int code,String cat) throws SQLException {
+	public synchronized static ProductBean doRetrieveByCategory(String cat) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		ProductBean bean = new ProductBean();
 
-		String selectSQL = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE id = ? AND categoria = cat";
+		String selectSQL = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE categoria = cat";
 
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, code);
-			preparedStatement.setString(2, cat);
+			preparedStatement.setString(1, cat);
 			
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -230,6 +230,7 @@ public class ProductDAO{
 				bean.setSconto(rs.getDouble("sconto"));
 				bean.setPrezzoScontato(rs.getDouble("prezzoscontato"));
 				bean.setInfo(rs.getString("informazioni"));	
+				bean.setImmagine(rs.getString("immagine"));
 				products.add(bean);
 			}
 

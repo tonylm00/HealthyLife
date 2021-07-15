@@ -9,10 +9,33 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/ProductStyle.css" type="text/css"/>
+	<style>
+	 	<%@include file="/resources/styles/header.css" %>
+	 	<%@include file="/resources/styles/footer.css" %>
+	 	<%@include file="/resources/styles/ProductStyle.css" %>
+	</style>
+
 	<title>Il mio carrello</title>
+	
+	<style>
+		.scelta {
+			  width: 100%;
+			  background-color: #a8d43e;
+			  color: white;
+			  padding: 16px 25px;
+			  margin: 8px 0;
+			  border: none;
+			  border-radius: 4px;
+			  cursor: pointer;
+			  font-size: 18px;
+			  text-decoration: none;
+			}
+				
+				.scelta:hover {
+				  background-color: #45a049;
+				  text-decoration: none;
+			}
+	</style>
 </head>
 
 <body>
@@ -60,8 +83,8 @@
 		<h1>Il tuo carrello è vuoto</h1>
 	<% } %>
 	
-	<br/><a href="order?action=checkout">
-		<input type="submit" name="submit" class="checkout" value="Checkout"></a>
+	<br/>
+		<a href="order?action=checkout" class=scelta> Checkout</a>
 </body>
 <footer>
 	<%@ include file="/resources/fragment/footer.jsp" %>

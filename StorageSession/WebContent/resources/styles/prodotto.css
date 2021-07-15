@@ -1,0 +1,83 @@
+/* <div class=product>
+			<div class=foto> <%=product.getImmagine() %></div>
+			<div class=titolo> <%=product.getName()%> </div>
+			<div class=info>
+				<p>Descrizione:<br><%=product.getDescription()%></p><br> 
+				<p>Informazioni:<br><%=product.getInfo()%></p>
+			</div>
+			<div class=quantita><p>Affrettati, solo <%=product.getQuantity()%> pezzi rimanenti !!!</p></div>
+			<div class=prezzo><p><%=product.getPrice()%> €</p></div>	
+		</div>
+*/
+.scelta {
+			 
+	background-color: #a8d43e;
+	color: white;
+ 	padding: 16px 25px;
+	margin: 8px 0;
+	border: none;
+	left:0;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.scelta:hover {
+ 	background-color: #45a049;
+	text-decoration: none;
+}
+			
+.foto{
+	float: left;
+	display: block
+}
+
+.fotoProd{
+	width:500px;
+	display:block;
+}
+
+.titolo{
+	float: left;
+	font-size:30px;
+	display: block
+}
+
+.info{
+	float:left;
+	font-size:25px;
+	display: block
+}
+
+.quantita{
+	float:left;
+	font-size:28px;
+	display: block
+}
+
+.prezzo{
+	float:left;
+	font-size:28px;
+	display: block
+}
+
+#quantita{
+	float:left;
+	font-size:28px;
+	display: block
+}
+
+#prezzo{
+	float:left;
+	font-size:28px;
+	display: block
+}
+
+.azioni
+{
+	float: left;
+	left:0;
+	bottom:80%;
+	display: block;
+}

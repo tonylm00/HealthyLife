@@ -47,6 +47,7 @@ public class DetailsDAO {
 		      
 		      while(rs.next()) {
 		    	 ProductBean bean=new ProductBean();
+		    	 bean.setImmagine(rs.getString("immagine"));
 		    	 bean.setCode(rs.getInt("id"));
 				 bean.setName(rs.getString("nome"));
 				 bean.setDescription(rs.getString("descrizione"));

@@ -53,7 +53,7 @@ public class CartControl extends HttpServlet{
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/DetailsView.jsp");
 						dispatcher.forward(request, response);
 					}
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductView.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/ProductView.jsp");
 					dispatcher.forward(request, response);
 				} else if (action.equalsIgnoreCase("delete")) {
 					int id = Integer.parseInt(request.getParameter("id"));
@@ -89,11 +89,7 @@ public class CartControl extends HttpServlet{
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

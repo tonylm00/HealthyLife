@@ -6,17 +6,18 @@ public class ProductBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	int codice;
-	String nome;
-	String descrizione;
-	String informazioni;
-	double prezzo;
-	double sconto;
-	double prezzoscontato;
-	int quantita;
-	int iva;
-	int cartQuantity;
-	double tot;
+	private int codice;
+	private String nome;
+	private String descrizione;
+	private String informazioni;
+	private double prezzo;
+	private double sconto;
+	private double prezzoscontato;
+	private int quantita;
+	private double iva;
+	private int cartQuantity;
+	private double tot;
+	private String immagine;
 	
 	public ProductBean() {
 		codice = -1;
@@ -43,12 +44,12 @@ public class ProductBean implements Serializable {
 		this.codice = code;
 	}
 
-	public int getIva() {
+	public double getIva() {
 		return iva;
 	}
 
-	public void setIva(int code) {
-		this.iva = code;
+	public void setIva(double d) {
+		this.iva = d;
 	}
 	
 	public String getName() {
@@ -117,6 +118,14 @@ public class ProductBean implements Serializable {
 	@Override
 	public String toString() {
 		return nome + " (" + codice + "), " + prezzo + " " + quantita + ". " + descrizione;
+	}
+
+	public String getImmagine() {
+		return immagine;
+	}
+
+	public void setImmagine(String newimmagine) {
+		this.immagine = newimmagine;
 	}
 
 }
