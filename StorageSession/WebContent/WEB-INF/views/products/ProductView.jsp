@@ -25,7 +25,6 @@
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/ProductStyle.css" %>
 	</style>
-	
 	<title>Healthy Life</title>
 </head>
 
