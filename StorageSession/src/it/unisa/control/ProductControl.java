@@ -80,7 +80,6 @@ public class ProductControl extends HttpServlet  {
 					
 					}
 				}
-					
 				 else if (action.equalsIgnoreCase("modify")) {
 					 ProductBean bean=ProductDAO.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));
 					 ProductBean nuovo=getProductbyRequest(request, response);
