@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+//import com.google.gson.Gson;
+
 import it.unisa.model.*;
 
 public class LoginControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	/**
-     * @see HttpServlet#HttpServlet()
-     */
+	
     public LoginControl() {
         super();
         // TODO Auto-generated constructor stub
@@ -27,28 +27,8 @@ public class LoginControl extends HttpServlet {
 		String action = request.getParameter("action");
 		
 		if(action!=null) {
-			if(action.equalsIgnoreCase("checkout")) {
-				try {
-					 HttpSession session = request.getSession();
-			    	 UserBean user= new UserBean();
-				     user.setEmail(request.getParameter("email"));
-				     user.setPassword(request.getParameter("pw"));
-				     user = UserDAO.doRetrieve(user);
-				     if (user.isValid()){
-				    	 session.setAttribute("currentSessionUser", user);
-				    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/order");
-				    	 dispatcher.forward(request, response); 		
-				     }
-				     else{
-				    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginCart.jsp");
-				    	 dispatcher.forward(request, response); 
-				     }
-				} 		
-				catch (Throwable theException){
-				     System.out.println(theException); 
-				}
-			}
-			else if(action.equalsIgnoreCase("goRegistration")) {
+			
+			if(action.equalsIgnoreCase("goRegistration")) {
 	
 			    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/registrazioneUtente.jsp");
 			    	 dispatcher.forward(request, response); 		
@@ -61,24 +41,32 @@ public class LoginControl extends HttpServlet {
 		     }
 			
 			else if(action.equalsIgnoreCase("login")) {
-				 HttpSession session = request.getSession();
-		    	 UserBean user= new UserBean();
-			     user.setEmail(request.getParameter("email"));
-			     user.setPassword(request.getParameter("pw"));
-			     user = UserDAO.doRetrieve(user);
-			     if (user.isValid()){
-			    	 session.setAttribute("currentSessionUser", user);
-			    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
-			    	 dispatcher.forward(request, response); 		
-			     }
-			}
-			
+				HttpSession session = request.getSession();
+				String email=request.getParameter("email");
+				String pw=request.getParameter("pw");
+				UserBean user= new UserBean();
+			    user.setEmail(email);
+			    user.setPassword(pw);
+			    user = UserDAO.doRetrieve(user);
+			    if (user.isValid()){
+			    	session.setAttribute("currentSessionUser", user);
+			    }
+			    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
+		    	 dispatcher.forward(request, response); 
+			} 		
+					
 			else if(action.equalsIgnoreCase("registration")) {
 				UserBean bean= new UserBean();
-				bean.setFirstName(request.getParameter("name"));
-				bean.setLastName(request.getParameter("surname"));
+				bean.setName(request.getParameter("name"));
+				bean.setSurname(request.getParameter("surname"));
 				bean.setEmail(request.getParameter("email"));
 				bean.setPassword(request.getParameter("pw"));
+				bean.setIndirizzo(request.getParameter("indirizzo"));
+				bean.setNumeroCarta(request.getParameter("carta"));
+				bean.setCVV(request.getParameter("cvv"));
+				bean.setIntestatario(request.getParameter("intestatario"));
+				bean.setDataScadenza(request.getParameter("dataScadenza"));
+				bean.setTelefono(request.getParameter("telefono"));
 				if(UserDAO.doSave(bean)) {
 					bean.setValid(true);
 					request.getSession().setAttribute("currentSessionUser", bean);
@@ -128,7 +116,6 @@ public class LoginControl extends HttpServlet {
 			}
 		}
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

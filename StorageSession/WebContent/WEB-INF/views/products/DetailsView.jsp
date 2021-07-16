@@ -27,19 +27,17 @@
 		if (product != null) {
 	%>
 		<div class=product>
-			<div class=foto> <img class=fotoProd src="<%=product.getImmagine()%>"></div><br>
+			<div class=foto> <img src="<%=product.getImmagine()%>" width=300px></div><br>
 			<div class=info>
-				<p>Descrizione:<br><%=product.getDescription()%></p><br> 
-				<p>Informazioni:<br><%=product.getInfo()%></p>
+				<p><strong>Descrizione:</strong><br><%=product.getDescription()%></p> 
+				<p><strong>Informazioni:</strong><br><%=product.getInfo()%></p>
 			</div>
-			<div class=quantita>Affrettati, solo <%=product.getQuantity()%> pezzi rimanenti !!!</div><br><br><br>	
-			
+			<div class=quantita><strong>Affrettati</strong>, solo <%=product.getQuantity()%> pezzi rimanenti !</div><br><br><br>	
 		</div>
 		
 		<div class=azioni>
 			<a class=scelta href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello: €<%=product.getPrice()%></a>
 		</div>
-		
 	<%
 		}
 	%>

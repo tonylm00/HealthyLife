@@ -36,7 +36,7 @@ public class UserDAO{
       String searchQuery = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE email = ? AND pw = ?";
       
 	   // "System.out.println" prints in the console; Normally used to trace the process
-	   System.out.println("Your user name is " + email);          
+	   System.out.println("Your email is " + email);          
 	   System.out.println("Your password is " + password);
 	   System.out.println("Query: "+searchQuery);
    
@@ -58,8 +58,8 @@ public class UserDAO{
 	      else{
 	         String firstName = rs.getString("nome");
 	         String lastName = rs.getString("cognome");
-	         bean.setFirstName(firstName);
-	         bean.setLastName(lastName);
+	         bean.setName(firstName);
+	         bean.setSurname(lastName);
 	         bean.setValid(true);
 	      }
 	   } 
@@ -96,15 +96,21 @@ public class UserDAO{
    
    public static boolean doSave(UserBean bean) {
 	   
-	   String insert="insert into utente(nome, cognome, email, pw) values(?, ?, ?, ?)";
+	   String insert="insert into utente(nome, cognome, email, pw, indirizzo, telefono, numeroCarta, dataScadenza, CVV, intestatario) values(?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 	   try{
 		      //connect to DB 
 			  currentCon = ds.getConnection();
 		      preparedStatement=currentCon.prepareStatement(insert);
-		      preparedStatement.setString(1, bean.getFirstName());
-		      preparedStatement.setString(2, bean.getLastName());
+		      preparedStatement.setString(1, bean.getName());
+		      preparedStatement.setString(2, bean.getSurname());
 		      preparedStatement.setString(3, bean.getEmail());
 		      preparedStatement.setString(4, bean.getPassword());
+		      preparedStatement.setString(5, bean.getIndirizzo());
+		      preparedStatement.setString(6, bean.getTelefono());
+		      preparedStatement.setString(7, bean.getNumeroCarta());
+		      preparedStatement.setString(8, bean.getDataScadenza());
+		      preparedStatement.setString(9, bean.getCVV());
+		      preparedStatement.setString(10, bean.getIntestatario());
 		      if(preparedStatement.executeUpdate()==1) {
 		    	  return true;
 		      }

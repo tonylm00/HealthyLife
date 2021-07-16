@@ -43,6 +43,7 @@
 		</form> 
 		<br>
 		<a href="login?action=goRegistration" class=scelta>Registrati qui</a>
+		<a href="login?action=goGuest" class=scelta>Acquista senza registrarti</a><br>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

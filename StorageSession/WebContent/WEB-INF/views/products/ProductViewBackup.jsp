@@ -19,6 +19,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 	<style>
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
@@ -32,28 +33,45 @@
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
-
+	
+	
+	<table border="1" class="elencoprodotti">
+		<tr>
+			<th>------</th>
+			<th><a class="cap" href="product?sort=id">Codice</a></th>
+			<th><a class="cap" href="product?sort=nome">Nome </a></th>
+			<th><a class="cap" href="product?sort=descrizione">Descrizione </a></th>
+		</tr>
 		<%
 			if (products != null && products.size() != 0) {
 				Iterator<?> it = products.iterator();
 				while (it.hasNext()) {
 					ProductBean bean = (ProductBean) it.next();
 		%>	
-			
-		<div class=prodotto>
-			<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
-			<div class=nome><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>"><%=bean.getName()%></a></div>
-		</div>
-
+					<tr>
+						<td><img src="<%=bean.getImmagine()%>" alt=IMG width=300px></td>
+						<td><%=bean.getCode()%></td>
+						<td><%=bean.getName()%></td>
+						<td><%=bean.getDescription()%></td>
+						<td>
+							<a class="cap" href="product?action=delete&id=<%=bean.getCode()%>"><strong>Elimina</strong></a><br>
+							<a class="cap" href="product?action=read&id=<%=bean.getCode()%>"><strong>Dettagli</strong></a><br>
+							<a class="cap" href="cart?action=add&id=<%=bean.getCode()%>"><strong>Aggiungi al carrello</strong></a>
+						</td>
+					</tr>
 		<%
 				}
 			}
 			else {
 		%>
-			<h1>Nessun prodotto disponibile</h1>
-
+		<tr>
+			<td colspan="5">Nessun prodotto disponibile</td>
+		</tr>
 		<% } %>
-
+	</table>
+	<br>
+	<a href="cart?action=Cart" class="goCart"> Vai al carrello</a>
+	<br><br>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

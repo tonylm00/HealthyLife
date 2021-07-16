@@ -34,7 +34,7 @@ public class GuestDAO {
 			PreparedStatement preparedStatement = null;
 			
 			String insertSQL = "INSERT INTO " + GuestDAO.TABLE_NAME
-					+ " (data_ora, nome, cognome, email) VALUES (?, ?, ?, ?)";
+					+ " (data_ora, nome, cognome, email, telefono, indirizzo) VALUES (?, ?, ?, ?, ?, ?)";
 
 			try {
 				connection = ds.getConnection();
@@ -43,6 +43,8 @@ public class GuestDAO {
 				preparedStatement.setString(2, guest.getNome());
 				preparedStatement.setString(3, guest.getCognome());
 				preparedStatement.setString(4, guest.getEmail());
+				preparedStatement.setString(5, guest.getTelefono());
+				preparedStatement.setString(6, guest.getIndirizzo());
 				preparedStatement.executeUpdate();
 				connection.setAutoCommit(false);
 				connection.commit();
@@ -65,62 +67,62 @@ public class GuestDAO {
 	   
 	   public static AdminBean doRetrieve(AdminBean bean) {
 		
-	      String username = bean.getUsername();    
-	      String password = bean.getPassword();   
-		    
-	      String searchQuery = "SELECT * FROM " + GuestDAO.TABLE_NAME + " WHERE username = ? AND password = ?";
-	      
-		   // "System.out.println" prints in the console; Normally used to trace the process
-		   System.out.println("Your user name is " + username);          
-		   System.out.println("Your password is " + password);
-		   System.out.println("Query: "+searchQuery);
-	   
-		   try{
-			  currentCon = ds.getConnection();
-		      preparedStatement=currentCon.prepareStatement(searchQuery);
-		      preparedStatement.setString(1, username);
-		      preparedStatement.setString(2, password);
-		      rs = preparedStatement.executeQuery();	        
-		      boolean more = rs.next();
-			       
-		      // if user does not exist set the isValid variable to false
-		      if (!more){
-		         System.out.println("Account amministratore non valido");
-		         bean.setValid(false);
-		      } 
-			        
-		      //if user exists set the isValid variable to true
-		      else{
-		         bean.setValid(true);
-		      }
-		   } 
-		   catch (Exception ex){
-		      System.out.println("Login amministratore fallito" + ex);
-		   } 
+		   String username = bean.getUsername();    
+		      String password = bean.getPassword();   
+			    
+		      String searchQuery = "SELECT * FROM " + GuestDAO.TABLE_NAME + " WHERE username = ? AND password = ?";
+		      
+			   // "System.out.println" prints in the console; Normally used to trace the process
+			   System.out.println("Your user name is " + username);          
+			   System.out.println("Your password is " + password);
+			   System.out.println("Query: "+searchQuery);
 		   
-		   finally{
-		      if (rs != null)	{
-		         try {
-		            rs.close();
-		         } catch (Exception e) {}
-		            rs = null;
-		         }
-			
-		      if (stmt != null) {
-		         try {
-		            stmt.close();
-		         } catch (Exception e) {}
-		            stmt = null;
-		         }
-			
-		      if (currentCon != null) {
-		         try {
-		            currentCon.close();
-		         } catch (Exception e) {}
-		         currentCon = null;
-		      }
-		   }
-		   return bean;
+			   try{
+				  currentCon = ds.getConnection();
+			      preparedStatement=currentCon.prepareStatement(searchQuery);
+			      preparedStatement.setString(1, username);
+			      preparedStatement.setString(2, password);
+			      rs = preparedStatement.executeQuery();	        
+			      boolean more = rs.next();
+				       
+			      // if user does not exist set the isValid variable to false
+			      if (!more){
+			         System.out.println("Account amministratore non valido");
+			         bean.setValid(false);
+			      } 
+				        
+			      //if user exists set the isValid variable to true
+			      else{
+			         bean.setValid(true);
+			      }
+			   } 
+			   catch (Exception ex){
+			      System.out.println("Login amministratore fallito" + ex);
+			   } 
+			   
+			   finally{
+			      if (rs != null)	{
+			         try {
+			            rs.close();
+			         } catch (Exception e) {}
+			            rs = null;
+			         }
+				
+			      if (stmt != null) {
+			         try {
+			            stmt.close();
+			         } catch (Exception e) {}
+			            stmt = null;
+			         }
+				
+			      if (currentCon != null) {
+			         try {
+			            currentCon.close();
+			         } catch (Exception e) {}
+			         currentCon = null;
+			      }
+			   }
+			   return bean;
 	   }
 	   
 	   public static synchronized int getId(GuestBean guest) throws SQLException {

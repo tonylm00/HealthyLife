@@ -36,17 +36,29 @@ public class OrderDAO {
 		PreparedStatement preparedStatement = null;
 		
 		String insertSQL = "INSERT INTO " + OrderDAO.TABLE_NAME
-				+ " (dataOrdine, prezzoIva, idUtente) VALUES (?, ?, ?)";
-
+				+ " (dataOrdine, prezzoIVA, idUtente) VALUES (?, ?, ?)";
+		String insertSQLguest = "INSERT INTO " + OrderDAO.TABLE_NAME
+				+ " (dataOrdine, prezzoIVA, idGuest) VALUES (?, ?, ?)";
+		
+		
 		try {
 			connection = ds.getConnection();
-			preparedStatement = connection.prepareStatement(insertSQL);
+			if(order.getGuest()!=0) {
+				preparedStatement = connection.prepareStatement(insertSQLguest);
+			}
+			else {
+				preparedStatement = connection.prepareStatement(insertSQL);
+			}
 			LocalDateTime now=LocalDateTime.now();
 			String n= now.getYear()+"-"+now.getMonthValue()+"-"+now.getDayOfMonth()+" "+now.getHour()+":"+now.getMinute()+":"+now.getSecond();
-			System.out.println(n);
 			preparedStatement.setString(1, n);
 			preparedStatement.setDouble(2, order.getPrezzoTot());
-			preparedStatement.setString(3, order.getUtente());
+			if(order.getGuest()!=0) {
+				preparedStatement.setInt(3, order.getGuest());
+			}
+			else {
+				preparedStatement.setString(3, order.getUtente());
+			}
 			if(preparedStatement.executeUpdate()==1) {
 				order.setData(n);
 			}
@@ -225,7 +237,7 @@ public class OrderDAO {
 		return orders;
 	}
 	
-	public static synchronized Collection<OrderBean> doRetrieveAllbyUser(String user) throws SQLException {
+	public static synchronized Collection<OrderBean> doRetrieveAllByUser(String user) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -236,6 +248,7 @@ public class OrderDAO {
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
+			System.out.println(user);
 			preparedStatement.setString(1, user);
 
 			ResultSet rs = preparedStatement.executeQuery();
@@ -265,49 +278,9 @@ public class OrderDAO {
 		return orders;
 	}
 	
-	public static synchronized Collection<OrderBean> doRetrieveByUser(String user) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-
-		Collection<OrderBean> orders = new LinkedList<OrderBean>();
-
-		String selectSQL = "SELECT * FROM " + OrderDAO.TABLE_NAME + " WHERE idUtente= ?";
-
-		try {
-			connection = ds.getConnection();
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, user);
-			ResultSet rs = preparedStatement.executeQuery();
-
-			while (rs.next()) {
-				OrderBean bean = new OrderBean();
-				bean.setId(rs.getInt("id"));
-				bean.setData(rs.getString("dataOrdine"));
-				bean.setUtente(rs.getString("utente"));
-				bean.setPrezzoTot(rs.getDouble("prezzoIva"));
-				orders.add(bean);
-			}
-
-		}
-		catch (Exception ex){
-		      System.out.println("Log In failed: An Exception has occurred! " + ex);
-		      ex.printStackTrace();
-		}
-		finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-		return orders;
-	}
-	
-	public static synchronized int getId(String Utente, String data) throws SQLException {
+	public static synchronized int getUtente(String Utente, String data) throws SQLException {
 		String selectSQL = "SELECT id FROM " + OrderDAO.TABLE_NAME + " WHERE idUtente= ? and dataOrdine= ?";
-		int id=0;
+		int id=-1;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		try {
@@ -320,7 +293,37 @@ public class OrderDAO {
 			id=rs.getInt(1);
 		}
 		catch (Exception ex){
-		      System.out.println("OrderDAO.getId failed: An Exception has occurred! " + ex);
+		      System.out.println("OrderDAO.getUtente failed: An Exception has occurred! " + ex);
+		      ex.printStackTrace();
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return id;
+	}
+	
+	public static synchronized int getGuest(int guest, String data) throws SQLException {
+		String selectSQL = "SELECT id FROM " + OrderDAO.TABLE_NAME + " WHERE idGuest= ? and dataOrdine= ?";
+		int id=-1;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, guest);
+			preparedStatement.setString(2, data);
+			ResultSet rs = preparedStatement.executeQuery();
+			rs.next();
+			id=rs.getInt(1);
+		}
+		catch (Exception ex){
+		      System.out.println("OrderDAO.getGuest failed: An Exception has occurred! " + ex);
 		      ex.printStackTrace();
 		}
 		finally {

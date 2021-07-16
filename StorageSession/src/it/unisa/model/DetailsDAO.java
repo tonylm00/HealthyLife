@@ -35,7 +35,7 @@ public class DetailsDAO {
 	   
 	   public static Collection<ProductBean> doRetrieveProducts(int id) {
 	
-	      String searchQuery = "SELECT prodotto.* FROM prodotto join aggiunta where prodotto.id=aggiunta.id_prodotto and id_ordine = ?";
+	      String searchQuery = "SELECT prodotto.* FROM prodotto join dettaglio where prodotto.id=dettaglio.id_prodotto and id_ordine = ?";
 	      Collection<ProductBean> products = new LinkedList<ProductBean>();
 	      
 		   try{
@@ -47,7 +47,6 @@ public class DetailsDAO {
 		      
 		      while(rs.next()) {
 		    	 ProductBean bean=new ProductBean();
-		    	 bean.setImmagine(rs.getString("immagine"));
 		    	 bean.setCode(rs.getInt("id"));
 				 bean.setName(rs.getString("nome"));
 				 bean.setDescription(rs.getString("descrizione"));
@@ -56,10 +55,10 @@ public class DetailsDAO {
 		      }
 		   } 
 		   catch (Exception ex){
-		      System.out.println("DetailsDAO.doRetriveProducts failed: An Exception has occurred! " + ex);
+		      System.out.println("DetailDAO.doRetriveProducts failed: An Exception has occurred! " + ex);
 		      ex.printStackTrace();
 		   } 
-		  
+		   //some exception handling
 		   finally{
 		      if (rs != null)	{
 		         try {
@@ -89,9 +88,8 @@ public class DetailsDAO {
 	   
 	   public static boolean doSave(Cart cart, int ordine) {
 		   
-		   String insert="insert into aggiunta(id_prodotto, id_ordine, quantita, prezzo_unitario) values(?, ?, ?, ?)";
+		   String insert="insert into dettaglio(id_prodotto, id_ordine, quantita, prezzo_unitario, iva) values(?, ?, ?, ?, ?)";
 		   try{
-			      System.out.println(ordine);
 				  currentCon = ds.getConnection();
 				  List<ProductBean> products=cart.getProducts();
 				  for(ProductBean product: products) {
@@ -100,17 +98,21 @@ public class DetailsDAO {
 				      preparedStatement.setInt(2, ordine);
 				      preparedStatement.setInt(3, product.getCartQuantity());
 				      preparedStatement.setDouble(4, product.getPrice());
+				      preparedStatement.setDouble(5, product.getIva());
+				      
 				      if(preparedStatement.executeUpdate()!=1) {
 				    	  return false;
 				      }
+				      ProductDAO.doUpdate(product);
 				  }
 				  return true;
 		   }
 		   catch (Exception ex){
-				System.out.println("DetailsDAO.doSave failed: An Exception has occurred! " + ex);
+				System.out.println("DetailDAO.doSave failed: An Exception has occurred! " + ex);
 				ex.printStackTrace();
 				return false;
 		   } 
 	   }
 	
 }
+

@@ -3,6 +3,7 @@ package it.unisa.control;
 import java.io.IOException; 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,8 +22,7 @@ public class ProductControl extends HttpServlet  {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
+
 		String sort = (String) request.getParameter("sort");
 		
 		try {
@@ -69,7 +69,6 @@ public class ProductControl extends HttpServlet  {
 					else response.sendRedirect("/ProductView.jsp");
 					
 				} else if (action.equalsIgnoreCase("search")) {
-					
 					ArrayList<ProductBean> list =(ArrayList<ProductBean>)ProductDAO.doRetrieveAll("");
 					ArrayList<String> result=new ArrayList<String>();
 					String s=request.getParameter("search");
@@ -77,7 +76,6 @@ public class ProductControl extends HttpServlet  {
 						if(productBean.getName().contains(s)) {
 							result.add(productBean.getName());
 						}
-					
 					}
 				}
 				 else if (action.equalsIgnoreCase("modify")) {
@@ -123,5 +121,5 @@ public class ProductControl extends HttpServlet  {
 		bean.setSconto(sconto);
 		return bean;
 	}
-	
+		
 }

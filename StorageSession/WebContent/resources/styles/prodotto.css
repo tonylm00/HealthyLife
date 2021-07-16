@@ -1,16 +1,19 @@
-/* <div class=product>
-			<div class=foto> <%=product.getImmagine() %></div>
-			<div class=titolo> <%=product.getName()%> </div>
+/* 
+		<div class=product>
+			<div class=foto> <img src="<%=product.getImmagine()%>" width=500px></div><br>
 			<div class=info>
 				<p>Descrizione:<br><%=product.getDescription()%></p><br> 
 				<p>Informazioni:<br><%=product.getInfo()%></p>
 			</div>
-			<div class=quantita><p>Affrettati, solo <%=product.getQuantity()%> pezzi rimanenti !!!</p></div>
-			<div class=prezzo><p><%=product.getPrice()%> €</p></div>	
+			<div class=quantita>Affrettati, solo <%=product.getQuantity()%> pezzi rimanenti !!!</div><br><br><br>	
+		</div>
+		
+		<div class=azioni>
+			<a class=scelta href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello: €<%=product.getPrice()%></a>
 		</div>
 */
-.scelta {
-			 
+
+.scelta {	 
 	background-color: #a8d43e;
 	color: white;
  	padding: 16px 25px;
@@ -28,56 +31,17 @@
 	text-decoration: none;
 }
 			
-.foto{
-	float: left;
-	display: block
-}
-
-.fotoProd{
-	width:500px;
-	display:block;
-}
-
-.titolo{
-	float: left;
-	font-size:30px;
-	display: block
+.product{
+	left:50%;
+	margin: 0 auto;
+	padding: 0;
+	width:100%;
 }
 
 .info{
-	float:left;
 	font-size:25px;
-	display: block
 }
 
 .quantita{
-	float:left;
-	font-size:28px;
-	display: block
-}
-
-.prezzo{
-	float:left;
-	font-size:28px;
-	display: block
-}
-
-#quantita{
-	float:left;
-	font-size:28px;
-	display: block
-}
-
-#prezzo{
-	float:left;
-	font-size:28px;
-	display: block
-}
-
-.azioni
-{
-	float: left;
-	left:0;
-	bottom:80%;
-	display: block;
+	font-size:25px;
 }

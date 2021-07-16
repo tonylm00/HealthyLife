@@ -26,26 +26,36 @@ public class OrderControl extends HttpServlet {
 			if(action!=null) {
 				if(action.equalsIgnoreCase("checkout")){
 					Cart cart= (Cart) request.getSession().getAttribute("cart");
-					if(cart.getSize()==0) {
+					if(cart == null) {
+						cart = new Cart();
+						request.getSession().setAttribute("cart", cart);
+					}
+					else if(cart.getSize()==0) {
 						 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
 				    	 dispatcher.forward(request, response);
 					}
 					else if(user==null) {
-						response.sendRedirect("/WEB-INF/views/login/LoginCart.jsp");
+						response.sendRedirect("/WEB-INF/views/login/LoginView.jsp");
 					}
 					else{
-						OrderBean order=new OrderBean();
-						order.setPrezzoTot(cart.getTotPrice());
-						order.setUtente(user.getEmail());
-						order=OrderDAO.doSave(order);
-						DetailsDAO.doSave(cart, OrderDAO.getId(order.getUtente(), order.getData()));
-						request.getSession().setAttribute("cart", new Cart());
-						request.getSession().removeAttribute("orders");
-						request.getSession().setAttribute("orders", OrderDAO.doRetrieveByUser(user.getEmail()));
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/orders/RiepilogoOrdine.jsp");
 						dispatcher.forward(request, response);
 					}
 				}
+				else if(action.equalsIgnoreCase("conferma")){
+					Cart cart= (Cart) request.getSession().getAttribute("cart");
+					OrderBean order=new OrderBean();
+					order.setPrezzoTot(cart.getTotPrice());
+					order.setUtente(user.getEmail());
+					order=OrderDAO.doSave(order);
+					DetailsDAO.doSave(cart, OrderDAO.getUtente(order.getUtente(), order.getData()));
+					request.getSession().setAttribute("cart", new Cart());
+					request.getSession().removeAttribute("orders");
+					request.getSession().setAttribute("orders", OrderDAO.doRetrieveAllByUser(user.getEmail()));
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
+					dispatcher.forward(request, response);
+				}
+				
 				else if(action.equalsIgnoreCase("detail")){
 					int id = Integer.parseInt(request.getParameter("id"));
 					request.getSession().removeAttribute("products");
@@ -54,7 +64,19 @@ public class OrderControl extends HttpServlet {
 					dispatcher.forward(request, response);
 				}
 				else if(action.equalsIgnoreCase("guest")){
-					
+					Cart cart= (Cart) request.getSession().getAttribute("cart");
+					if(cart==null || cart.getSize()==0) {
+						 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
+				    	 dispatcher.forward(request, response);
+					}
+					GuestBean guest= getGuestByRequest(request, response);
+					GuestDAO.doSave(guest);
+					OrderBean order=new OrderBean();
+					order.setPrezzoTot(cart.getTotPrice());
+					order.setGuest(GuestDAO.getId(guest));
+					order=OrderDAO.doSave(order);
+					DetailsDAO.doSave(cart, OrderDAO.getGuest(order.getGuest(), order.getData()));
+					response.sendRedirect("/WEB-INF/views/index.jsp");
 				}
 				else if(action.equalsIgnoreCase("filterDate")){
 					String inizio=request.getParameter("inizio");
@@ -66,7 +88,7 @@ public class OrderControl extends HttpServlet {
 				}
 				else if(action.equalsIgnoreCase("filterUser")){
 					String utente=request.getParameter("user");
-					Collection<?> orders = (Collection<?>) OrderDAO.doRetrieveAllbyUser(utente);
+					Collection<?> orders = (Collection<?>) OrderDAO.doRetrieveAllByUser(utente);
 					request.setAttribute("orders", orders);
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/OrdersView.jsp");
 					dispatcher.forward(request, response);
@@ -76,6 +98,16 @@ public class OrderControl extends HttpServlet {
 		catch (Exception e) {
 			System.out.println("Error:" + e.getMessage());
 		}
+	}
+
+	private GuestBean getGuestByRequest(HttpServletRequest request, HttpServletResponse response) {
+		GuestBean guest= new GuestBean();
+		guest.setNome(request.getParameter("nome"));
+		guest.setEmail(request.getParameter("email"));
+		guest.setTelefono(request.getParameter("telefono"));
+		guest.setCognome(request.getParameter("cognome"));
+		guest.setIndirizzo(request.getParameter("indirizzo"));
+		return guest;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

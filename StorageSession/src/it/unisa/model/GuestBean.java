@@ -4,9 +4,11 @@ import java.time.LocalDateTime;
 
 public class GuestBean  {
 
-    private String email;
+	private String email;
     private String nome;
     private String cognome;
+    private String telefono;
+    private String indirizzo;
     private String data;
     
     public GuestBean() {
@@ -18,7 +20,6 @@ public class GuestBean  {
 		return data;
 	}
    
-    
     public String getCognome() {
 		return cognome;
 	}
@@ -45,6 +46,22 @@ public class GuestBean  {
    
    public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+	
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+	
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
 	}
  
 }

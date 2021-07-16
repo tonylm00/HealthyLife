@@ -53,7 +53,7 @@
 			<input id="carta" name ="carta" type="text" required class=campo><br><br>
 		
 			<label for=dataScadenza>Data di scadenza: </label><br>
-			<input id="dataScadenza" name ="dataScadenza" type="date" required class=campo><br><br>
+			<input id="dataScadenza" name ="dataScadenza" type="text" placeholder="MM/AA" class=campo><br><br>
 			
 			<label for=cvv>CVV </label><br>
 			<input id="cvv" name ="cvv" type="text" required class=campo><br><br>

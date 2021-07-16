@@ -2,8 +2,9 @@ package it.unisa.model;
 
 public class OrderBean {
 
-	private String data;
 	private String utente;
+	private int guest;
+	private String data;
 	private double prezzoTot;
 	private int id;
 	
@@ -31,5 +32,13 @@ public class OrderBean {
 	}
 	public void setPrezzoTot(double prezzoTot) {
 		this.prezzoTot = prezzoTot;
+	}
+
+	public int getGuest() {
+		return guest;
+	}
+
+	public void setGuest(int guest) {
+		this.guest = guest;
 	}	
 }

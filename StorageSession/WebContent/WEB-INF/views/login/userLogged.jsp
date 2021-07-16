@@ -34,7 +34,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	<br>
-           <h2>Benvenuto: <%=currentUser.getFirstName() + " " + currentUser.getLastName() %></h2>
+           <h2>Benvenuto: <%=currentUser.getName() + " " + currentUser.getSurname() %></h2>
    
 <h3>Storico ordini effettuati:</h3>
 	<table>
