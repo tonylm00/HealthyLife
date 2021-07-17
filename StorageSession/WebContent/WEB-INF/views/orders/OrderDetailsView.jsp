@@ -12,17 +12,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="ProductStyle.css" rel="stylesheet" type="text/css">
-	<title>Healthy Life - Dettagli ordine </title>
+	<style>
+		 	<%@include file="/resources/styles/header.css" %>
+		 	<%@include file="/resources/styles/footer.css" %>
+		 	<%@include file="/resources/styles/table.css" %>
+	</style>
+	<title>HealthyLife </title>
 </head>
 <body>
-	<h2>Dettagli</h2>
-			<table border="1">
+ <header>
+		<%@ include file="/resources/fragment/header.jsp" %>
+	</header>
+	<h2>Dettagli ordine</h2>
+			<table>
 				<tr>
 					<th>Codice</th>
 					<th>Nome</th>
 					<th>Descrizione</th>
 					<th>Prezzo Unitario</th>
+					<th>Quantità</th>
 			
 				</tr>
 				<%
@@ -36,10 +44,12 @@
 					<td><%=product.getName()%></td>
 					<td><%=product.getDescription()%></td>
 					<td><%=product.getPrice()%></td>
+					<td><%=product.getQuantity()%></td>
 				</tr>
 				<%}}%>
 			</table>
-	
-
+<footer>
+		<%@ include file="/resources/fragment/footer.jsp" %>
+	</footer>
 </body>
 </html>

@@ -58,8 +58,21 @@ public class UserDAO{
 	      else{
 	         String firstName = rs.getString("nome");
 	         String lastName = rs.getString("cognome");
-	         bean.setName(firstName);
+	         String indirizzo = rs.getString("indirizzo");
+	         String ncarta = rs.getString("numeroCarta");
+	         String cvv = rs.getString("CVV");
+	         String intestatario = rs.getString("intestatario");
+	         String telefono = rs.getString("telefono");
+	         String data = rs.getString("dataScadenza");
+	         
+			 bean.setName(firstName);
 	         bean.setSurname(lastName);
+	         bean.setCVV(cvv);
+	         bean.setDataScadenza(data);
+	         bean.setIndirizzo(indirizzo);
+	         bean.setNumeroCarta(ncarta);
+	         bean.setIntestatario(intestatario);
+	         bean.setTelefono(telefono);
 	         bean.setValid(true);
 	      }
 	   } 
@@ -121,5 +134,75 @@ public class UserDAO{
 			return false;
 	   } 
    }
+   
+   public static synchronized boolean doUpdate(UserBean bean) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int result = 0;
+
+		String deleteSQL = "update " + UserDAO.TABLE_NAME 
+		+ " SET indirizzo= ?, intestatario= ?, numeroCarta= ? , dataScadenza= ?, CVV= ? WHERE  email=?";
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setString(1, bean.getIndirizzo());
+			preparedStatement.setString(2, bean.getIntestatario());
+			preparedStatement.setString(3, bean.getNumeroCarta());
+			preparedStatement.setString(4, bean.getDataScadenza());
+			preparedStatement.setString(5, bean.getCVV());
+			preparedStatement.setString(6, bean.getEmail());
+			
+			result = preparedStatement.executeUpdate();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
+	}
+  
+   public synchronized static UserBean doRetrieveByEmail(String email) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		UserBean bean = new UserBean();
+
+		String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE email = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, email);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+			 bean.setName("nome");
+	         bean.setSurname("cognome");
+	         bean.setCVV("CVV");
+	         bean.setDataScadenza("dataScadenza");
+	         bean.setIndirizzo("indirizzo");
+	         bean.setNumeroCarta("numeroCarta");
+	         bean.setIntestatario("intestatario");
+	         bean.setTelefono("telefono");
+	         bean.setValid(true);
+			}
+			
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return bean;
+	}
 }
 

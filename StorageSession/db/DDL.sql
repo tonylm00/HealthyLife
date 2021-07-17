@@ -43,7 +43,7 @@ CREATE TABLE prodotto (
   informazioni text,
   prezzo double default 0,
   sconto double default 0,
-  iva double default 22,
+  iva double NOT NULL,
   prezzoscontato int default 0,
   quantita int default 0,
   immagine text
@@ -107,4 +107,3 @@ CREATE TABLE dettaglio(
   on delete restrict
   on update cascade
 );
-

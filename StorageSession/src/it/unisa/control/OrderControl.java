@@ -19,7 +19,8 @@ public class OrderControl extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getParameter("action");
+		
+    	String action = request.getParameter("action");
 		UserBean user=(UserBean)request.getSession().getAttribute("currentSessionUser");
 		
 		try {
@@ -35,7 +36,8 @@ public class OrderControl extends HttpServlet {
 				    	 dispatcher.forward(request, response);
 					}
 					else if(user==null) {
-						response.sendRedirect("/WEB-INF/views/login/LoginView.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
+				    	 dispatcher.forward(request, response);
 					}
 					else{
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/orders/RiepilogoOrdine.jsp");

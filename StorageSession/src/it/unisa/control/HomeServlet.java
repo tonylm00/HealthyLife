@@ -40,6 +40,13 @@ public class HomeServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 			
+			else if (action.equalsIgnoreCase("gotoCategoryView")) 
+			{
+				String categoria = request.getParameter("categoria");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CategoryView.jsp?categoria="+categoria);
+				dispatcher.forward(request, response);
+			}
+			
 			else if (action.equalsIgnoreCase("goHome")) 
 			{
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
@@ -56,6 +63,12 @@ public class HomeServlet extends HttpServlet {
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminView.jsp");
 				dispatcher.forward(request, response);
 			}
+			else if (action.equalsIgnoreCase("goModificaInfo")) 
+			{
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/modificaInfo.jsp");
+				dispatcher.forward(request, response);
+			}
+			
 		}
 		else
 		{

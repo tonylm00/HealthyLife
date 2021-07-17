@@ -64,3 +64,34 @@ th, td {
   border: 3px solid #a8d43e;
   font-size: 20px;
 }
+
+.scelta {
+  width: 100%;
+  background-color: #a8d43e;
+  color: white;
+  padding: 16px 25px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.scelta:hover {
+  background-color: #45a049;
+  text-decoration: none;
+}
+
+.az{
+	background-color: #a8d43e;
+}
+
+.ac{
+	text-decoration:none;
+	color:black;
+}
+
+.az:hover{
+	 background-color: white;
+}

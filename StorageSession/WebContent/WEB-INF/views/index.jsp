@@ -6,17 +6,17 @@
 		 <style>
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
-		 	<%@include file="/resources/styles/navbar1.css" %>
+		 	<%@include file="/resources/styles/navbar.css" %>
 		 </style>
 		 <title>Healthy Life</title>
 	</head>
 <body>
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
-		<%@include file="/resources/fragment/navbar1.jsp" %>
-	</header>
 		
-			<%@include file="products/ProductView.jsp" %>
+	</header>
+		<%@include file="/resources/fragment/navbar.jsp" %>
+		
 			
 	<header>
 		<%@ include file="/resources/fragment/footer.jsp" %>

@@ -1,6 +1,8 @@
 package it.unisa.control;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +40,39 @@ public class LoginControl extends HttpServlet {
 				
 		    	 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/guest.jsp");
 		    	 dispatcher.forward(request, response); 		
+		     }
+			
+			else if(action.equalsIgnoreCase("modificaInfo")) {
+					
+					String email=request.getParameter("email");
+					String pw=request.getParameter("pw");
+					UserBean user= new UserBean();
+					user.setEmail(email);
+					user.setPassword(pw);
+					user = UserDAO.doRetrieve(user);
+					UserBean nuovo=getUserbyRequest(request,response);
+					nuovo.setEmail(user.getEmail());
+					try {
+						UserDAO.doUpdate(nuovo);
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+			 }	
+		     
+			else if(action.equalsIgnoreCase("VisualizzaInfo")) {
+				HttpSession session = request.getSession();
+				String email=request.getParameter("email");
+				String pw=request.getParameter("pw");
+				UserBean user= new UserBean();
+			    user.setEmail(email);
+			    user.setPassword(pw);
+			    user = UserDAO.doRetrieve(user);
+			    if (user.isValid()){
+			    	session.setAttribute("currentSessionUser", user);
+			    }
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/infoUtente.jsp");
+		    	dispatcher.forward(request, response); 
 		     }
 			
 			else if(action.equalsIgnoreCase("login")) {
@@ -119,6 +154,35 @@ public class LoginControl extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	private UserBean getUserbyRequest(HttpServletRequest request, HttpServletResponse response) {
+		
+		String name = request.getParameter("nome");
+		String surn = request.getParameter("cognome");
+		String em = request.getParameter("email");
+		String p = request.getParameter("pw");
+		String indirizzo = request.getParameter("indirizzo");
+		String telefono = request.getParameter("telefono");
+		String intestatario = request.getParameter("intestatario");
+		String card = request.getParameter("numeroCarta");
+		String data = request.getParameter("dataScadenza");
+		String cvv = request.getParameter("CVV");
+		
+		UserBean bean = new UserBean();
+		
+		bean.setName(name);
+		bean.setSurname(surn);
+		bean.setEmail(em);
+		bean.setPassword(p);
+		bean.setIndirizzo(indirizzo);
+		bean.setNumeroCarta(card);
+		bean.setCVV(cvv);
+		bean.setIntestatario(intestatario);
+		bean.setDataScadenza(data);
+		bean.setTelefono(telefono);
+		
+		return bean;
 	}
 
 }

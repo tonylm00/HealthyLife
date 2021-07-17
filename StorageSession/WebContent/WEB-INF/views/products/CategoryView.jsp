@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 
 <%
-	Collection<?> products = (Collection<?>) CategoriaDAO.doRetrieveProductsbyCategoria(request.getParameter("nome"));
+	String cat = request.getParameter("categoria");
+	Collection<?> products = (Collection<?>) CategoriaDAO.doRetrieveProductsbyCategoria(cat);
 	if(products == null) {
 		response.sendRedirect("product");	
 		return;
@@ -13,11 +14,11 @@
 	
 	Cart cart = (Cart) request.getSession().getAttribute("cart");
 %>
-<!-- NOME DA PASSARE NELLA NAVIGATION BAR -->
+
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Categoria: <%request.getParameter("categoria"); %></title>
+		<title>HealtyLife</title>
 		<style>
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
@@ -28,6 +29,7 @@
 		<header>
 			<%@ include file="/resources/fragment/header.jsp" %>
 		</header>
+		<h1> Esplora questa categoria di prodotti: </h1>
 			<%
 				if (products != null && products.size() != 0) {
 					Iterator<?> it = products.iterator();
@@ -43,7 +45,7 @@
 				}
 				else {
 			%>
-				<h1>Nessun prodotto disponibile nella categoria: <%request.getParameter("categoria"); %></h1>
+				<h1>Nessun prodotto disponibile nella categoria</h1>
 			<%
 				}
 			%>

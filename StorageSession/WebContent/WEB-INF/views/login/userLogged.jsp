@@ -24,7 +24,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
       	<style>
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
-		 	<%@include file="/resources/styles/ProductStyle.css" %>
+		 	<%@include file="/resources/styles/table.css" %>
 		 </style>
          <title>Area personale</title>
       </head>
@@ -35,7 +35,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
 	</header>
 	<br>
            <h2>Benvenuto: <%=currentUser.getName() + " " + currentUser.getSurname() %></h2>
-   
+           
 <h3>Storico ordini effettuati:</h3>
 	<table>
 		
@@ -55,7 +55,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
 						<td><%=bean.getId()%></td>
 						<td><%=bean.getData()%></td>
 						<td><%=bean.getPrezzoTot()%></td>
-						<td><a href="order?action=detail&id=<%=bean.getId()%>">Dettagli ordine</a></td>
+						<td class=az><a class=ac href="order?action=detail&id=<%=bean.getId()%>">Dettagli ordine</a></td>
 					</tr>
 		<%
 				}
@@ -69,7 +69,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
 			}
 		%>
 	</table><br>
-	
+	<a href=login?action=visualizzaInfo class=scelta>VISUALIZZA INFORMAZIONI PERSONALI</a>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

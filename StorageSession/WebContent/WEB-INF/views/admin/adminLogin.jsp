@@ -3,11 +3,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/styles/credenziali.css">
-<title>Login Amministratore</title>
+<style>
+	<%@include file="/resources/styles/header.css" %>
+	<%@include file="/resources/styles/credenziali.css" %>
+</style>
+<title>ADMIN</title>
 </head>
 <body>
-	<h1>Vista Amministratore</h1>
+<header>
+		<%@ include file="/resources/fragment/header.jsp" %>
+	</header>
+	<h1>Login amministratore</h1>
 <form action="login" method="post"> 
 
      <input type="hidden" name="action" value="admin">

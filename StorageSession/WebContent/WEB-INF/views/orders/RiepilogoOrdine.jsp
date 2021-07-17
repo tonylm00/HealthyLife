@@ -15,36 +15,28 @@
 	<style>
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
+		 	<%@include file="/resources/styles/table.css" %>
 	</style>
 </head>
 <body>
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
-	<table border=1>
-	<tr>
-		<td>Nome: </td>
-		<td>Cognome: </td>
-		<td>Email: </td>
-		<td>Indirizzo di spedizione: </td>
-		<td>Numero di carta: </td>
-		<td>Scadenza: </td>
-	</tr>
-	<tr>
-		<td><%=user.getName()%></td>
-		<td><%=user.getSurname()%></td>
-		<td><%=user.getEmail()%></td>
-		<td><%=user.getIndirizzo()%></td>
-		<td><%=user.getNumeroCarta()%></td>
-		<td><%=user.getDataScadenza()%></td>
-	</tr>
+	<h2>INFORMAZIONI UTENTE:</h2>
+	<table>
+	<tr><td>Nome: <%=user.getName()%></td></tr>
+	<tr><td>Cognome: <%=user.getSurname()%></td></tr>
+	<tr><td>Email: <%=user.getEmail()%></td></tr>
+	<tr><td>Indirizzo di spedizione: <%=user.getIndirizzo()%></td><td class=az><a href=home?action=goModificaInfo class=ac>MODIFICA</a></td></tr>
+	<tr><td>Numero di carta: <%=user.getNumeroCarta()%></td><td class=az><a href=home?action=goModificaInfo class=ac>MODIFICA</a></td></tr>
+	<tr><td>Scadenza: <%=user.getDataScadenza()%></td><td class=az><a href=home?action=goModificaInfo class=ac>MODIFICA</a></td></tr>
 	</table>
+	<br>
+	<h2>INFORMAZIONI ORDINE:</h2>
 	<table>
 	<tr>
 		<td>Nome: </td>
 		<td>Quantità: </td>
-		<td>Codice: </td>
-		<td>Descrizione: </td>
 		<td>Prezzo: </td>
 		
 	</tr>
@@ -55,15 +47,12 @@
 		<td><%=beancart.getName()%></td>
 		<td><%=beancart.getCartQuantity()%></td>
 		<td><%=String.format("%.2f", beancart.getTot())%></td>
-		<td><a href="cart?action=delete&id=<%=beancart.getCode()%>">Elimina</a></td>
+		<td class=az><a class=ac href="cart?action=delete&id=<%=beancart.getCode()%>">ELIMINA</a></td>
 	</tr>
 	<%} %>
 	</table>
 	<br><br>
-	<form method="get" action="order">
-		<input type="hidden" name="action" value="conferma">
-		<button type="submit" id="sub">Procedi all'ordine</button>
-	</form>	
+	<a href=order?action=conferma class=scelta>Conferma ordine</a>
 	<br>
 	
 <footer>
