@@ -16,6 +16,10 @@
 		
 	</header>
 		<%@include file="/resources/fragment/navbar.jsp" %>
+	<center>
+		<%@include file="/WEB-INF/views/products/sconti.jsp"%>
+	</center>
+		
 		
 			
 	<header>

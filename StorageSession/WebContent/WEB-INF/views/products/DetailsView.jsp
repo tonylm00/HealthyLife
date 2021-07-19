@@ -31,12 +31,20 @@
 			<div class=info>
 				<p><strong>Descrizione:</strong><br><%=product.getDescription()%></p> 
 				<p><strong>Informazioni:</strong><br><%=product.getInfo()%></p>
-			</div>
-			<div class=quantita><strong>Affrettati</strong>, solo <%=product.getQuantity()%> pezzi rimanenti !</div><br><br><br>	
-		</div>
 		
+		<% if (product.getSconto()!= 0) { 
+		%>
+		</div>
+			<div class=quantita><strong>Affrettati</strong>, solo <%=product.getQuantity()%> pezzi rimanenti in offerta del <strong><%=String.format("%.0f", product.getSconto())%>%</strong></div>	
+			<p class=cancellato> <%=product.getPrice()%> €</p>
+		</div>
+		<%} else { %>
+		<div>
+			<div class=quantita><strong>Affrettati</strong> <%=product.getQuantity()%> pezzi rimanenti </div><br><br><br>	
+		</div>
+		<%} %>
 		<div class=azioni>
-			<a class=scelta href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello: €<%=product.getPrice()%></a>
+			<a class=scelta href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello: €<%=product.getPrezzoScontato()%></a>
 		</div>
 	<%
 		}

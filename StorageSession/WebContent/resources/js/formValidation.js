@@ -59,7 +59,7 @@ function checkEmail(email){
 }
 
 function checkTelefono(email){
-	if(validateEmail(email)==false){
+	if(validatePhonenumber(email)==false){
 		$("#telefonoDiv").html("Inserisci un numero valido");
 		$("#telefonoDiv").css({"color":"red"});
 	}

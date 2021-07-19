@@ -38,6 +38,12 @@
 	width:100%;
 }
 
+.cancellato{
+	text-decoration: line-through;
+	color: red;
+	font-size:30px;
+}
+
 .info{
 	font-size:25px;
 }

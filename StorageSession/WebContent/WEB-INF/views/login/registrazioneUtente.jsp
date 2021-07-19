@@ -7,6 +7,7 @@
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/credenziali.css" %>
 	</style>
+	<script type="text/javascript" src="/resources/js/formValidation.js"></script>
 	<title>Form di registrazione</title>
 </head>
 <body>
@@ -15,35 +16,26 @@
 	</header>
 	
 	<h1>REGISTRAZIONE UTENTE</h1>
-	<form action="login" method="post">
-		
+	<form action="login" method="post">	
 		<fieldset>
 		<label for=name>Nome: </label><br>
-		<input id="name" name="name" type="text" required class=campo><br><br>
+		<input id="name" name="name" type="text" required class=campo onblur="checkNome(this.form.name)"><div id="nomeDiv"></div><br>
 		
 		<label for=surname>Cognome: </label><br>
-		<input id="surname" name ="surname" type="text" required class=campo><br><br>
+		<input id="surname" name ="surname" type="text" required class=campo onblur="checkCognome(this.form.surname)"><div id="cognomeDiv"></div><br>
 	
 		<label for=email>Email: </label> <br>
-		<input id="email" name="email" type="email"required class=campo>
-		
-		<% 
-			if(request.getSession().getAttribute("email")!=null && request.getSession().getAttribute("email").equals("false"))
-			{	
-				%>   email già utilizzata, scegline un altro
-			<%}%>
-		<br><br>
+		<input id="email" name="email" type="email"required class=campo onblur="checkEmail(this.form.email)"><div id="emailDiv"></div>
 	
 		<label for=pw>Password: </label><br>
 		<input id="pw" name="pw" type="password" required class=campo><br><br>
-		
+		</fieldset><fieldset>
 		<label for=indirizzo>Indirizzo: </label><br>
-		<input id="indirizzo" name ="indirizzo" type="text" required class=campo><br><br>
+		<input id="indirizzo" name ="indirizzo" type="text" placeholder="Via e civico, CAP, provincia" required class=campo><br><br>
 		
 		<label for=telefono>Numero di telefono: </label><br>
-		<input id="telefono" name ="telefono" type="text" required class=campo><br><br>
+		<input id="telefono" name ="telefono" type="text" required class=campo onblur="checkTelefono(this.form.address)"><br><br>
 		</fieldset>
-		
 		
 		<fieldset>
 			<label for=intestatario>Intestatario: </label><br>

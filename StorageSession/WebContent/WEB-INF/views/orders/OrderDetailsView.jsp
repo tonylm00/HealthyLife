@@ -43,7 +43,7 @@
 					<td><%=product.getCode()%></td>
 					<td><%=product.getName()%></td>
 					<td><%=product.getDescription()%></td>
-					<td><%=product.getPrice()%></td>
+					<td><%=product.getPrezzoScontato()%></td>
 					<td><%=product.getQuantity()%></td>
 				</tr>
 				<%}}%>

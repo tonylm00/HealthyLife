@@ -1,24 +1,47 @@
 .prodotto{
 	display: inline-block; /*questi div saranno posti uno a fianco all'altro*/
-	margin: 2%; /*un po di spazio tra i div*/
+	margin: 3%; /*un po di spazio tra i div*/
 }
 
 .foto{
-	
+	width:270px;
 }
 
+.fotoCategoria{
+	float:center;
+	width:70%;
+	height:30%;
+}
+
+.titoloCategoria{
+	font-size:20px;
+}
+
+
 .nome{
-	
+	font-size:23px;
+}
+
+.prezzo{
+	font-size:23px;
 }
 
 .immagine{
-	width:250px;
-	
+	width:270px;
 }
 
 .collegamento{
 	text-decoration:none;
 	color:black;
+}
+
+.cancellato{
+	text-decoration: line-through;
+	color: red;
+}
+
+.cerca{
+	border-radius: 10px;
 	font-size:20px;
-	
+	width:auto;
 }
