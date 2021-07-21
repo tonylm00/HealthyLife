@@ -8,7 +8,7 @@
 		 	<%@include file="/resources/styles/credenziali.css" %>
 	</style>
 	<script type="text/javascript" src="/resources/js/formValidation.js"></script>
-	<title>Form di registrazione</title>
+	<title>HealthyLife</title>
 </head>
 <body>
 	<header>
@@ -19,13 +19,13 @@
 	<form action="login" method="post">	
 		<fieldset>
 		<label for=name>Nome: </label><br>
-		<input id="name" name="name" type="text" required class=campo onblur="checkNome(this.form.name)"><div id="nomeDiv"></div><br>
+		<input id="name" name="name" type="text" required class=campo onblur="checkNome(this.form.name);"><div class="nomeDiv"></div><br>
 		
 		<label for=surname>Cognome: </label><br>
-		<input id="surname" name ="surname" type="text" required class=campo onblur="checkCognome(this.form.surname)"><div id="cognomeDiv"></div><br>
+		<input id="surname" name ="surname" type="text" required class=campo onblur="checkCognome(this.form.surname);"><div id="cognomeDiv"></div><br>
 	
 		<label for=email>Email: </label> <br>
-		<input id="email" name="email" type="email"required class=campo onblur="checkEmail(this.form.email)"><div id="emailDiv"></div>
+		<input id="email" name="email" type="email"required class=campo onblur="checkEmail(this.form.email);"><div id="emailDiv"></div>
 	
 		<label for=pw>Password: </label><br>
 		<input id="pw" name="pw" type="password" required class=campo><br><br>
@@ -34,7 +34,7 @@
 		<input id="indirizzo" name ="indirizzo" type="text" placeholder="Via e civico, CAP, provincia" required class=campo><br><br>
 		
 		<label for=telefono>Numero di telefono: </label><br>
-		<input id="telefono" name ="telefono" type="text" required class=campo onblur="checkTelefono(this.form.address)"><br><br>
+		<input id="telefono" name ="telefono" type="text" required class=campo minlength="9" maxlength="12" onblur="checkTelefono(this.form.address)"><br><br>
 		</fieldset>
 		
 		<fieldset>
@@ -42,13 +42,13 @@
 			<input id="intestatario" name ="intestatario" type="text" required class=campo><br><br>
 			
 			<label for=carta>Numero di carta: </label><br>
-			<input id="carta" name ="carta" type="text" required class=campo><br><br>
+			<input id="carta" name ="carta" type="text" required class=campo minlength="16" maxlength="16"><br><br>
 		
 			<label for=dataScadenza>Data di scadenza: </label><br>
-			<input id="dataScadenza" name ="dataScadenza" type="text" placeholder="MM/AA" class=campo><br><br>
+			<input id="dataScadenza" name ="dataScadenza" type="text" placeholder="MM/AA"  required class=campo minlength="5" maxlength="5"><br><br>
 			
 			<label for=cvv>CVV </label><br>
-			<input id="cvv" name ="cvv" type="text" required class=campo><br><br>
+			<input id="cvv" name ="cvv" type="text" required class=campo minlength="3" maxlength="3"><br><br>
 		</fieldset>
 		
 		<input type="hidden" name="action" value="registration">

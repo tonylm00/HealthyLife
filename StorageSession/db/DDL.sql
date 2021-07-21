@@ -44,7 +44,7 @@ CREATE TABLE prodotto (
   prezzo double default 0,
   sconto double default 0,
   iva double NOT NULL,
-  prezzoscontato int default 0,
+  prezzoscontato double default 0,
   quantita int default 0,
   immagine text
 );

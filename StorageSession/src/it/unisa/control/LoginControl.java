@@ -23,7 +23,6 @@ public class LoginControl extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String action = request.getParameter("action");
@@ -76,6 +75,7 @@ public class LoginControl extends HttpServlet {
 		     }
 			
 			else if(action.equalsIgnoreCase("login")) {
+				
 				HttpSession session = request.getSession();
 				String email=request.getParameter("email");
 				String pw=request.getParameter("pw");
@@ -83,12 +83,28 @@ public class LoginControl extends HttpServlet {
 			    user.setEmail(email);
 			    user.setPassword(pw);
 			    user = UserDAO.doRetrieve(user);
-			    if (user.isValid()){
+			    if (user.isValid()){	
 			    	session.setAttribute("currentSessionUser", user);
+			    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
+			    	dispatcher.forward(request, response); 
 			    }
-			    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
-		    	 dispatcher.forward(request, response); 
-			} 		
+			    else
+			    {
+			    	session.removeAttribute("currentSessionUser");
+			    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
+			    	dispatcher.forward(request, response); 
+			    }
+			    
+			}
+			
+			else if(action.equalsIgnoreCase("logout")) {
+			    HttpSession session = request.getSession();
+				session.removeAttribute("currentSessionUser");
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
+		    	dispatcher.forward(request, response);
+			   
+			}
 					
 			else if(action.equalsIgnoreCase("registration")) {
 				UserBean bean= new UserBean();

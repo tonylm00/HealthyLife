@@ -26,8 +26,10 @@
 		
 		<% 
 		UserBean currentUser = (UserBean) (session.getAttribute("currentSessionUser"));
-		if ((currentUser!=null)&&(!currentUser.isValid())){	
-		%><br> Utente non valido, reinserisci le credenziali<br/><br/>   
+		if ((currentUser!=null)&&(currentUser.isValid())){	
+			response.sendRedirect("home?action=logged");
+		%>
+		 
 		<%}%>
 	
 		 <form action="login" method="post">

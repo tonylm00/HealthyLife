@@ -20,6 +20,15 @@
     <url-pattern>/product</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+    <servlet-name>CercaServlet</servlet-name>
+    <servlet-class>it.unisa.control.CercaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CercaServlet</servlet-name>
+    <url-pattern>/cercaproduct</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>CategoryControl</servlet-name>
     <servlet-class>it.unisa.control.CategoryControl</servlet-class>

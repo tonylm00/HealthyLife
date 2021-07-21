@@ -1,3 +1,8 @@
+
+/*
+*
+*/
+
 function allLetter(uname){
 	var letters = /^[A-Za-z]+$/;
 	if(uname.value.match(letters)){

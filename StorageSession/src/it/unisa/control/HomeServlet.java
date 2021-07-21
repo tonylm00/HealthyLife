@@ -68,6 +68,11 @@ public class HomeServlet extends HttpServlet {
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/modificaInfo.jsp");
 				dispatcher.forward(request, response);
 			}
+			else if (action.equalsIgnoreCase("logged")) 
+			{
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
+				dispatcher.forward(request, response);
+			}
 			
 		}
 		else

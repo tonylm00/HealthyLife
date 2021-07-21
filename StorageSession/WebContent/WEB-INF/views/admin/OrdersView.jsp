@@ -31,7 +31,7 @@
 	</header>
 	
 	<h2>Ordini</h2>
-	<table>
+	<table align=center>
 		<tr>
 			<th>Codice</th>
 			<th>Data Ordine</th>
@@ -48,7 +48,12 @@
 						<td><%=bean.getId() %></td>
 						<td><%=bean.getData()%></td>
 						<td><%=bean.getPrezzoTot()%></td>
-						<td><%=bean.getUtente()%></td>
+						<td><%if(bean.getUtente()!=null){%>
+							<%= bean.getUtente()%>
+						<%} else{%>
+						GUEST
+						<%} %>
+						</td>
 					</tr>
 		<%
 				}
@@ -67,8 +72,8 @@
 <h2>Filtra prodotti per data:</h2>
 	<form action="order" method="post">
 		<input type="hidden" name="action" value="filterDate">
-		<input type="text" name="inizio" placeholder="inizio yyyy-mm-dd" class=campo><br/><br/>
-		<input type="text" name="fine" placeholder="fine yyyy-mm-dd" class=campo><br/><br/>
+		<input type="text" name="inizio" placeholder="DATA INIZIO (YYYY-MM-DD)" class=campo><br/><br/>
+		<input type="text" name="fine" placeholder="DATA FINE (YYYY-MM-DD)" class=campo><br/><br/>
 		<input type="submit" value="Filtra" class=scelta>
 	</form><br/>
 	

@@ -24,7 +24,6 @@
      <input id="password" type="password" name="password" class=campo> 
      <br>
      <input type="submit" value="Login" class=scelta>
-     <input type="reset" value="Reset" class=scelta>
 </form> 
 
 </body>

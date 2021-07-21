@@ -1,22 +1,17 @@
 .prodotto{
 	display: inline-block; /*questi div saranno posti uno a fianco all'altro*/
-	margin: 3%; /*un po di spazio tra i div*/
-}
-
-.foto{
-	width:270px;
+	margin: 2%; /*un po di spazio tra i div*/
 }
 
 .fotoCategoria{
 	float:center;
-	width:70%;
-	height:30%;
+	width:100%;
+	height:auto;
 }
 
 .titoloCategoria{
-	font-size:20px;
+	font-size:28px;
 }
-
 
 .nome{
 	font-size:23px;
@@ -28,6 +23,7 @@
 
 .immagine{
 	width:270px;
+	height:auto;
 }
 
 .collegamento{
@@ -38,10 +34,4 @@
 .cancellato{
 	text-decoration: line-through;
 	color: red;
-}
-
-.cerca{
-	border-radius: 10px;
-	font-size:20px;
-	width:auto;
 }

@@ -165,7 +165,7 @@ public class UserDAO{
 		}
 		return (result != 0);
 	}
-  
+  /* DA CANC
    public synchronized static UserBean doRetrieveByEmail(String email) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -204,5 +204,6 @@ public class UserDAO{
 		}
 		return bean;
 	}
+   */
 }
 

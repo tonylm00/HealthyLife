@@ -99,6 +99,46 @@ public class ProductDAO{
 		}
 		return bean;
 	}
+	
+	public synchronized static ProductBean doRetrieveByName(String nome) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ProductBean bean = new ProductBean();
+
+		String selectSQL = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE nome = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, nome);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				bean.setCode(rs.getInt("id"));
+				bean.setName(rs.getString("nome"));
+				bean.setDescription(rs.getString("descrizione"));
+				bean.setPrice(rs.getDouble("prezzo"));
+				bean.setQuantity(rs.getInt("quantita"));
+				bean.setIva(rs.getInt("iva"));
+				bean.setSconto(rs.getDouble("sconto"));
+				bean.setPrezzoScontato(rs.getDouble("prezzoscontato"));
+				bean.setInfo(rs.getString("informazioni"));		
+				bean.setImmagine(rs.getString("immagine"));
+			}
+			
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return bean;
+	}
 
 	public synchronized static ProductBean doRetrieveByCategory(String cat) throws SQLException {
 		Connection connection = null;

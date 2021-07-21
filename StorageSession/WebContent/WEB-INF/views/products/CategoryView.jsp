@@ -25,13 +25,14 @@
 		 	<%@include file="/resources/styles/ProductStyle.css"%>
 		 	<%@include file="/resources/styles/navbar.css" %>
 		</style>
+		
 	</head>
 	<body>
 		<header>
 			<%@ include file="/resources/fragment/header.jsp" %>
 		</header>
 		<%@ include file="/resources/fragment/navbar.jsp" %>
-		<h2> Ricerca un prodotto nella categoria: <input type=text class=cerca></h2>
+		
 		<h1> Esplora tutti i prodotti della categoria </h1>
 			<%
 				if (products != null && products.size() != 0) {
@@ -40,12 +41,12 @@
 						ProductBean bean = (ProductBean) it.next();
 			%>
 			<div class=prodotto>
-				<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
+				<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG></a></div>
 				<div class=nome><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>"><%=bean.getName()%></a></div>
 				<%if(bean.getSconto()!=0) {%>
-				<div class=prezzo><a class=cancellato href="product?action=read&id=<%=bean.getCode()%>">€<%=bean.getPrice()%></a></div>
+				<div class=prezzo><a class=cancellato href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrice())%></a></div>
 				<%} %>
-				<div class=prezzo><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>">€<%=bean.getPrezzoScontato()%></a></div>
+				<div class=prezzo><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrezzoScontato())%></a></div>
 			</div>
 			<%
 					}
@@ -59,5 +60,6 @@
 		<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>
+	<br><br><br><br><br><br>
 	</body>
 </html>

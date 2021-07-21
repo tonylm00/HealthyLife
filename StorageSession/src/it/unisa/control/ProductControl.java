@@ -49,6 +49,16 @@ public class ProductControl extends HttpServlet  {
 					ProductDAO.doUpdate(bean);
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/DetailsView.jsp");
 					dispatcher.forward(request, response);
+				}
+				else if(action.equalsIgnoreCase("readName")){
+					String nome = request.getParameter("cerca");
+					request.removeAttribute("product");
+					ProductBean bean=ProductDAO.doRetrieveByName(nome);
+					request.setAttribute("product", bean );
+					ProductDAO.doUpdate(bean);
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/DetailsView.jsp");
+					dispatcher.forward(request, response);
+				
 				} else if (action.equalsIgnoreCase("delete")) {
 					int id = Integer.parseInt(request.getParameter("id"));
 					ProductDAO.doDelete(id);
@@ -123,3 +133,4 @@ public class ProductControl extends HttpServlet  {
 	}
 		
 }
+

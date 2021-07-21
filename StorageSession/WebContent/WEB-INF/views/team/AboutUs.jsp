@@ -1,55 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="UTF-8">
 	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
 	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
-	
 	<style>
-		.Tfoto{
-			height:300px;
-			width:250px;
-		}
-		.heading-title{
-			text-align :center;
-		}
+		 	<%@include file="/resources/styles/header.css" %>
+		 	<%@include file="/resources/styles/footer.css" %>
+		 	<%@include file="/resources/styles/aboutUs.css" %>
 	</style>
 	
-	<title>About us</title>
+	<title>HealthyLife</title>
 </head>
 
 <body>
+	
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
+	<h1 align=center>HealthyLife</h1>
+	<div class=about>
+		<p class=text align=center>Healthy Life si propone di diventare un punto di riferimento e-commerce per gli appassionati del mondo fitness. Per Healthy Life è importante stimolare le ambizioni delle persone indipendentemente dall’obiettivo che si vuole raggiungere. Per questo offriamo una vasta gamma di prodotti alimentari rispettando le esigenze dietetiche vegane, senza lattosio e senza glutine affinché ogni consumatore possa beneficiare di un’alimentazione di qualità.
+Intendiamo promuovere uno stile di vita sano, oltre all’alimentazione, offriamo una vasta gamma di attrezzatura per permettere un allenamento quotidiano, in casa (home gym).</p>
+		<div class=per>
+			<img src="resources/images/antonioFoto.jpg" class="Tfoto">
+			<p class=nome>Antonio La Marca</p>
+			<p class=ruolo>Founder</p>
+		</div>
+		<div class=per>
+			<img src="resources/images/francescoFoto.jpg" class="Tfoto">
+			<p class=nome>Francesco Amato</p>
+			<p class=ruolo>CEO</p>
+		</div>	
+		<div class=per>
+			<img src="resources/images/giorgioFoto.png" class="Tfoto">
+			<p class=nome>Giorgio Iannello</p>
+			<p class=ruolo>CEO</p>
+		</div>
+	</div>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>
-	
-	<div class="container">
-		<div class="container-dir">
-			<div class="heading-title">
-				<h3 class="text -uppercase">Le nostre competenze</h3>
-				<p class="text">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel est ut ex mattis fringilla.<br>
-				 Nullam eu tellus et nisi imperdiet molestie.<br>
-				 Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. <br>
-				 In at sapien quis ligula scelerisque fermentum quis non odio. Vivamus id purus nunc. Vestibulum eu.
-			</div>
-			<table style="width:100%">
-			<tr>
-				<th><img src="resources/images/antonioFoto.jpg" class="Tfoto">
-				<th><img src="resources/images/francescoFoto.jpg" class="Tfoto">
-				<th><img src="resources/images/giorgioFoto.png" class="Tfoto">
-			<tr>
-				<th><Strong>Founder</Strong>
-				<th><Strong>CEO</Strong>
-				<th><Strong>Cleaning Services</Strong>
-			</table>
-		</div>
-	</div>
-	
 </body>
 </html>

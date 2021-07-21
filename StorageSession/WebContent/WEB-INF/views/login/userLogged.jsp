@@ -13,12 +13,9 @@
 if ((currentUser==null)||(!currentUser.isValid()))
 {	
     %>  <h3>Utente non valido</h3> <%
-    return;
-}
+    return; } 
 
-	Collection<?> orders = (Collection<?>) request.getSession().getAttribute("orders");
-
-%>
+ Collection<?> orders = (Collection<?>) request.getSession().getAttribute("orders"); %>
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
       	<style>
@@ -30,6 +27,12 @@ if ((currentUser==null)||(!currentUser.isValid()))
       </head>
 	
       <body>
+      <%
+	      	if ((currentUser==null)||(!currentUser.isValid())){	
+				   	response.sendRedirect("LoginView.jsp"); 
+				    return;
+		  	} 
+		  %>
       <header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
@@ -69,7 +72,8 @@ if ((currentUser==null)||(!currentUser.isValid()))
 			}
 		%>
 	</table><br>
-	<a href=login?action=visualizzaInfo class=scelta>VISUALIZZA INFORMAZIONI PERSONALI</a>
+	<a href=login?action=visualizzaInfo class=scelta>VISUALIZZA INFORMAZIONI PERSONALI</a><br><br><br>
+	<a href=login?action=logout class=scelta>LOGOUT</a>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>
