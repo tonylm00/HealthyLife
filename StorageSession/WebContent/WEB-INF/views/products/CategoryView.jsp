@@ -32,7 +32,7 @@
 			<%@ include file="/resources/fragment/header.jsp" %>
 		</header>
 		<%@ include file="/resources/fragment/navbar.jsp" %>
-		
+		<div align=center>
 		<h1> Esplora tutti i prodotti della categoria </h1>
 			<%
 				if (products != null && products.size() != 0) {
@@ -57,6 +57,7 @@
 			<%
 				}
 			%>
+		</div><br><br><br>
 		<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

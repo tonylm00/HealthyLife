@@ -15,7 +15,7 @@
 		</style>
 	<div class=categoria>
 		<!--  <img class=fotoCategoria src="https://www.offerteshopping.it/wp-content/uploads/2016/12/SCONTI.jpg">-->
-		<img align=center src=https://media.tenor.com/images/66ff3e276af1c2ed2d1fcfcf1872c5b3/tenor.gif width=350px>
+		<img align=center src=https://media.tenor.com/images/66ff3e276af1c2ed2d1fcfcf1872c5b3/tenor.gif width=400px>
 		<p class=titoloCategoria><strong> Offerte da non perdere, sconti fino al 50% !</strong></p>
 	</div>
 			<%

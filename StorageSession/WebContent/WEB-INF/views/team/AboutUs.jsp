@@ -4,19 +4,13 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
 	<style>
 		 	<%@include file="/resources/styles/header.css" %>
-		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/aboutUs.css" %>
 	</style>
-	
 	<title>HealthyLife</title>
 </head>
-
 <body>
-	
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
@@ -40,8 +34,6 @@ Intendiamo promuovere uno stile di vita sano, oltre all’alimentazione, offriam
 			<p class=ruolo>CEO</p>
 		</div>
 	</div>
-	<footer>
-		<%@ include file="/resources/fragment/footer.jsp" %>
-	</footer>
+	<br><br><br>
 </body>
 </html>

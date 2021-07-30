@@ -23,6 +23,7 @@
  <header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
+	<div align=center>
 	<h2>Dettagli ordine</h2>
 			<table>
 				<tr>
@@ -48,7 +49,8 @@
 				</tr>
 				<%}}%>
 			</table>
-<footer>
+			</div>
+	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>
 </body>

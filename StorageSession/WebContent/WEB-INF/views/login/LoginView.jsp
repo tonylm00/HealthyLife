@@ -19,11 +19,9 @@
 	</head>
 
 	 <body>
-	
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
-		
 		<% 
 		UserBean currentUser = (UserBean) (session.getAttribute("currentSessionUser"));
 		if ((currentUser!=null)&&(currentUser.isValid())){	
@@ -31,7 +29,7 @@
 		%>
 		 
 		<%}%>
-	
+	<div align=center>
 		 <form action="login" method="post">
 			<input type="hidden" name="action" value="login">
 			
@@ -46,6 +44,7 @@
 		<br>
 		<a href="login?action=goRegistration" class=scelta>Registrati qui</a>
 		<a href="login?action=goGuest" class=scelta>Acquista senza registrarti</a><br>
+		</div>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

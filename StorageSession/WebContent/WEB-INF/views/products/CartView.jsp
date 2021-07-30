@@ -40,7 +40,7 @@
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
-	
+	<div align=center>
 	<% if(cart != null && cart.getSize()!=0) { %>
 		
 		<table class="elencoprodotti">
@@ -82,7 +82,7 @@
 	<% } %>
 	
 	<br/>
-		<a href="order?action=checkout" class=scelta> Checkout</a>
+		<a href="order?action=checkout" class=scelta> Checkout</a></div><br><br><br><br>
 </body>
 <footer>
 	<%@ include file="/resources/fragment/footer.jsp" %>

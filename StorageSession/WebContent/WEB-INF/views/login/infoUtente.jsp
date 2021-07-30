@@ -30,6 +30,7 @@ if ((user==null)||(!user.isValid()))
       <header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
+	<div align=center>
 	<table>
 	<tr><td>Nome: <%=user.getName()%></td></tr>
 	<tr><td>Cognome: <%=user.getSurname()%></td></tr>
@@ -41,6 +42,7 @@ if ((user==null)||(!user.isValid()))
 	</table>
 	<br><br>
 	<a class=scelta href=home?action=goModificaInfo>Modifica Informazioni di spedizione o pagamento</a>
+	</div>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

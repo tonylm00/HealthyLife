@@ -15,6 +15,7 @@
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
+	<div align=center>
 	<h1>ACQUISTA QUI SENZA REGISTRATI</h1>
 	<form action="order" method="post">
 		<input type="hidden" name="action" value="guest">
@@ -31,9 +32,10 @@
 		<input type="submit" value="Invia" class=scelta>
 	</form>
 	<br><a href="login/LoginView.jsp" class=scelta>Accedi</a> <a class=scelta>o continua ad acquistare senza loggarti:</a>
-	<header>
+	</div><br><br><br><br>
+	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
-	</header>
+	</footer>
 
 </body>
 </html>

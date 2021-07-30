@@ -22,6 +22,7 @@
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
+	<div align=center>
 	<h2>INFORMAZIONI UTENTE:</h2>
 	<table>
 	<tr><td>Nome: <%=user.getName()%></td></tr>
@@ -54,7 +55,7 @@
 	<br><br>
 	<a href=order?action=conferma class=scelta>Conferma ordine</a>
 	<br>
-	
+	</div>
 <footer>
 	<%@ include file="/resources/fragment/footer.jsp" %>
 </footer>

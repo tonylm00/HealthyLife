@@ -14,18 +14,16 @@
 		 <%@include file="/resources/styles/footer.css" %>
 		 <%@include file="/resources/styles/prodotto.css" %>
 	</style>
-	<title>Dettagli: <%=product.getName()%> </title>
+	<title>HealthyLife </title>
 </head>
 
 <body>
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
-	</header>
-	
-	<h2> <%=product.getName()%></h2>
-	<%
-		if (product != null) {
-	%>
+	</header>	
+	<% if (product != null) { %>
+		<h2> <%=product.getName()%></h2>
+		<div class=page>
 		<div class=product>
 			<div class=foto> <img src="<%=product.getImmagine()%>" width=300px></div><br>
 			<div class=info>
@@ -35,21 +33,22 @@
 		<% if (product.getSconto()!= 0) { 
 		%>
 		</div>
-			<div class=quantita><strong>Affrettati</strong>, solo <%=product.getQuantity()%> pezzi rimanenti in offerta del <strong><%=String.format("%.0f", product.getSconto())%>%</strong></div>	
-			<p class=cancellato> <%=product.getPrice()%> €</p>
+			<div class=quantita ><strong>Affrettati</strong>, solo <%=product.getQuantity()%> pezzi rimanenti in offerta del <strong><%=String.format("%.0f", product.getSconto())%>%</strong></div>	
+			<br><a class=cancellato> Prezzo iniziale: <%=product.getPrice()%> €</a><br><br>
 		</div>
 		<%} else { %>
 		<div>
-			<div class=quantita><strong>Affrettati</strong> <%=product.getQuantity()%> pezzi rimanenti </div><br><br><br>	
+			<div class=quantita ><strong>Affrettati</strong> <%=product.getQuantity()%> pezzi rimanenti </div><br>
 		</div>
 		<%} %>
 		<div class=azioni>
-			<a class=scelta href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello: €<%=product.getPrezzoScontato()%></a>
+			<br><a class=scelta href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello: €<%=product.getPrezzoScontato()%></a>
 		</div>
 	<%
 		}
 	%>
-	
+	</div>
+	<br><br><br><br><br><br>
 	<footer>
 	<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

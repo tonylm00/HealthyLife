@@ -31,6 +31,7 @@ if ((user==null)||(!user.isValid()))
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
+	<div align=center>
 	<h1><%=user.getName() + " " + user.getSurname() %></h1>
 	<h2><%=user.getEmail()%></h2>
 	<h3>Inserisci le nuove informazioni di spedizione e pagamento</h3>
@@ -60,7 +61,7 @@ if ((user==null)||(!user.isValid()))
 		<input type="hidden" name="action" value="modificaInfo">
 		<input type="submit" value="Conferma modifiche" class=scelta>
 	</form>
-	
+	</div><br><br><br><br><br>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

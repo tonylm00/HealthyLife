@@ -25,20 +25,20 @@ if ((currentUser==null)||(!currentUser.isValid()))
 		 </style>
          <title>Area personale</title>
       </head>
-	
       <body>
+      <header>
+		<%@ include file="/resources/fragment/header.jsp" %>
+	</header>
       <%
 	      	if ((currentUser==null)||(!currentUser.isValid())){	
 				   	response.sendRedirect("LoginView.jsp"); 
 				    return;
 		  	} 
 		  %>
-      <header>
-		<%@ include file="/resources/fragment/header.jsp" %>
-	</header>
+      <div align=center>
 	<br>
            <h2>Benvenuto: <%=currentUser.getName() + " " + currentUser.getSurname() %></h2>
-           
+     
 <h3>Storico ordini effettuati:</h3>
 	<table>
 		
@@ -74,6 +74,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
 	</table><br>
 	<a href=login?action=visualizzaInfo class=scelta>VISUALIZZA INFORMAZIONI PERSONALI</a><br><br><br>
 	<a href=login?action=logout class=scelta>LOGOUT</a>
+	</div>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>
