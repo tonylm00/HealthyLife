@@ -18,6 +18,15 @@
 </head>
 
 <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="products/zoomsl.min.js"></script>
+	<script src="products/zoomsl.js"></script>
+		<script> //non funziona
+		$(document).ready(function(){
+		$('#zoom').imagezoomsl();
+		});
+		</script>
+	
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>	
@@ -25,7 +34,8 @@
 		<h2> <%=product.getName()%></h2>
 		<div class=page>
 		<div class=product>
-			<div class=foto> <img src="<%=product.getImmagine()%>" width=300px></div><br>
+			<div class=foto> <img src="<%=product.getImmagine()%>"  width=300px id="zoom"></div><br>
+				
 			<div class=info>
 				<p><strong>Descrizione:</strong><br><%=product.getDescription()%></p> 
 				<p><strong>Informazioni:</strong><br><%=product.getInfo()%></p>

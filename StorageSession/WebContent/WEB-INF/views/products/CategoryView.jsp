@@ -43,10 +43,10 @@
 			<div class=prodotto>
 				<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG></a></div>
 				<div class=nome><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>"><%=bean.getName()%></a></div>
-				<%if(bean.getSconto()!=0) {%>
-				<div class=prezzo><a class=cancellato href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrice())%></a></div>
-				<%} %>
+				
 				<div class=prezzo><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrezzoScontato())%></a></div>
+				<%if(bean.getSconto()!=0) {%>
+				<div class=prezzo><a class=cancellato href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrice())%></a></div><%} %>
 			</div>
 			<%
 					}
