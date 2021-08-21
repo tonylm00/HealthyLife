@@ -24,6 +24,8 @@
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 		<%@include file="/resources/fragment/navbar.jsp" %>
+	
+	
 		
 	<form action=product>
 		<p class=intestazione>Cerca un prodotto:</p>
@@ -36,11 +38,14 @@
 	<br><br><br><br>
 	<div align=center>
 		<%@include file="/resources/fragment/sconti.jsp"%>
-	</div>	
-	<footer>
-		<%@ include file="/resources/fragment/footer.jsp" %>
-	</footer>
-	<br><br><br><br>
+	</div>
+	
+	
+		<footer>
+			<%@ include file="/resources/fragment/footer.jsp" %>
+		</footer>
+		<br><br><br><br>
+	
 </body>
 </html>
 

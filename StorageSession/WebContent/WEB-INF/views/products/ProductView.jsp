@@ -54,8 +54,8 @@
 
 		<% } %>
 
-	<footer>
+		<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
-	</footer>
+		</footer>
 </body>
 </html>

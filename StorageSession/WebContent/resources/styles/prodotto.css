@@ -35,21 +35,47 @@
 	text-decoration: none;
 	cursor:pointer;
 }
+
 			
 .page{
 	margin-left:6%;
+	margin-right:6%;
 }
 
-h2{
-	margin-left:6%;
+.foto
+{
+	display:block;
+	width:270px;
+	border-radius: 5px;
+	position:center;
+	
+}
+.foto:hover
+{
+	transform:scale(1.1);
+	z-index:2;
+}
+.product
+{
+  margin: auto;
+  width: 100%;
+  padding: 0px;
+	
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  border-color:#45a049;
+  border-collapse: collapse;
 }
 
-.info{
-	font-size:25px;
+th {
+  padding: 15px 20px;
+  text-align: center;
 }
-
-.quantita{
-	font-size:25px;
+.colonne
+{
+	font-weight: bold
 }
-
 

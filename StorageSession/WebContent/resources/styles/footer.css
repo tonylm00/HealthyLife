@@ -30,18 +30,18 @@
      display: flex;
  }
 
- .footer .footer-right {
- 	align-items: center;
-     display: flex;
- }
 
- @media screen and (max-width: 768px){
+ @media screen and (max-width: 480px){
  	.footer-right{
  		float: none;
  		display: block;
  	}
  	.footer-left{
  	 	float: none;
+ 	}
+ 	.footer
+ 	{
+ 		width: "100%";
  	}
  } 
  
