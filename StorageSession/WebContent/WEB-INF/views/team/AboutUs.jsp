@@ -7,6 +7,7 @@
 	<style>
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/aboutUs.css" %>
+		 	<%@include file="/resources/styles/footer.css" %>
 	</style>
 	<title>HealthyLife</title>
 </head>
@@ -35,5 +36,8 @@ Intendiamo promuovere uno stile di vita sano, oltre all’alimentazione, offriam
 		</div>
 	</div>
 	<br><br><br>
+	<footer>
+			<%@ include file="/resources/fragment/footer.jsp" %>
+		</footer>
 </body>
 </html>

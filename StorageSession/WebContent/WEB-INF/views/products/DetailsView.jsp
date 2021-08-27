@@ -32,8 +32,9 @@
 	
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
+		<%@include file="/resources/fragment/navbar.jsp" %>
 	</header>	
-	<%@include file="/resources/fragment/navbar.jsp" %>
+	
 	
 	<% if (product != null) { %>
 		
@@ -75,7 +76,6 @@
 	<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>
 </body>
-
 <!--  <div class=info>
 				<p><strong>Descrizione:</strong><br><%=product.getDescription()%></p> 
 				<p><strong>Informazioni:</strong><br><%=product.getInfo()%></p>
@@ -95,4 +95,5 @@
 		<div class=azioni>
 			<br><a class=scelta href="cart?action=addCartDetails&id=<%=product.getCode()%>">Aggiungi al carrello: €<%=product.getPrezzoScontato()%></a>
 		</div> </div>-->
+
 </html>

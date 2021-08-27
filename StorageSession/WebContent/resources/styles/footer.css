@@ -1,10 +1,10 @@
 .footer{
- 	position: fixed;
+ 	position: static;
   	left: 0;
   	bottom: 0;
  	width: 100%;
  	display: flex;
- 	background-color: #a8d43e;
+ 	background-color: #FF6347;
  	justify-content: space-between;
  	align-items: stretch;
  	box-sizing: border-box;
@@ -13,11 +13,11 @@
  .footer a{
  	padding: 0px 15px;
  	text-decoration: none;
- 	color: #FFF;
+ 	color: black;
  }
  
- .footer a:hover{
- 	opacity:0.8;
+ .footer-left a:hover{
+ 	background-color: #FF4500;
  }
  
  .img
@@ -29,12 +29,19 @@
  	align-items: center;
      display: flex;
  }
-
-
- @media screen and (max-width: 480px){
+ .footer-right
+ {
+ 	-webkit-user-select: none;  /* Chrome all / Safari all */
+  	-moz-user-select: none;     /* Firefox all */
+  	-ms-user-select: none;      /* IE 10+ */
+ 	 user-select: none;          /* Likely future */
+ }
+ 
+@media screen and (max-width: 480px){
  	.footer-right{
  		float: none;
  		display: block;
+ 		font-size: 12px;
  	}
  	.footer-left{
  	 	float: none;

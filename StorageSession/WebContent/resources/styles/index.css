@@ -1,8 +1,7 @@
- #cerca{
+#cerca{
 	border-radius: 10px;
 	font-size:22px;
 	width:70%;
-	
 }
 
 .intestazione{
@@ -10,19 +9,4 @@
 	font-size:25px;
 }
 
-.searchbar{
-   position: absolute;
-   left: 17%;
-   right: 13%;
-   width:100%
-}
-button{
-  background-color: #a8d43e;
-  border-radius: 10px;
-  color: white;
-  
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-}
+

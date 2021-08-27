@@ -22,20 +22,9 @@
 	
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
-	</header>
 		<%@include file="/resources/fragment/navbar.jsp" %>
+	</header>
 	
-	
-		
-	<form action=product>
-		<p class=intestazione>Cerca un prodotto:</p>
-		<div class=searchbar>
-		<input type=text id=cerca name=cerca onkeyup="search()">
-		<input type="hidden" name="action" value="readName">
-		<button>&#10095;</button>
-		</div>
-	</form>	
-	<br><br><br><br>
 	<div align=center>
 		<%@include file="/resources/fragment/sconti.jsp"%>
 	</div>
