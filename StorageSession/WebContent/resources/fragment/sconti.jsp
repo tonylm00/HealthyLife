@@ -10,10 +10,33 @@
 	Cart cart = (Cart) request.getSession().getAttribute("cart");
 %>
 <html>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	<style>
-		 	<%@include file="/resources/styles/ProductStyle.css"%>
+	<head>
+		<style>
+		<%@include file="/resources/styles/ProductStyle.css"%>
 		</style>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script> <!-- Bootstrap -->
+	</head>
+	
+	<!-- Image Slider 
+	<div id="slide" class="carousel slide" data-rise="carousel">
+		<ul class="carousel-indicators">
+			<li data-target="#slides" data-slides-to="0" class="active">
+			<li data-target="#slides" data-slides-to="0">
+			<li data-target="#slides" data-slides-to="0">
+		</ul>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="resources/images/provaImg.PNG">
+			</div>
+			<div class="carousel-item">
+				<img src="resources/images/provaImg.PNG">
+			</div>
+			<div class="carousel-item">
+				<img src="resources/images/provaImg.PNG">
+			</div>
+		</div> 
+	</div> -->
+	
 	<div class=categoria>
 		<!--  <img class=fotoCategoria src="https://www.offerteshopping.it/wp-content/uploads/2016/12/SCONTI.jpg">-->
 		

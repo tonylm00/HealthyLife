@@ -1,6 +1,6 @@
 <div class="header">
   
-  <img src="resources/images/logo.png" width=170 height=80>
+  <img src="resources/images/definitivo.png" width=110 height=110>
   
   <div class="header-right">
     <a href="home?action=goHome"><img src=resources/images/home.png width=40></a>

@@ -4,7 +4,7 @@
   	bottom: 0;
  	width: 100%;
  	display: flex;
- 	background-color: #FF6347;
+ 	background-color: #ff9000;
  	justify-content: space-between;
  	align-items: stretch;
  	box-sizing: border-box;
@@ -17,7 +17,8 @@
  }
  
  .footer-left a:hover{
- 	background-color: #FF4500;
+ 	transform:scale(1.1);
+	z-index:2;
  }
  
  .img
@@ -35,6 +36,7 @@
   	-moz-user-select: none;     /* Firefox all */
   	-ms-user-select: none;      /* IE 10+ */
  	 user-select: none;          /* Likely future */
+ 	 padding: 15px 0px;
  }
  
 @media screen and (max-width: 480px){

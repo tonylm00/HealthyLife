@@ -1,12 +1,12 @@
 .navbar {
   overflow: hidden;
-  background-color: #FF6347;
+  background-color:black;
   padding: 10px;
 }
 
 .left a {
   float: left;
-  color: black;
+  color: white;
   padding: 12px;
   text-decoration: none;
   font-size: 18px; 
@@ -14,7 +14,7 @@
   border-radius: 4px;
 }
 .left a:hover {
-  background-color: #FF4500;
+  background-color:#ff9000;
   color: black;
 }
 
@@ -30,7 +30,7 @@
 	color: white;
 }
 button{
-  background-color: #ff8080;
+  background-color: #ff9000;
   border-radius: 10px;
   color: #2f3640;
   

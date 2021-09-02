@@ -9,7 +9,7 @@ body {
 
 .header {
   overflow: hidden;
-  background-color: #FF6347;
+  background-color: #ff9000;
   padding: 10px 10px;
 }
 .header a {
@@ -28,8 +28,8 @@ body {
 }
 
 .header a:hover {
-  background-color: #FF4500;
-  color: black;
+  transform:scale(1.1);
+  z-index:2;
 }
 
 .header-right {
