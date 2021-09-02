@@ -17,30 +17,20 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script> <!-- Bootstrap -->
 	</head>
 	
-	<!-- Image Slider 
-	<div id="slide" class="carousel slide" data-rise="carousel">
-		<ul class="carousel-indicators">
-			<li data-target="#slides" data-slides-to="0" class="active">
-			<li data-target="#slides" data-slides-to="0">
-			<li data-target="#slides" data-slides-to="0">
-		</ul>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="resources/images/provaImg.PNG">
-			</div>
-			<div class="carousel-item">
-				<img src="resources/images/provaImg.PNG">
-			</div>
-			<div class="carousel-item">
-				<img src="resources/images/provaImg.PNG">
-			</div>
-		</div> 
-	</div> -->
+	<p class=titoloCategoria><strong> Consegna gratuita</strong> per ordini superiori a 50€</p>
+	<!-- ImageSlider 5img delay20sec -->
+	<div id="slider">
+		<figure>
+			<img src="resources/images/provaImg.PNG">
+			<img src="resources/images/bulk2.PNG">
+			<img src="resources/images/provaImg.PNG">
+			<img src="resources/images/bulk2.PNG">
+			<img src="resources/images/provaImg.PNG">
+		</figure>
+	</div>
+	
 	
 	<div class=categoria>
-		<!--  <img class=fotoCategoria src="https://www.offerteshopping.it/wp-content/uploads/2016/12/SCONTI.jpg">-->
-		
-		<p class=titoloCategoria><strong> Consegna gratuita</strong> per ordini superiori a 50€</p>
 	</div>
 			<%
 				if (products != null && products.size() != 0) {
@@ -61,6 +51,16 @@
 				<div class=prezzo><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrezzoScontato())%>
 				<a class=cancellato href="product?action=read&id=<%=bean.getCode()%>">€<%=bean.getPrice()%></a></div></a></div>
 				<%} %>
+			
+			<%
+				if (products != null && products.size() != 0) {
+					Iterator<?> it = products.iterator();
+					while (it.hasNext() && product.category() == "nutrizione") {
+						ProductBean bean = (ProductBean) it.next();
+			%>	
+			<div class="nutrizione">
+				
+			</div>
 				
 			
 			<%
