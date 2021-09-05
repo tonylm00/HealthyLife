@@ -26,6 +26,7 @@
 		<%@include file="/resources/fragment/navbar.jsp" %>
 	</header>
 	
+	
 	<div align=center>
 		<%@include file="/resources/fragment/sconti.jsp"%>
 	</div>
@@ -35,6 +36,7 @@
 			<%@ include file="/resources/fragment/footer.jsp" %>
 		</footer>
 		<br><br><br><br>
+	
 	
 </body>
 </html>

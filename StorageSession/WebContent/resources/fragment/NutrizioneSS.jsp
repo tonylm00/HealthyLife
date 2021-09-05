@@ -2,9 +2,9 @@
 
 <!DOCTYPE html>
 <%
-	Collection<?> products = (Collection<?>) CategoriaDAO.doRetrieveProductsbyCategoria("sconti");
-	if(products == null) {
-		response.sendRedirect("product");	
+	Collection<?> products2 = (Collection<?>) CategoriaDAO.doRetrieveProductsbyCategoria("Nutrizione");
+	if(products2 == null) {
+		response.sendRedirect("product");
 		return;
 	}
 	Cart cart = (Cart) request.getSession().getAttribute("cart");
@@ -12,32 +12,19 @@
 <html>
 	<head>
 		<style>
-		<%@include file="/resources/styles/ProductStyle.css"%>
+		<%@include file="/resources/styles/nutrizione.css"%>
 		</style>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script> <!-- Bootstrap -->
 	</head>
 	
-	<p class=titoloCategoria><strong> Consegna gratuita</strong> per ordini superiori a 20€</p>
-	<!-- ImageSlider 5img delay20sec -->
-	<div id="slider">
-		<figure>
-			<img src="resources/images/provaImg.PNG">
-			<img src="resources/images/bulk2.PNG">
-			<img src="resources/images/provaImg.PNG">
-			<img src="resources/images/bulk2.PNG">
-			<img src="resources/images/provaImg.PNG">
-		</figure>
-	</div>
-	<h1><strong>I Nostri Sconti</strong></h1>
-			<%
-				if (products != null && products.size() != 0) {
-					Iterator<?> it = products.iterator();
+	<h1><strong>Nutrizione</strong></h1>
+	<%
+				if (products2 != null && products2.size() != 0) {
+					Iterator<?> it = products2.iterator();
 					while (it.hasNext()) {
 						ProductBean bean = (ProductBean) it.next();
-			%>			
-			
-			<div class=prodotto>
-				
+	%>	
+	
+		<div class=prodotto>
 				<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
 				<div class=nome><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>"><%=bean.getName()%></a></div>
 				<%if(bean.getSconto()!=0) {%>
@@ -53,5 +40,5 @@
 			<%
 				}
 			%>
-			
+	
 </html>
