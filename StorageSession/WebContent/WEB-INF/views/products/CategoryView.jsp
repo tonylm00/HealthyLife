@@ -61,6 +61,6 @@
 		<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>
-	<br><br><br><br><br><br>
+	
 	</body>
 </html>

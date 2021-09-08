@@ -13,6 +13,10 @@
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/credenziali.css" %>
+		 	.footer
+		 	{
+		 		position: absolute;
+		 	}
 		 </style>
 
 		<title>Login</title>
@@ -29,6 +33,7 @@
 		%>
 		 
 		<%}%>
+	<br><br>
 	<div align=center>
 		 <form action="login" method="post">
 			<input type="hidden" name="action" value="login">

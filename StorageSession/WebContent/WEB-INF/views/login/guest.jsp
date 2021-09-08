@@ -4,9 +4,10 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+	<style>
+	<%@include file="/resources/styles/credenziali.css" %>
+	</style>
 	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/footer.css" type="text/css"/>
-	<link rel="stylesheet" href="resources/styles/credenziali.css">
 	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/header.css" type="text/css"/>
 	<title>Guest Page</title>
 	

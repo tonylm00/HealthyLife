@@ -3,7 +3,21 @@
 	margin: 2%; /*un po di spazio tra i div*/
 	transition:0.7s;
 }
-
+.nutrizione{
+	display: inline-block; /*questi div saranno posti uno a fianco all'altro*/
+	margin: 2%; /*un po di spazio tra i div*/
+	transition:0.7s;
+}
+.accessori{
+	display: inline-block; /*questi div saranno posti uno a fianco all'altro*/
+	margin: 2%; /*un po di spazio tra i div*/
+	transition:0.7s;
+}
+.homegym{
+	display: inline-block; /*questi div saranno posti uno a fianco all'altro*/
+	margin: 2%; /*un po di spazio tra i div*/
+	transition:0.7s;
+}
 .fotoCategoria{
 	float:center;
 	width:100%;
@@ -23,6 +37,7 @@
 	font-size:23px;
 }
 
+
 .immagine{
 	width:270px;
 	height:auto;
@@ -32,6 +47,7 @@
 	text-decoration:none;
 	color:black;
 }
+
 
 .cancellato{
 	text-decoration: line-through;
@@ -45,12 +61,46 @@
 }
 .prodotto img{
 	display:block;
-	width:270px;
+	width:250px;
 	border-radius: 5px;
 }
+.nutrizione:hover{
+	
+	transform:scale(1.1);
+	z-index:2;
+}
+.nutrizione img{
+	display:block;
+	width:250px;
+	border-radius: 5px;
+}
+.accessori:hover{
+	
+	transform:scale(1.1);
+	z-index:2;
+}
+.accessori img{
+	display:block;
+	width:250px;
+	border-radius: 5px;
+}
+.homegym:hover{
+	
+	transform:scale(1.1);
+	z-index:2;
+}
+.homegym img{
+	display:block;
+	width:250px;
+	border-radius: 5px;
+}
+
 .titoloCategoria{
 	height: 10px;
 }
+
+
+
 #slider{
 	overflow: hidden;
 }

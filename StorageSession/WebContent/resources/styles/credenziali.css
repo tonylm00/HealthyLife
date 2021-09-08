@@ -22,7 +22,7 @@ h3{
 
 .act  {
   width: 100%;
-  background-color: #a8d43e;
+  background-color: #ff9000;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -34,14 +34,14 @@ h3{
 
 form {
   border-radius: 20px;
-  background-color:  #a8d43e;
+  background-color: #ff9000;
   padding: 15px;
   width: 90%;
 }
 
 .scelta {
   width: 100%;
-  background-color: #a8d43e;
+  background-color: black;
   color: white;
   padding: 16px 25px;
   border: none;
@@ -52,7 +52,7 @@ form {
 }
 
 .scelta:hover {
-  background-color: #45a049;
+  background-color: #ff9000;
   text-decoration: none;
 }
 

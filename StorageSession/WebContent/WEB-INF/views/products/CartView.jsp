@@ -18,7 +18,7 @@
 	<style>
 		.scelta {
 			  width: 100%;
-			  background-color: #a8d43e;
+			  background-color: #ff9000;
 			  color: white;
 			  padding: 16px 25px;
 			  margin: 8px 0;
@@ -32,6 +32,10 @@
 				.scelta:hover {
 				  background-color: #45a049;
 				  text-decoration: none;
+			}
+			.footer
+			{
+				position:absolute;
 			}
 	</style>
 </head>
