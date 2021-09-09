@@ -48,3 +48,7 @@ button{
   }
  /*Aggiungere il responsive sulla barra di ricerca */
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
