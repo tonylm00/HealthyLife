@@ -47,5 +47,8 @@ body {
   .header-right {
     float: none;
   }
-   /*Aggiungere il responsive ancora piu' piccolo?? */
+  
+  ::-webkit-scrollbar {
+    display: none;
+}
 }

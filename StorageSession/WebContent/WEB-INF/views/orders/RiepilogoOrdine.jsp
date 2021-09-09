@@ -53,8 +53,8 @@
 	<%} %>
 	</table>
 	<br><br>
-	<a href=order?action=conferma class=scelta>Conferma ordine</a>
-	<br>
+	<a href=order?action=conferma class=scelta>CONFERMA ORDINE</a>
+	<br><br><br>
 	</div>
 <footer>
 	<%@ include file="/resources/fragment/footer.jsp" %>

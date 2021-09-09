@@ -1,5 +1,5 @@
-.elencoprodotti {
-	width: 100%;
+.view {
+	width: 90%;
 	float:center;
 	margin-top:2%;
 	text-align: center;
@@ -9,20 +9,15 @@
 
 th, td {
 	
-	border: 3px solid #ff9000;
-	
+	border: 1px ridge #ff9000;
 	padding: 10px;
 	font-size: 20px;
 }
 
-.cap{
-	color: black;
-}
-
-.goCart{
+.action{
 	
   width: 200px;
-  background-color: #a8d43e;
+  background-color: #ff9000;
   color: black;
   padding: 16px 25px;
   margin: 8px 0;
@@ -32,15 +27,15 @@ th, td {
   font-size: 18px;
 }
 
-.goCart:hover{
-	background-color: #45a049;
+.action:hover{
+	background-color:black;
+	color:white;
 }
 
-.checkout{
-	
+.action100{
   width: 100%;
-  background-color: #a8d43e;
-  color: black;
+  background-color: #ff9000;
+  color: white;
   padding: 16px 25px;
   margin: 8px 0;
   border: none;
@@ -49,24 +44,39 @@ th, td {
   font-size: 18px;
 }
 
-.checkout:hover{
-	background-color: #45a049;
+.action100:hover{
+	background-color:black;
+	color:white;
 }
 
-.totale{
+.message{
   float:center;
-  width: 100%;
-  background-color: white;
-  color: black;
+  width: 90%;
+  background-color: black;
+  color: #ff9000;
   padding: 16px 25px;
   margin: 8px 0;
-  border: 3px solid #ff9000;
+  border: 1px solid white;
   font-size: 20px;
 }
 
+.messageSmall{
+  float:center;
+  width: 100%;
+  background-color: #ff9000;
+  color: black;
+  padding: 16px 25px;
+
+  border: 1px solid black;
+  border-radius:120px;
+  font-size: 20px;
+  text-decoration:none;
+}
+
+
 .scelta {
   width: 100%;
-  background-color: #a8d43e;
+  background-color: #ff9000;
   color: white;
   padding: 16px 25px;
   margin: 8px 0;
@@ -78,12 +88,17 @@ th, td {
 }
 
 .scelta:hover {
-  background-color: #45a049;
-  text-decoration: none;
+  background-color:black;
+  color:white;
 }
 
 .az{
-	background-color: #a8d43e;
+	background-color: #ff9000;
+}
+
+.az:hover{
+	 background-color: white;
+	 color:white;
 }
 
 .ac{
@@ -91,6 +106,13 @@ th, td {
 	color:black;
 }
 
-.az:hover{
-	 background-color: white;
+.ac:hover{
+	cursor:default;
+}
+
+.cancellato {	
+	
+	font-size: 18px;	
+	text-decoration: line-through;
+	font-size:18px;
 }

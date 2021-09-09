@@ -19,21 +19,26 @@
 }
 
 .searchbar{
-  margin-top:5px;
-  margin-left:30%;
-  position: static;
-  width:50%;
+  float: right;
+  margin-top: 8px;
+  margin-right: 16px;
 }
+
 .search-txt
 {
-	background-color: #2f3640;
-	color: white;
+	background-color: #545454;
+	color: black;
+	padding: 6px;
+	font-size: 17px;
+	border:none;
+	 border-radius: 10px;
 }
+
 button{
   background-color: #ff9000;
-  border-radius: 10px;
-  color: #2f3640;
   
+  border-radius: 10px;
+  color:black;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -41,14 +46,16 @@ button{
 }
 
 @media screen and (max-width: 480px) {
-  .navbar a {
+  .navbar .a {
     float: none;
     display: block;
     text-align: left;
   }
- /*Aggiungere il responsive sulla barra di ricerca */
-}
-
-::-webkit-scrollbar {
-    display: none;
+  
+    .navbar .searchbar {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
 }

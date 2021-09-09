@@ -9,11 +9,15 @@
 	</style>
 	<title>HealthyLife</title>
 </head>
-<body>
+
 	<header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	<script src="./resources/js/formValidation.js"></script>
+	
+	<br><h1>Form di registrazione</h1>
+	<h2>Inserisci qui i tuoi dati</h2><br>
+	<div align=center>
 	<form action="login" method="post">	
 		<fieldset>
 		<label for=name>Nome: </label><br>
@@ -51,7 +55,8 @@
 		<input type="hidden" name="action" value="registration">
 		<input type="submit" value="Conferma registrazione" class=scelta>
 	</form>
-	<br><br><br><br><br><br><br>
+	</div>
+	<br><br><br>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

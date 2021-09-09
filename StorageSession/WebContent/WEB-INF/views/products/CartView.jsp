@@ -13,31 +13,7 @@
 	 	<%@include file="/resources/styles/table.css" %>
 	</style>
 
-	<title>Il mio carrello</title>
-	
-	<style>
-		.scelta {
-			  width: 100%;
-			  background-color: #ff9000;
-			  color: white;
-			  padding: 16px 25px;
-			  margin: 8px 0;
-			  border: none;
-			  border-radius: 4px;
-			  cursor: pointer;
-			  font-size: 18px;
-			  text-decoration: none;
-			}
-				
-				.scelta:hover {
-				  background-color: #45a049;
-				  text-decoration: none;
-			}
-			.footer
-			{
-				position:absolute;
-			}
-	</style>
+	<title>Il mio carrello</title>	
 </head>
 
 <body>
@@ -45,18 +21,16 @@
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	<div align=center>
+	<h1>Il mio carrello</h1><br><br>
 	<% if(cart != null && cart.getSize()!=0) { %>
 		
-		<table class="elencoprodotti">
-		<tr>
-			<th>Nome</th>
-			<th>Quantità</th>
-			<th>Prezzo Totale</th>
-		</tr>
+		<table class="view">
+		
 		<% List<ProductBean> prodcart = cart.getProducts(); 	
 		   for(ProductBean beancart: prodcart) {
 		%>
 		<tr>
+		    <td><img width=110px src="<%=beancart.getImmagine()%>"></td>
 			<td><%=beancart.getName()%></td>
 			<td> 
 				<form action="cart">
@@ -71,22 +45,17 @@
 					<input type="submit" value="-" >
 				</form>
 			</td>
-			
 			<td><%=beancart.getTot()%> €</td>
-			<td><a class="cap" href="cart?action=delete&id=<%=beancart.getCode()%>"><strong>Rimuovi dal carrello</strong></a></td>
+			<td class=az><a class="ac" href="cart?action=delete&id=<%=beancart.getCode()%>"><strong>Rimuovi dal carrello</strong></a></td>
 		</tr>
 		<%} %>
 	</table>
-	<p class="totale"><%
-	%>
-		Prezzo totale: <%=cart.getTotPrice()%> €
-		</p>
+	<p class="message"> Prezzo totale: <%=cart.getTotPrice()%> € </p><br><br>
+	<a href="order?action=checkout" class=scelta> Checkout</a></div><br><br><br><br>
 	<% } else { %>	
-		<h1>Il tuo carrello è vuoto</h1>
+		<a class=messageSmall href="home?action=goHome">Visita il nostro sito ed aggiungi prodotti al carrello</a>
 	<% } %>
-	
-	<br/>
-		<a href="order?action=checkout" class=scelta> Checkout</a></div><br><br><br><br>
+	<br><br>
 </body>
 <footer>
 	<%@ include file="/resources/fragment/footer.jsp" %>

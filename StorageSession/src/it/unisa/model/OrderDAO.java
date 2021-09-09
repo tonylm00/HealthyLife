@@ -40,7 +40,6 @@ public class OrderDAO {
 		String insertSQLguest = "INSERT INTO " + OrderDAO.TABLE_NAME
 				+ " (dataOrdine, prezzoIVA, idGuest) VALUES (?, ?, ?)";
 		
-		
 		try {
 			connection = ds.getConnection();
 			if(order.getGuest()!=0) {

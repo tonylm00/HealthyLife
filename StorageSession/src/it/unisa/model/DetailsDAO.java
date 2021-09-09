@@ -39,7 +39,6 @@ public class DetailsDAO {
 	      Collection<ProductBean> products = new LinkedList<ProductBean>();
 	      
 		   try{
-		      //connect to DB 
 			  currentCon = ds.getConnection();
 		      preparedStatement=currentCon.prepareStatement(searchQuery);
 		      preparedStatement.setInt(1, id);
@@ -51,6 +50,7 @@ public class DetailsDAO {
 				 bean.setName(rs.getString("nome"));
 				 bean.setDescription(rs.getString("descrizione"));
 			 	 bean.setPrice(rs.getInt("prezzo"));
+			 	 bean.setCartQuantity(rs.getInt(9));
 				 products.add(bean);
 		      }
 		   } 
@@ -97,7 +97,7 @@ public class DetailsDAO {
 				      preparedStatement.setInt(1, product.getCode());
 				      preparedStatement.setInt(2, ordine);
 				      preparedStatement.setInt(3, product.getCartQuantity());
-				      preparedStatement.setDouble(4, product.getPrice());
+				      preparedStatement.setDouble(4, product.getPrezzoScontato());
 				      preparedStatement.setDouble(5, product.getIva());
 				      
 				      if(preparedStatement.executeUpdate()!=1) {

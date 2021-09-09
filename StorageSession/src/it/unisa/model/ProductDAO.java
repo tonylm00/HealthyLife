@@ -36,7 +36,7 @@ public class ProductDAO{
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + ProductDAO.TABLE_NAME
-				+ " (nome, descrizione, prezzo, quantita) VALUES (?, ?, ?, ?)";
+				+ " (nome, descrizione, prezzo, quantita, immagine, sconto, iva) VALUES (?, ?, ?, ?,?)";
 
 		try {
 			connection = ds.getConnection();
@@ -45,10 +45,13 @@ public class ProductDAO{
 			preparedStatement.setString(2, product.getDescription());
 			preparedStatement.setDouble(3, product.getPrice());
 			preparedStatement.setInt(4, product.getQuantity());
-
+			preparedStatement.setString(5, product.getImmagine());
+			preparedStatement.setDouble(6, product.getSconto());
+			preparedStatement.setDouble(7, product.getIva());
 			preparedStatement.executeUpdate();
-
+			connection.setAutoCommit(false);
 			connection.commit();
+			
 		} finally {
 			try {
 				if (preparedStatement != null)

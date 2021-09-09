@@ -32,7 +32,7 @@
 					<th>Descrizione</th>
 					<th>Prezzo Unitario</th>
 					<th>Quantità</th>
-			
+					<th>Prezzo totale</th>
 				</tr>
 				<%
 					if (products != null && products.size() != 0) {
@@ -46,6 +46,7 @@
 					<td><%=product.getDescription()%></td>
 					<td><%=product.getPrezzoScontato()%></td>
 					<td><%=product.getQuantity()%></td>
+					<td><%=product.getPrezzoScontato()*product.getQuantity()%></td>
 				</tr>
 				<%}}%>
 			</table>

@@ -20,7 +20,7 @@ public class Cart {
 	public void increaseProductQ(ProductBean b) {
 		if(b.getCartQuantity()<b.getQuantity()) {
 			b.setCartQuantity(b.getCartQuantity()+1);
-			b.setTot(b.getCartQuantity()*b.getPrice());
+			b.setTot(b.getCartQuantity()*b.getPrezzoScontato());
 			this.replaceProduct(b);
 			this.setCartPrice();
 		}
@@ -29,7 +29,7 @@ public class Cart {
 	public void decreaseProductQ(ProductBean b) {
 		if(b.getCartQuantity()>1) {
 			b.setCartQuantity(b.getCartQuantity()-1);
-			b.setTot(b.getCartQuantity()*b.getPrice());
+			b.setTot(b.getCartQuantity()*b.getPrezzoScontato());
 			this.replaceProduct(b);
 			this.setCartPrice();
 		}
@@ -92,7 +92,7 @@ public class Cart {
 	private void setCartPrice() {
 		this.prezzoTot=0;
 		for (ProductBean productBean : products) {
-			this.prezzoTot+= productBean.getPrice()*productBean.getCartQuantity();
+			this.prezzoTot+= productBean.getPrezzoScontato()*productBean.getCartQuantity();
 		}
 	}
 	
