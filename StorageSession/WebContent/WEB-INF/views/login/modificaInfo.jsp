@@ -32,11 +32,13 @@ if ((user==null)||(!user.isValid()))
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	<div align=center>
+	
 	<h1><%=user.getName() + " " + user.getSurname() %></h1>
 	<h2><%=user.getEmail()%></h2>
 	<h3>Inserisci le nuove informazioni di spedizione e pagamento</h3>
+	
 	<form action="login" method="post">		
-	<fieldset>
+	<fieldset><legend>SPEDIZIONE</legend><br>
 	<input type="hidden" name=nome value=<%=user.getName() %>>
 	<input type="hidden" name=cognome value=<%=user.getSurname() %>>
 	<input type="hidden" name=email value=<%=user.getEmail() %>>
@@ -45,7 +47,7 @@ if ((user==null)||(!user.isValid()))
 		<label for=indirizzo>Indirizzo: </label><br>
 		<input id="indirizzo" name ="indirizzo" type="text" placeholder=<%=user.getIndirizzo() %> required class=campo><br><br>
 	</fieldset>
-	<fieldset>
+	<fieldset><legend>PAGAMENTO</legend><br>
 		<label for=intestatario>Intestatario: </label><br>
 		<input id="intestatario" name ="intestatario" type="text" placeholder=<%=user.getIntestatario() %> required class=campo><br><br>
 			

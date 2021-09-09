@@ -30,6 +30,13 @@
 		   for(ProductBean beancart: prodcart) {
 		%>
 		<tr>
+			<th></th>
+			<th>Nome</th>
+			<th>Quantità</th>
+			<th>Prezzo Totale</th>
+			<th></th>
+		</tr>
+		<tr>
 		    <td><img width=110px src="<%=beancart.getImmagine()%>"></td>
 			<td><%=beancart.getName()%></td>
 			<td> 

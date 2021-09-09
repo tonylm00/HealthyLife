@@ -49,7 +49,7 @@ public class DetailsDAO {
 		    	 bean.setCode(rs.getInt("id"));
 				 bean.setName(rs.getString("nome"));
 				 bean.setDescription(rs.getString("descrizione"));
-			 	 bean.setPrice(rs.getInt("prezzo"));
+			 	 bean.setPrice(rs.getInt("prezzoscontato"));
 			 	 bean.setCartQuantity(rs.getInt(9));
 				 products.add(bean);
 		      }
@@ -103,6 +103,7 @@ public class DetailsDAO {
 				      if(preparedStatement.executeUpdate()!=1) {
 				    	  return false;
 				      }
+				      product.setQuantity(product.getQuantity()-product.getCartQuantity());
 				      ProductDAO.doUpdate(product);
 				  }
 				  return true;

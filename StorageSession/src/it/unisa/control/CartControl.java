@@ -43,7 +43,7 @@ public class CartControl extends HttpServlet{
 					else {
 						ProductBean bean= (ProductBean) model.doRetrieveByKey(id);
 						bean.setCartQuantity(1);
-						bean.setTot(bean.getPrice());
+						bean.setTot(bean.getPrezzoScontato());
 						cart.addProduct(bean);
 					}
 					request.getSession().setAttribute("cart", cart);

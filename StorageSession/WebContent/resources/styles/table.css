@@ -7,9 +7,29 @@
 	border-collapse: collapse;
 }
 
-th, td {
+table {
+	border: 1px solid #ff9000;
+	padding: 10px;
+	font-size: 20px;
+	width:90%
+}
+
+.small{
+	border: 1px solid #ff9000;
+	padding: 10px;
+	font-size: 20px;
+	width:80%
+}
+
+th{
 	
-	border: 1px ridge #ff9000;
+	border: 0px ridge black;
+	padding: 10px;
+	font-size: 20px;
+}
+
+.user{
+	border: 1px ridge black;
 	padding: 10px;
 	font-size: 20px;
 }

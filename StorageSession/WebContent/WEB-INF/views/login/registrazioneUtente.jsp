@@ -14,12 +14,11 @@
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	<script src="./resources/js/formValidation.js"></script>
-	
-	<br><h1>Form di registrazione</h1>
-	<h2>Inserisci qui i tuoi dati</h2><br>
 	<div align=center>
+	<br><h1 >Form di registrazione</h1>
+	<h2>Inserisci qui i tuoi dati</h2><br>
 	<form action="login" method="post">	
-		<fieldset>
+		<fieldset><legend>CONTATTO</legend>
 		<label for=name>Nome: </label><br>
 		<input id="name" name="name" type="text" required class=campo onblur="checkNome(this.form.name);"><div class="nomeDiv"></div><br>
 		
@@ -31,7 +30,7 @@
 	
 		<label for=pw>Password: </label><br>
 		<input id="pw" name="pw" type="password" required class=campo><br><br>
-		</fieldset><fieldset>
+		</fieldset><fieldset><legend>SPEDIZIONE</legend>
 		<label for=indirizzo>Indirizzo: </label><br>
 		<input id="indirizzo" name ="indirizzo" type="text" placeholder="Via e civico, CAP, provincia" required class=campo><br><br>
 		
@@ -39,7 +38,7 @@
 		<input id="telefono" name ="telefono" type="text" required class=campo minlength="9" maxlength="12" onblur="checkTelefono(this.form.address)">
 		</fieldset>
 		
-		<fieldset>
+		<fieldset><legend>PAGAMENTO</legend>
 			<label for=intestatario>Intestatario: </label><br>
 			<input id="intestatario" name ="intestatario" type="text" required class=campo><br><br>
 			

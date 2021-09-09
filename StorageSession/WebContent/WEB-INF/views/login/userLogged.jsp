@@ -41,24 +41,24 @@ if ((currentUser==null)||(!currentUser.isValid()))
      
 <h3>Storico ordini effettuati:</h3>
 	<table>
-		
+					<tr>
+						<th>Codice </th>
+						<th>Data </th>
+						<th>Prezzo Totale</th>
+
+					</tr>
 		<%
 			if (orders != null && orders.size() != 0) {
 				Iterator<?> it = orders.iterator();
 				while (it.hasNext()) {
 					OrderBean bean = (OrderBean) it.next();
 		%>
+			
 					<tr>
-						<th>Codice </th>
-						<th>Data </th>
-						<th>Prezzo Totale</th>
-						<th></th>
-					</tr>
-					<tr>
-						<td><%=bean.getId()%></td>
-						<td><%=bean.getData()%></td>
-						<td><%=bean.getPrezzoTot()%></td>
-						<td class=az><a class=ac href="order?action=detail&id=<%=bean.getId()%>">Dettagli ordine</a></td>
+						<td align=center><%=bean.getId()%></td>
+						<td align=center><%=bean.getData()%></td>
+						<td align=center><%=bean.getPrezzoTot()%></td>
+						<td align=center class=az><a class=ac href="order?action=detail&id=<%=bean.getId()%>">Dettagli ordine</a></td>
 					</tr>
 		<%
 				}
@@ -71,9 +71,9 @@ if ((currentUser==null)||(!currentUser.isValid()))
 		<%
 			}
 		%>
-	</table><br>
+	</table><br><br><br>
 	<a href=login?action=visualizzaInfo class=scelta>VISUALIZZA INFORMAZIONI PERSONALI</a><br><br><br>
-	<a href=login?action=logout class=scelta>LOGOUT</a>
+	<a href=login?action=logout class=scelta>LOGOUT</a><br><br>
 	</div>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>

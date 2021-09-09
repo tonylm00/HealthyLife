@@ -1,16 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
-     import="it.unisa.model.*"
-     import="java.util.Collection"
-     import="java.util.Iterator"
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<%@ page import="it.unisa.model.*,java.util.Collection,java.util.Iterator"%>
 
 <% Collection<?> products = (Collection<?>) request.getSession().getAttribute("products"); %>
   
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<style>
 		 	<%@include file="/resources/styles/header.css" %>
@@ -31,7 +28,7 @@
 					<th>Nome</th>
 					<th>Descrizione</th>
 					<th>Prezzo Unitario</th>
-					<th>Quantit�</th>
+					<th>Quantità</th>
 					<th>Prezzo totale</th>
 				</tr>
 				<%
@@ -44,9 +41,10 @@
 					<td><%=product.getCode()%></td>
 					<td><%=product.getName()%></td>
 					<td><%=product.getDescription()%></td>
-					<td><%=product.getPrezzoScontato()%></td>
-					<td><%=product.getQuantity()%></td>
-					<td><%=product.getPrezzoScontato()*product.getQuantity()%></td>
+					<td><%=String.format("%.2f", product.getPrice())%>€</td>
+					<td><%=product.getCartQuantity()%></td>
+					<td><%=String.format("%.2f", product.getPrice()*product.getCartQuantity())%>€</td>
+					
 				</tr>
 				<%}}%>
 			</table>

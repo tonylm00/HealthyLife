@@ -31,17 +31,19 @@ if ((user==null)||(!user.isValid()))
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	<div align=center>
-	<table>
-	<tr><td>Nome: <%=user.getName()%></td></tr>
-	<tr><td>Cognome: <%=user.getSurname()%></td></tr>
-	<tr><td>Email: <%=user.getEmail()%></td></tr>
-	<tr><td>Indirizzo di spedizione: <%=user.getIndirizzo()%></td></tr>
-	<tr><td>Numero di carta: <%=user.getNumeroCarta()%></tr>
-	<tr><td>Scadenza: <%=user.getDataScadenza()%></tr>
-	<tr><td>CVV: <%=user.getCVV()%></tr>
+	<br><h1>INFORMAZIONI UTENTE</h1><br><br>
+	
+	<table class=small>
+	<tr><th align=left>Nome:</th><td> <%=user.getName()%></td></tr>
+	<tr><th align=left>Cognome:</th><td> <%=user.getSurname()%></td></tr>
+	<tr><th align=left>Email: </th><td><%=user.getEmail()%></td></tr>
+	<tr><th align=left>Indirizzo di spedizione: </th><td><%=user.getIndirizzo()%></td></tr>
+	<tr><th align=left>Numero di carta: </th><td><%=user.getNumeroCarta()%></td></tr>
+	<tr><th align=left>Scadenza:</th><td> <%=user.getDataScadenza()%></td></tr>
+	<tr><th align=left>CVV: </th><td><%=user.getCVV()%></td></tr>
 	</table>
 	<br><br>
-	<a class=scelta href=home?action=goModificaInfo>Modifica Informazioni di spedizione o pagamento</a>
+	<a class=scelta href=home?action=goModificaInfo>Modifica Informazioni di spedizione o pagamento</a><br><br><br>
 	</div>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
