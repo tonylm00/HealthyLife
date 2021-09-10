@@ -30,7 +30,7 @@
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
 	
-	<h2>Ordini</h2>
+	<h2 align=center>Elenco ordini:</h2>
 	<table align=center>
 		<tr>
 			<th>Codice</th>
@@ -45,10 +45,10 @@
 					OrderBean bean = (OrderBean) it.next();
 		%>
 					<tr>
-						<td><%=bean.getId() %></td>
-						<td><%=bean.getData()%></td>
-						<td><%=bean.getPrezzoTot()%></td>
-						<td><%if(bean.getUtente()!=null){%>
+						<td align=center><%=bean.getId() %></td>
+						<td align=center><%=bean.getData()%></td>
+						<td align=center><%=bean.getPrezzoTot()%></td>
+						<td align=center><%if(bean.getUtente()!=null){%>
 							<%= bean.getUtente()%>
 						<%} else{%>
 						GUEST
@@ -66,22 +66,24 @@
 		<%
 			}
 		%>
-	</table><br/>
-
-
-<h2>Filtra prodotti per data:</h2>
+	</table><br><br>
+<div align=center>
 	<form action="order" method="post">
+	<fieldset><legend>Filtra prodotti per data:</legend>
 		<input type="hidden" name="action" value="filterDate">
 		<input type="text" name="inizio" placeholder="DATA INIZIO (YYYY-MM-DD)" class=campo><br/><br/>
 		<input type="text" name="fine" placeholder="DATA FINE (YYYY-MM-DD)" class=campo><br/><br/>
 		<input type="submit" value="Filtra" class=scelta>
-	</form><br/>
+	</fieldset></form><br/>
 	
-<h2>Filtra prodotti per utente:</h2>
+	
 	<form action="order" method="post">
+	<fieldset><legend>Filtra prodotti per utente:</legend>
 		<input type="hidden" name="action" value="filterUser" class=campo>
 		<input type="text" name="user" placeholder="mariorossi@gmail.com" class=campo><br/><br/>
 		<input type="submit" value="Filtra" class=scelta>
+	</fieldset>
 	</form>
+	</div>
 </body>
 </html>

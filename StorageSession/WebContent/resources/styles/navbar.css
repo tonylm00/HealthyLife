@@ -20,7 +20,7 @@
 
 .searchbar{
   float: right;
-  margin-top: 8px;
+  margin-top: 7px;
   margin-right: 16px;
 }
 
@@ -28,21 +28,20 @@
 {
 	background-color: #545454;
 	color: black;
-	padding: 6px;
-	font-size: 17px;
+	padding: 5px;
+	font-size: 18px;
 	border:none;
-	 border-radius: 10px;
+	border-radius: 10px;
 }
 
 button{
   background-color: #ff9000;
-  
   border-radius: 10px;
   color:black;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 21px;
 }
 
 @media screen and (max-width: 480px) {
@@ -51,7 +50,6 @@ button{
     display: block;
     text-align: left;
   }
-  
     .navbar .searchbar {
     float: none;
     display: block;

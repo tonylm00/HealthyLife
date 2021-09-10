@@ -11,6 +11,10 @@
 	 	<%@include file="/resources/styles/header.css" %>
 	 	<%@include file="/resources/styles/footer.css" %>
 	 	<%@include file="/resources/styles/table.css" %>
+	 	.footer
+		 	{
+		 		position: absolute;
+		 	}
 	</style>
 
 	<title>Il mio carrello</title>	
@@ -52,12 +56,13 @@
 					<input type="submit" value="-" >
 				</form>
 			</td>
-			<td><%=beancart.getTot()%> €</td>
+			
+			<td><%=String.format("%.2f", beancart.getTot())%> €</td>
 			<td class=az><a class="ac" href="cart?action=delete&id=<%=beancart.getCode()%>"><strong>Rimuovi dal carrello</strong></a></td>
 		</tr>
 		<%} %>
 	</table>
-	<p class="message"> Prezzo totale: <%=cart.getTotPrice()%> € </p><br><br>
+	<p class="message"> Prezzo totale: <%=String.format("%.2f", cart.getTotPrice())%> € </p><br><br>
 	<a href="order?action=checkout" class=scelta> Checkout</a></div><br><br><br><br>
 	<% } else { %>	
 		<a class=messageSmall href="home?action=goHome">Visita il nostro sito ed aggiungi prodotti al carrello</a>

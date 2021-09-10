@@ -46,14 +46,14 @@ public class OrderDAO {
 				preparedStatement = connection.prepareStatement(insertSQLguest);
 			}
 			else {
-				System.out.println(insertSQL);
 				preparedStatement = connection.prepareStatement(insertSQL);
 			}
 			LocalDateTime now=LocalDateTime.now();
 			String n= now.getYear()+"-"+now.getMonthValue()+"-"+now.getDayOfMonth()+" "+now.getHour()+":"+now.getMinute()+":"+now.getSecond();
+			
 			preparedStatement.setString(1, n);
 			preparedStatement.setDouble(2, order.getPrezzoTot());
-			System.out.println(order.getPrezzoTot());
+		
 			if(order.getGuest()!=0) {
 				preparedStatement.setInt(3, order.getGuest());
 			}

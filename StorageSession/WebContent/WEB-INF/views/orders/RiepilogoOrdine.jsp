@@ -16,6 +16,10 @@
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/table.css" %>
+		 	.footer
+		 	{
+		 		position: absolute;
+		 	}
 	</style>
 </head>
 <body>
@@ -25,30 +29,30 @@
 	<div align=center>
 	<h2>INFORMAZIONI UTENTE:</h2>
 	<table>
-	<tr><td>Nome: <%=user.getName()%></td></tr>
-	<tr><td>Cognome: <%=user.getSurname()%></td></tr>
-	<tr><td>Email: <%=user.getEmail()%></td></tr>
-	<tr><td>Indirizzo di spedizione: <%=user.getIndirizzo()%></td><td class=az><a href=home?action=goModificaInfo class=ac>MODIFICA</a></td></tr>
-	<tr><td>Numero di carta: <%=user.getNumeroCarta()%></td><td class=az><a href=home?action=goModificaInfo class=ac>MODIFICA</a></td></tr>
-	<tr><td>Scadenza: <%=user.getDataScadenza()%></td><td class=az><a href=home?action=goModificaInfo class=ac>MODIFICA</a></td></tr>
+	<tr><th align=left>Nome: </th><td><%=user.getName()%></td></tr>
+	<tr><th align=left>Cognome:</th><td> <%=user.getSurname()%></td></tr>
+	<tr><th align=left>Email: </th><td><%=user.getEmail()%></td></tr>
+	<tr><th align=left>Indirizzo di spedizione: </th><td><%=user.getIndirizzo()%></td><td class=az><a href=home?action=goModificaInfo class=ac>MODIFICA</a></td></tr>
+	<tr><th align=left>Numero di carta: </th><td><%=user.getNumeroCarta()%></td><td class=az><a href=home?action=goModificaInfo class=ac>MODIFICA</a></td></tr>
+	<tr><th align=left>Scadenza: </th><td><%=user.getDataScadenza()%></td><td class=az><a href=home?action=goModificaInfo class=ac>MODIFICA</a></td></tr>
 	</table>
 	<br>
 	<h2>INFORMAZIONI ORDINE:</h2>
 	<table>
 	<tr>
-		<td>Nome: </td>
-		<td>Quantità: </td>
-		<td>Prezzo: </td>
-		
+		<th>Nome: </th>
+		<th>Quantità: </th>
+		<th>Prezzo: </th>
+		<th></th>
 	</tr>
 		<% List<ProductBean> prodcart = cart.getProducts(); 	
 		   for(ProductBean beancart: prodcart) {
 		%>
 	<tr>
-		<td><%=beancart.getName()%></td>
-		<td><%=beancart.getCartQuantity()%></td>
-		<td><%=String.format("%.2f", beancart.getTot())%></td>
-		<td class=az><a class=ac href="cart?action=delete&id=<%=beancart.getCode()%>">ELIMINA</a></td>
+		<td align=center><%=beancart.getName()%></td>
+		<td align=center><%=beancart.getCartQuantity()%></td>
+		<td align=center><%=String.format("%.2f", beancart.getTot())%></td>
+		<td align=center class=az><a class=ac href="cart?action=delete&id=<%=beancart.getCode()%>">ELIMINA</a></td>
 	</tr>
 	<%} %>
 	</table>

@@ -22,10 +22,7 @@ public class ProductBean implements Serializable {
 	public ProductBean() {
 		codice = -1;
 		nome = "";
-		descrizione = "";
-		quantita = 0;
-		cartQuantity = 0;
-		tot=0;
+		
 	}
 
 	public double getTot() {

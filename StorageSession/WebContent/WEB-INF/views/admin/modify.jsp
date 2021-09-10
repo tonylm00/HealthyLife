@@ -12,15 +12,20 @@
 %>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="../ProductStyle.css" rel="stylesheet">
+	<style>
+		 	<%@include file="/resources/styles/header.css" %>
+		 	<%@include file="/resources/styles/credenziali.css" %>
+	</style>
 	<title>HealthyLife - modify</title>
 </head>
-
-
-
 <body>
-	<h2>Modifica prodotti</h2>
+<header>
+		<%@ include file="/resources/fragment/header.jsp" %>
+	</header>
+
+<div align=center>
 	<form action="../product" method="post">
+	<fieldset><legend>MODIFICA PRODOTTO:</legend>
 		<input type="hidden" name="action" value="modify">
 		<input type="hidden" name="id" value="<%=request.getParameter("id")%>">
 		
@@ -46,6 +51,7 @@
 		<input name="iva" type="number" min="0" step="0.1" required value="<%=product.getIva()%>"><br>
 
 		<input type="submit" value="Modifica"><input type="reset" value="Reset">
-	</form>
+	</fieldset></form>
+</div>
 </body>
 </html>

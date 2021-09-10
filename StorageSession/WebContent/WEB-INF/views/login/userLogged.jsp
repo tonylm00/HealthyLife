@@ -22,6 +22,10 @@ if ((currentUser==null)||(!currentUser.isValid()))
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/table.css" %>
+		 	.footer
+		 	{
+		 		position: absolute;
+		 	}
 		 </style>
          <title>Area personale</title>
       </head>
@@ -66,7 +70,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
 			else {
 		%>
 		<tr>
-			<td colspan=6> Nessun ordine effettuato</td>
+			<td colspan=6 align=center> Nessun ordine effettuato</td>
 		</tr>
 		<%
 			}

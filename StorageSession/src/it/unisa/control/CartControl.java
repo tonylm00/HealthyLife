@@ -64,6 +64,7 @@ public class CartControl extends HttpServlet{
 				else if (action.equalsIgnoreCase("Cart")) {
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
 					dispatcher.forward(request, response);
+					
 				}else if (action.equalsIgnoreCase("deleteCart")) {
 					request.getSession().setAttribute("cart", new Cart());
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");

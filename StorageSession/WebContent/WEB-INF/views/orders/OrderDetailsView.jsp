@@ -13,6 +13,9 @@
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/table.css" %>
+		 	.footer{
+		 		position:absolute;
+		 	}
 	</style>
 	<title>HealthyLife </title>
 </head>
@@ -24,9 +27,7 @@
 	<h2>Dettagli ordine</h2>
 			<table>
 				<tr>
-					<th>Codice</th>
 					<th>Nome</th>
-					<th>Descrizione</th>
 					<th>Prezzo Unitario</th>
 					<th>Quantità</th>
 					<th>Prezzo totale</th>
@@ -38,12 +39,10 @@
 							ProductBean product = (ProductBean) it.next();
 				%>
 				<tr>
-					<td><%=product.getCode()%></td>
-					<td><%=product.getName()%></td>
-					<td><%=product.getDescription()%></td>
-					<td><%=String.format("%.2f", product.getPrice())%>€</td>
-					<td><%=product.getCartQuantity()%></td>
-					<td><%=String.format("%.2f", product.getPrice()*product.getCartQuantity())%>€</td>
+					<td align=center><%=product.getName()%></td>
+					<td align=center><%=String.format("%.2f", product.getPrice())%>€</td>
+					<td align=center><%=product.getQuantity()%></td>
+					<td align=center><%=String.format("%.2f", product.getPrice()*product.getQuantity())%>€</td>
 					
 				</tr>
 				<%}}%>

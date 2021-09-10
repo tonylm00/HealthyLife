@@ -122,7 +122,7 @@ public class ProductControl extends HttpServlet  {
 		int quantity = Integer.parseInt(request.getParameter("quantita"));
 		double sconto = Double.parseDouble(request.getParameter("sconto"));
 		int iva = Integer.parseInt(request.getParameter("iva"));
-		
+	
 		ProductBean bean = new ProductBean();
 		bean.setName(name);
 		bean.setDescription(description);

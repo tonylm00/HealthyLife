@@ -8,17 +8,19 @@
 
 <html>
 	<head>
-         <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
 		<style>
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/credenziali.css" %>
+		 	
 		 	.footer
 		 	{
 		 		position: absolute;
 		 	}
 		 </style>
-
+	
 		<title>Login</title>
 	</head>
 
@@ -36,6 +38,7 @@
 	<br><br>
 	<div align=center>
 		 <form action="login" method="post">
+		 <fieldset><legend>LOGIN</legend>
 			<input type="hidden" name="action" value="login">
 			
 			<label for=email>Inserisci email</label><br>
@@ -43,9 +46,9 @@
 		
 			<label for=pw>Inserisci password</label><br>
 			<input type="password" name="pw" class="campo">
-			
+			<div id="utenteNonValido"></div><br>
 			<input type="submit" class="scelta" value="Accedi">			
-		</form> 
+		</fieldset></form> 
 		<br>
 		<a href="login?action=goRegistration" class=scelta>Registrati qui</a>
 		<a href="login?action=goGuest" class=scelta>Acquista senza registrarti</a><br>

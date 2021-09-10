@@ -1,74 +1,112 @@
-
-/*
-*
-*/
-
-function allLetter(uname){
-	var letters = /^[A-Za-z]+$/;
-	if(uname.value.match(letters)){
-		return true;
-	}
-	else{
+	//RESTITUISCE TRUE SE IL PARAMETRO E FORMATO DA SOLE LETTERE
+	function allLetter(uname)
+	{
+		var format = /^[A-Za-z]+$/;
+		if(uname.value.match(format))
+			return true;
 		return false;
 	}
-}
-
-function validateEmail(uemail){
-	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-	if(uemail.value.match(mailformat)){
-		return true;
-	}
-	else{
+	
+	function allNumber(serie)
+	{
+		var format = /^[0-9]/;
+		if(serie.value.match(format))
+			return true;
 		return false;
 	}
-}
 
-function validatePhonenumber(inputtxt){
-	var phoneno = /^\(([0-9]{3})\)[-\.\s]([0-9]{3})[-\.\s]([0-9]{4})$/;
-	if(inputtxt.value.match(phoneno)){
-		return true;
-	}
-	else{
+	//RESTITUISCE TRUE SE IL PARAMETRO RISPETTA IL FORMATO DI UN NUMERO DI TELEFONO
+	function validatePhonenumber(inputtxt){
+		var formato = /^\(([0-9]{3})\)[-\.\s]([0-9]{3})[-\.\s]([0-9]{4})$/;
+		if(inputtxt.value.match(formato))
+			return true;	
 		return false;
 	}
-}
+	
+	function validateDate(data)
+	{
+		var formato = /^(\d{1,2})\/(\d{1,2})/;
+		if(data.value.match(formato))
+			return true;
+		return false;
+	}
+	
+	//-------------FUNZIONI DA RICHIAMARE NEI CAMPI DEI FORM-------------
+	
+	function checkNome(name)
+	{
+		if(!(allLetter(name)))
+		{	
+			$("#nomeDiv").html("NUMERI NEL NOME NON PERMESSI");
+			$("#nomeDiv").css({"color":"black"});
+		}
+		else
+			$("#nomeDiv").html("");
+	}
 
-function checkNome(uname){
-	if(allLetter(uname)==false){
-		$("#nomeDiv").html("Inserisci solo lettere");
-		$("#nomeDiv").css({"color":"red"});
+	function checkCognome(stringa)
+	{
+		if(!allLetter(stringa))
+		{
+			$("#cognomeDiv").html("ATTENZIONE: NUMERI NEL COGNOME NON PERMESSI!");
+			$("#cognomeDiv").css({"color":"black"});
+		}
+		else
+			$("#cognomeDiv").html("");
+		
 	}
-	else{
-		$("#nomeDiv").html("");
-	}
-}
 
-function checkCognome(uname){
-	if(allLetter(uname)==false){
-		$("#cognomeDiv").html("Inserisci solo lettere");
-		$("#cognomeDiv").css({"color":"red"});
+	function checkTelefono(telefono)
+	{
+		if(!(validatePhonenumber(telefono)))
+		{
+			$("#telefonoDiv").html("LETTERE NON PERMESSE NEL CAMPO NUMERO DI TELEFONO");
+			$("#telefonoDiv").css({"color":"black"});
+		}
+		else
+			$("#telefonoDiv").html("");
 	}
-	else{
-		$("#cognomeDiv").html("");
+		
+	function checkCarta(num)
+	{
+		if(!(allNumber(num)))
+		{
+			$("#cartaDiv").html("LETTERE NON PERMESSE NEL CAMPO NUMERO DI CARTA");
+			$("#cartaDiv").css({"color":"black"});
+		}
+		else
+			$("#cartaDiv").html("");
 	}
-}
-
-function checkEmail(email){
-	if(validateEmail(email)==false){
-		$("#emailDiv").html("Inserisci una email valida");
-		$("#emailDiv").css({"color":"red"});
+	
+	function checkIntestatario(stringa)
+	{
+		if(!(allLetter(stringa)))
+		{	
+			$("#intestatarioDiv").html("NUMERI NON PERMESSI NEL CAMPO INTESTATARIO");
+			$("#intestatarioDiv").css({"color":"black"});
+		}
+		else
+			$("#intestatarioDiv").html("");
 	}
-	else{
-		$("#emailDiv").html("");
+	
+	function checkDate(date)
+	{
+		if(!(validateDate(date)))
+		{
+			$("#dateDiv").html("SI PREGA DI RISPETTARE IL FORMATO MM/AA");
+			$("#dateDiv").css({"color":"black"});
+		}
+		else
+			$("#dateDiv").html("");
 	}
-}
-
-function checkTelefono(email){
-	if(validatePhonenumber(email)==false){
-		$("#telefonoDiv").html("Inserisci un numero valido");
-		$("#telefonoDiv").css({"color":"red"});
+	
+	function checkCVV(num)
+	{
+		if(!(allNumber(num)))
+		{
+			$("#cvvDiv").html("LETTERE NON PERMESSE NEL CAMPO CVV");
+			$("#cvvDiv").css({"color":"black"});
+		}
+		else
+			$("#cvvDiv").html("");
 	}
-	else{
-		$("#telefonoDiv").html("");
-	}
-}

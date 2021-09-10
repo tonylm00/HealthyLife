@@ -12,15 +12,14 @@ INSERT INTO prodotto (nome, descrizione, informazioni, prezzo, sconto, iva, quan
 ("Guanti da allenamento","Guanti da allenamento colore ocra","abbigliamento gym e home gym","16.99","0","22","87","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/1/3/13415_1.jpg"),
 ("Assult air bike class","Bicicletta Air Bike con pedalata e bracci per fare vogatore","attrezzatura professionale","1116.99","0","22","24","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/a/s/assault-airbike_1.jpg"),
 ("Canottiera a costine pitbull gym contrast","Canottiera in cotone nero/bianco","abbigliamento","29.99","0","22","18","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/m/3/m395-black-white_004.jpg"),
-
-("B Complex – 60 CPS","Vitamine del gruppo B","confezione da 30 g","9.99","0","22","28","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/b/-/b-complex-120ml.jpg"),
+("B Complex 60 CPS","Vitamine del gruppo B","confezione da 30 g","9.99","0","22","28","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/b/-/b-complex-120ml.jpg"),
 ("Calcium e Magnesium","Calcio e magnesio","confezione da 30 g","17.99","0","22","45","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/7/3/733739012708_1.jpg"),
-("Multi vitaminico","compresse multivitaminiche","confezione da 120 g","20.99","0","22","40","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/m/u/multi-vita-mine-120-compresse.jpg"),
+("Multi vitaminico","compresse multivitaminiche","confezione da 120 g","20.99","20","22","40","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/m/u/multi-vita-mine-120-compresse.jpg"),
 ("Asciugamano nero gym towell excellent style","asciugamano nero","versione piccola","9.99","0","22","12","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/a/s/asciugamano_excellent_3_1.png"),
-("Calze tecniche per stacchi da terra","calze tecniche colore nero","altezza ginocchio","9.99","0","22","32","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/c/a/calze_olympians_1.jpg"),
+("Calze tecniche per stacchi da terra","calze tecniche colore nero","altezza ginocchio","9.99","0","22","32","https://www.powerliftingshop.it/wp-content/uploads/2020/02/Calze-Powerlifting-1-300x300.jpg"),
 ("Eagle Loops","cinghia per le dita","Utilizzabile per fare esercizi per le dita","19.99","0","22","6","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/f/i/file_48_17.jpg"),
 ("Compat Leg sled","Leg press compatto e fluido","Utilizzabile per fare piu tipi di esercizi","1119.99","0","22","4","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/1/8/183-powertec-2018-product-only.jpg"),
-("Functional trainer deluxe","cavi incrociati","Utilizzabile immediatamente con pesi già acquistati","1999.99","0","22","8","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/f/t/ftd_7.jpg");
+("Functional trainer deluxe","cavi incrociati","Utilizzabile immediatamente con pesi","1999.99","30","22","8","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/f/t/ftd_7.jpg");
 
 INSERT INTO utente VALUES
 ("antonio@gmail.com","antonio","Antonio","La Marca","Via Torquato Tasso, 42, 80039, NA","3335632103","Antonio La Marca","5336985623732975","09/22","975");
@@ -39,6 +38,8 @@ INSERT INTO appartenenza(categoria,prodotto) VALUES
 ("sconti","4"),
 ("sconti","6"),
 ("sconti","8"),
+("sconti","16"),
+("sconti","21"),
 
 ("Nutrizione","1"),
 ("HomeGym","2"),

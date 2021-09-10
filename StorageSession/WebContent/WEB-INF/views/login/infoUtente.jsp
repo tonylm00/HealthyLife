@@ -22,7 +22,12 @@ if ((user==null)||(!user.isValid()))
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/table.css" %>
+		 	.footer
+		 	{
+		 		position: absolute;
+		 	}
 		 </style>
+		 
          <title>Area personale</title>
       </head>
 	

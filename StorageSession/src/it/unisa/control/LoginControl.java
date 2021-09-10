@@ -75,25 +75,32 @@ public class LoginControl extends HttpServlet {
 		     }
 			
 			else if(action.equalsIgnoreCase("login")) {
+				try {
+					HttpSession session = request.getSession();
+					String email=request.getParameter("email");
+					String pw=request.getParameter("pw");
+					UserBean user= new UserBean();
+				    user.setEmail(email);
+				    user.setPassword(pw);
+				    user = UserDAO.doRetrieve(user);
+				    if (user.isValid()){	
+				    	session.setAttribute("currentSessionUser", user);
+				    	request.getSession().removeAttribute("orders");
+						request.getSession().setAttribute("orders", OrderDAO.doRetrieveAllByUser(user.getEmail()));
+				    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
+				    	dispatcher.forward(request, response); 
+				    }
+				    else
+				    {
+				    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
+				    	dispatcher.forward(request, response); 
+				    }	
+				}
+				catch (Throwable e){
+					e.printStackTrace();
+				    System.out.println(e); 
+				}
 				
-				HttpSession session = request.getSession();
-				String email=request.getParameter("email");
-				String pw=request.getParameter("pw");
-				UserBean user= new UserBean();
-			    user.setEmail(email);
-			    user.setPassword(pw);
-			    user = UserDAO.doRetrieve(user);
-			    if (user.isValid()){	
-			    	session.setAttribute("currentSessionUser", user);
-			    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/userLogged.jsp");
-			    	dispatcher.forward(request, response); 
-			    }
-			    else
-			    {
-			    	session.removeAttribute("currentSessionUser");
-			    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
-			    	dispatcher.forward(request, response); 
-			    }
 			    
 			}
 			
