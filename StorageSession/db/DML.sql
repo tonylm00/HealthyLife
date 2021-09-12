@@ -11,7 +11,7 @@ INSERT INTO prodotto (nome, descrizione, informazioni, prezzo, sconto, iva, quan
 ("Barretta proteica","Barretta zero da 50 g","50 grammi per porzione e zero kcal","2.99","0","22","112","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/z/e/zerobarxxxxxxxxxxxxxxxx.png"),
 ("Guanti da allenamento","Guanti da allenamento colore ocra","abbigliamento gym e home gym","16.99","0","22","87","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/1/3/13415_1.jpg"),
 ("Assult air bike class","Bicicletta Air Bike con pedalata e bracci per fare vogatore","attrezzatura professionale","1116.99","0","22","24","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/a/s/assault-airbike_1.jpg"),
-("Canottiera a costine pitbull gym contrast","Canottiera in cotone nero/bianco","abbigliamento","29.99","0","22","18","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/m/3/m395-black-white_004.jpg"),
+("Canottiera a costine pitbull gym contrast","Canottiera in cotone nero/bianco","abbigliamento","29.99","20","22","18","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/m/3/m395-black-white_004.jpg"),
 ("B Complex 60 CPS","Vitamine del gruppo B","confezione da 30 g","9.99","0","22","28","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/b/-/b-complex-120ml.jpg"),
 ("Calcium e Magnesium","Calcio e magnesio","confezione da 30 g","17.99","0","22","45","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/7/3/733739012708_1.jpg"),
 ("Multi vitaminico","compresse multivitaminiche","confezione da 120 g","20.99","20","22","40","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/m/u/multi-vita-mine-120-compresse.jpg"),
@@ -35,9 +35,11 @@ INSERT INTO categoria VALUES
 ("sconti","https://www.offerteshopping.it/wp-content/uploads/2016/12/SCONTI.jpg");
 
 INSERT INTO appartenenza(categoria,prodotto) VALUES
+("sconti","3"),
 ("sconti","4"),
 ("sconti","6"),
 ("sconti","8"),
+("sconti","13"),
 ("sconti","16"),
 ("sconti","21"),
 

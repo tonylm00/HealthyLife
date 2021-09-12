@@ -88,7 +88,7 @@
 			<%
 				if (products3 != null && products3.size() != 0) {
 					Iterator<?> it3 = products3.iterator();
-					int cont3 = 3;
+					int cont3 = 4;
 					while (it3.hasNext() && cont3!=0) {
 						ProductBean bean = (ProductBean) it3.next();
 						cont3--;

@@ -54,3 +54,8 @@ legend{
     padding: 5px 100px;
     text-align:left;
 }
+
+#utenteNonValido{
+	font-size:20px;
+	color:red;
+}

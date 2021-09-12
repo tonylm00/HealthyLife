@@ -52,7 +52,8 @@ public class LoginControl extends HttpServlet {
 					nuovo.setEmail(user.getEmail());
 					try {
 						UserDAO.doUpdate(nuovo);
-						
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
+				    	dispatcher.forward(request, response); 
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -91,6 +92,7 @@ public class LoginControl extends HttpServlet {
 				    }
 				    else
 				    {
+				    	session.setAttribute("errorMessage", "Errore di autenticazione");
 				    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
 				    	dispatcher.forward(request, response); 
 				    }	
@@ -134,6 +136,8 @@ public class LoginControl extends HttpServlet {
 			}
 			
 			else if(action.equalsIgnoreCase("goLogin")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("errorMessage", null);
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/LoginView.jsp");
 		    	dispatcher.forward(request, response); 
 			}

@@ -50,7 +50,6 @@ public class UserDAO{
 		       
 	      // if user does not exist set the isValid variable to false
 	      if (!more){
-	         System.out.println("Sorry, you are not a registered user! Please sign up first");
 	         bean.setValid(false);
 	      } 
 		        
@@ -165,45 +164,6 @@ public class UserDAO{
 		}
 		return (result != 0);
 	}
-  /* DA CANC
-   public synchronized static UserBean doRetrieveByEmail(String email) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 
-		UserBean bean = new UserBean();
-
-		String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE email = ?";
-
-		try {
-			connection = ds.getConnection();
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, email);
-
-			ResultSet rs = preparedStatement.executeQuery();
-
-			while (rs.next()) {
-			 bean.setName("nome");
-	         bean.setSurname("cognome");
-	         bean.setCVV("CVV");
-	         bean.setDataScadenza("dataScadenza");
-	         bean.setIndirizzo("indirizzo");
-	         bean.setNumeroCarta("numeroCarta");
-	         bean.setIntestatario("intestatario");
-	         bean.setTelefono("telefono");
-	         bean.setValid(true);
-			}
-			
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-		return bean;
-	}
-   */
 }
 

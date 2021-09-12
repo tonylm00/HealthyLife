@@ -61,6 +61,7 @@ public class ProductControl extends HttpServlet  {
 					ProductDAO.doDelete(id);
 					request.removeAttribute("products");
 					request.setAttribute("products", ProductDAO.doRetrieveAll());
+					
 					if(request.getSession().getAttribute("adminRoles")!=null) {
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminView.jsp");
 						dispatcher.forward(request, response);
@@ -110,7 +111,6 @@ public class ProductControl extends HttpServlet  {
 							RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
 							dispatcher.forward(request, response);
 						}
-				 
 				 }
 			}
 			else {

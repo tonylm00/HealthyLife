@@ -78,8 +78,9 @@ public class OrderControl extends HttpServlet {
 					order.setGuest(GuestDAO.getId(guest));
 					order=OrderDAO.doSave(order);
 					DetailsDAO.doSave(cart, OrderDAO.getGuest(order.getGuest(), order.getData()));
-					 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
-			    	 dispatcher.forward(request, response);
+					
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/success.jsp");
+			    	dispatcher.forward(request, response);
 				}
 				else if(action.equalsIgnoreCase("filterDate")){
 					String inizio=request.getParameter("inizio");

@@ -20,6 +20,8 @@ if ((user==null)||(!user.isValid()))
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; uft-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script> <%@include file="/resources/js/formValidation.js"%> </script>
 	<style>
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
@@ -49,16 +51,16 @@ if ((user==null)||(!user.isValid()))
 	</fieldset>
 	<fieldset><legend>PAGAMENTO</legend><br>
 		<label for=intestatario>Intestatario: </label><br>
-		<input id="intestatario" name ="intestatario" type="text" placeholder=<%=user.getIntestatario() %> required class=campo><br><br>
+		<input id="intestatario" name ="intestatario" type="text" placeholder=<%=user.getIntestatario() %> required class=campo onblur="checkIntestatario(this.form.intestatario)"><br><div id="intestatarioDiv"></div><br>
 			
 		<label for=carta>Numero di carta: </label><br>
-		<input id="carta" name ="carta" type="text" placeholder=<%=user.getNumeroCarta()%> required class=campo><br><br>
+		<input id="carta" name ="carta" type="text" placeholder=<%=user.getNumeroCarta()%> required class=campo minlength="16" maxlength="16" onblur="checkCarta(this.form.carta)"><br><div id="cartaDiv"></div><br>
 		
 		<label for=dataScadenza>Data di scadenza: </label><br>
-		<input id="dataScadenza" name ="dataScadenza" type="text" placeholder=<%=user.getDataScadenza() %> class=campo><br><br>
+		<input id="dataScadenza" name ="dataScadenza" type="text" placeholder=<%=user.getDataScadenza() %> class=campo minlength="5" maxlength="5" onblur="checkDate(this.form.dataScadenza)"><br><div id="dateDiv"></div><br><br>
 			
 		<label for=cvv>CVV </label><br>
-		<input id="cvv" name ="CVV" type="text" placeholder=<%=user.getCVV() %> required class=campo><br><br>
+		<input id="cvv" name ="CVV" type="text" placeholder=<%=user.getCVV() %> required class=campo minlength="3" maxlength="3" onblur="checkCVV(this.form.cvv)"><br><div id="cvvDiv"></div><br><br>
 	</fieldset>
 		<input type="hidden" name="action" value="modificaInfo">
 		<input type="submit" value="Conferma modifiche" class=scelta>

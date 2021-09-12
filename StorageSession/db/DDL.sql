@@ -65,7 +65,7 @@ CREATE TABLE appartenenza(
     
     PRIMARY KEY(categoria,prodotto),
     FOREIGN KEY (prodotto) REFERENCES prodotto(id)
-    ON DELETE RESTRICT
+    ON DELETE CASCADE
     ON UPDATE CASCADE,
 	
     FOREIGN KEY (categoria) REFERENCES categoria(nome)

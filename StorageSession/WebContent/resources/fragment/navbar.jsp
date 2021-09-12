@@ -6,9 +6,10 @@
    </div>
     <form action=product>
 		<div class=searchbar>
-		<input class="search-txt" type=text id=cerca name=cerca placeholder=Cerca... onkeyup="search()">
+		<input class="search-txt" type=text id=cerca name=cerca onkeyup="search()">
 		<input type="hidden" name="action" value="readName">
-		<button>&#10095;</button>
+		<div class=search-button>
+		<button>&#187</button></div>
 		</div>
 	</form>	
 </div>
