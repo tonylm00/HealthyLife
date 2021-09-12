@@ -1,7 +1,6 @@
 package it.unisa.control;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 import it.unisa.model.ProductBean;
@@ -21,7 +20,7 @@ public class CercaServlet extends HttpServlet {
     	 
     	String data=req.getParameter("data");
 		try {
-			ArrayList<ProductBean> products = new ArrayList<>(ProductDAO.doRetrieveAll(""));
+			ArrayList<ProductBean> products = new ArrayList<>(ProductDAO.doRetrieveAll());
 		     ArrayList<ProductBean> result= new ArrayList<>();
 	         for(int i=0; i<products.size() ;i++){
 	             if (products.get(i).getName().toLowerCase().contains(data.toLowerCase()))

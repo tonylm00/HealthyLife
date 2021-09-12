@@ -20,7 +20,6 @@ public class LoginControl extends HttpServlet {
 	
     public LoginControl() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -99,18 +98,14 @@ public class LoginControl extends HttpServlet {
 				catch (Throwable e){
 					e.printStackTrace();
 				    System.out.println(e); 
-				}
-				
-			    
+				}			    
 			}
 			
 			else if(action.equalsIgnoreCase("logout")) {
 			    HttpSession session = request.getSession();
 				session.removeAttribute("currentSessionUser");
-				
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
 		    	dispatcher.forward(request, response);
-			   
 			}
 					
 			else if(action.equalsIgnoreCase("registration")) {
@@ -144,8 +139,14 @@ public class LoginControl extends HttpServlet {
 			}
 			
 			else if(action.equalsIgnoreCase("adminOrder")) {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/OrdersView.jsp");
-		    	dispatcher.forward(request, response); 
+				if(request.getSession().getAttribute("adminRoles")!=null) {
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/OrdersView.jsp");
+			    	dispatcher.forward(request, response); 
+				}
+				else {
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminLogin.jsp");
+			    	dispatcher.forward(request, response); 
+				}	
 			}
 			
 			else if(action.equalsIgnoreCase("adminInsert")) {

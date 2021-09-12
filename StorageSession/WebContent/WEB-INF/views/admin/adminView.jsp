@@ -3,9 +3,7 @@
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.ProductDAO"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/ProductStyle.css" type="text/css"/>
 	<title>Vista amministratore</title>
-	
 	<style>
 	<%@include file="/resources/styles/header.css" %>
 	<%@include file="/resources/styles/table.css" %>
@@ -22,7 +20,7 @@
 </head>
 
 <%
-	Collection<?> products = (Collection<?>) ProductDAO.doRetrieveAll(null);
+	Collection<?> products = (Collection<?>) ProductDAO.doRetrieveAll();
 // Check user credentials
 	Boolean adminRoles = (Boolean) session.getAttribute("adminRoles");
 	if ((adminRoles == null) || (!adminRoles.booleanValue())){	
@@ -55,14 +53,14 @@
 		%>
 					<tr border=1>
 						<td align=center><%=bean.getCode()%></td>
-						<td  align=center><%=bean.getName()%></td>
-						<td  align=center><%=bean.getPrice()%></td>
-						<td  align=center><%=bean.getQuantity()%></td>
-						<td  align=center><%=bean.getSconto()%></td>
-						<td  align=center><%=bean.getPrezzoScontato()%></td>
-						<td  align=center><%=bean.getIva()%></td>
-						<td  align=center class=az><a href="product?action=delete&id=<%=bean.getCode()%>" class=ac>Rimuovi</a></td>
-						<td   align=center class=az><a href="product?action=modify&id=<%=bean.getCode()%>" class=ac>Modifica</a></td>
+						<td align=center><%=bean.getName()%></td>
+						<td align=center><%=bean.getPrice()%></td>
+						<td align=center><%=bean.getQuantity()%></td>
+						<td align=center><%=bean.getSconto()%></td>
+						<td align=center><%=bean.getPrezzoScontato()%></td>
+						<td align=center><%=bean.getIva()%></td>
+						<td align=center class=az><a href="product?action=delete&id=<%=bean.getCode()%>" class=ac>Rimuovi</a></td>
+						<td align=center class=az><a href="product?action=modify&id=<%=bean.getCode()%>" class=ac>Modifica</a></td>
 					</tr>
 		<%
 				}

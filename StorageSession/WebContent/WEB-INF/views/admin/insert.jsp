@@ -2,7 +2,7 @@
 <html>
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.ProductDAO"%>
 <%
-	Collection<?> products = (Collection<?>) ProductDAO.doRetrieveAll(null);
+	Collection<?> products = (Collection<?>) ProductDAO.doRetrieveAll();
 // Check user credentials
 	Boolean adminRoles = (Boolean) session.getAttribute("adminRoles");
 	if ((adminRoles == null) || (!adminRoles.booleanValue())){	

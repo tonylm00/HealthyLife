@@ -243,17 +243,13 @@ public class ProductDAO{
 		return (result != 0);
 	}
 
-	public static synchronized Collection<ProductBean> doRetrieveAll(String order) throws SQLException {
+	public static synchronized Collection<ProductBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		Collection<ProductBean> products = new LinkedList<ProductBean>();
 
 		String selectSQL = "SELECT * FROM " + ProductDAO.TABLE_NAME;
-
-		if (order != null && !order.equals("")) {
-			selectSQL += " ORDER BY " + order;
-		}
 
 		try {
 			connection = ds.getConnection();
