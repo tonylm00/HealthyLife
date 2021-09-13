@@ -40,11 +40,12 @@
 		<tr>
 			<th>Codice</th>
 			<th>Nome</th>
-			<th>Prezzo non Scontato</th>
+			<th>Prezzo</th>
 			<th>Quantità</th>
 			<th>Sconto</th>
-			<th>Prezzo Scontato</th>
 			<th>IVA</th>
+			<th></th>
+			<th><th>
 		</tr>
 		<%
 			if (products != null && products.size() != 0) {
@@ -56,9 +57,8 @@
 						<td align=center><%=bean.getCode()%></td>
 						<td align=center><%=bean.getName()%></td>
 						<td align=center><%=String.format("%.2f", bean.getPrice())%> €</td>
-						<td align=center><%=bean.getQuantity()%></td>
-						<td align=center><%=bean.getSconto()%></td>
-						<td align=center><%=String.format("%.2f", bean.getPrezzoScontato())%> €</td>
+						<td align=center><%=bean.getQuantity()%>pz</td>
+						<td align=center><%=String.format("%.0f", bean.getSconto())%>%</td>
 						<td align=center><%=bean.getIva()%>% </td>
 						<td align=center class=az><a href="product?action=delete&id=<%=bean.getCode()%>" class=ac> Rimuovi </a></td>
 						<td align=center class=az><a href="product?action=goModify&id=<%=bean.getCode()%>" class=ac> Modifica </a></td>				
@@ -79,7 +79,6 @@
 	<br><br>
 	<a href="login?action=adminInsert" class=scelta>Inserisci un nuovo prodotto al catalogo</a>
 	<a href="login?action=adminOrder" class = scelta>Visualizza ordini</a><br/><br/>
-	<a href="product?action=redirectModify" class=Scelta>Modifica un ordine</a>
-	</div>
+	</div><br><br>
 </body>
 </html>

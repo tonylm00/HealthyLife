@@ -48,10 +48,7 @@
 		<input name="sconto" type="text" class=campo required value="<%=product.getSconto()%>"><br>
 		
 		<label for="iva">IVA:</label><br> 
-		<input name="iva" type="text"  class=campo required value="<%=product.getIva()%>"><br>
-		
-		<label for="prezzos">Prezzo Scontato:</label><br> 
-		<input  type="text" readonly class=campo required value="<%=product.getPrezzoScontato()%>"><br>
+		<input name="iva" type="text"  class=campo required value="<%=product.getIva()%>"><br>	
 
 		<input type="submit" value="Modifica prodotto" class=scelta>
 	</fieldset></form>

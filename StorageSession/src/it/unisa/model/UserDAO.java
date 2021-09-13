@@ -38,7 +38,6 @@ public class UserDAO{
 	   // "System.out.println" prints in the console; Normally used to trace the process
 	   System.out.println("Your email is " + email);          
 	   System.out.println("Your password is " + password);
-	   System.out.println("Query: "+searchQuery);
    
 	   try{
 		  currentCon = ds.getConnection();

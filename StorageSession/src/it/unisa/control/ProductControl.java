@@ -30,13 +30,9 @@ public class ProductControl extends HttpServlet  {
 		}
 		
 		String action = request.getParameter("action");
-		System.out.println(action);
+
 		try {
 			if (action != null) {
-				
-				if (action.equalsIgnoreCase("gotoProduct")) {
-					response.sendRedirect("/WEB-INF/views/products/ProductView.jsp");
-				} 
 
 				if (action.equalsIgnoreCase("read")) {
 					int id = Integer.parseInt(request.getParameter("id"));
