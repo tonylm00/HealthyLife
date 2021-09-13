@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import it.unisa.model.*;
 
@@ -29,14 +30,14 @@ public class ProductControl extends HttpServlet  {
 		}
 		
 		String action = request.getParameter("action");
-
+		System.out.println(action);
 		try {
 			if (action != null) {
 				
 				if (action.equalsIgnoreCase("gotoProduct")) {
 					response.sendRedirect("/WEB-INF/views/products/ProductView.jsp");
 				} 
-				
+
 				if (action.equalsIgnoreCase("read")) {
 					int id = Integer.parseInt(request.getParameter("id"));
 					request.removeAttribute("product");
@@ -95,26 +96,28 @@ public class ProductControl extends HttpServlet  {
 						}
 					}
 				}
+				
+				else if(action.equalsIgnoreCase("goModify")){	
+					request.setAttribute("id", request.getAttribute("id"));
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/modify.jsp");
+					dispatcher.forward(request, response);
+				}
+				
 				 else if (action.equalsIgnoreCase("modify")) {
-					 ProductBean bean=ProductDAO.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));
-					 ProductBean nuovo=getProductbyRequest(request);
-					 nuovo.setCode(bean.getCode());
-					 ProductDAO.doUpdate(nuovo);
-					 request.removeAttribute("products");
-					 request.setAttribute("products", ProductDAO.doRetrieveAll());
-					 
-					 if(request.getSession().getAttribute("adminRoles")!=null) {
-							RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminView.jsp");
-							dispatcher.forward(request, response);
+					ProductBean bean=ProductDAO.doRetrieveByKey(Integer.parseInt(request.getParameter("id")));
+					ProductBean nuovo=getProductbyRequest(request);
+					nuovo.setCode(bean.getCode());
+					ProductDAO.doUpdate(nuovo);
+					request.removeAttribute("products");
+					request.setAttribute("products", ProductDAO.doRetrieveAll());
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminView.jsp");
+					dispatcher.forward(request, response);
+						
 						}
-						else {
-							RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
-							dispatcher.forward(request, response);
-						}
-				 }
+				 
 			}
 			else {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/ProductView.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
 				dispatcher.forward(request, response);
 			}
 		} catch (SQLException e) {
@@ -129,16 +132,14 @@ public class ProductControl extends HttpServlet  {
 
 	private ProductBean getProductbyRequest(HttpServletRequest request) {
 		
-		int code = Integer.parseInt(request.getParameter("id"));
 		String name = request.getParameter("nome");
 		String description = request.getParameter("descrizione");
-		double price = Double.parseDouble(request.getParameter("prezzoscontato"));
+		double price = Double.parseDouble(request.getParameter("prezzo"));
 		int quantity = Integer.parseInt(request.getParameter("quantita"));
 		double sconto = Double.parseDouble(request.getParameter("sconto"));
-		int iva = Integer.parseInt(request.getParameter("iva"));
+		double iva = Double.parseDouble(request.getParameter("iva"));
 	
 		ProductBean bean = new ProductBean();
-		bean.setCode(code);
 		bean.setName(name);
 		bean.setDescription(description);
 		bean.setPrice(price);

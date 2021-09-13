@@ -7,58 +7,33 @@
 	Collection<ProductBean> products4 =CategoriaDAO.doRetrieveProductsbyCategoria("HomeGym");
 	if(products == null) {
 		response.sendRedirect("product");	
-		return;}
+		return;
+	}
 	Cart cart = (Cart) request.getSession().getAttribute("cart");
 %>
 <!DOCTYPE html>
 <html>
-	<head>
-		<style>
-		<%@include file="/resources/styles/ProductStyle.css"%>
-		</style>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script> 
-	</head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+		 	<%@include file="/resources/styles/header.css" %>
+		 	<%@include file="/resources/styles/footer.css" %>
+		 	<%@include file="/resources/styles/navbar.css" %>
+		 	<%@include file="/resources/styles/ProductStyle.css"%>
+		 
+	</style>
+	<title>HealthyLife </title>
+</head>
+<body>
+ <header>
+		<%@ include file="/resources/fragment/header.jsp" %>
+		<%@include file="/resources/fragment/navbar.jsp" %>
+</header>
+	<div align=center>
+	<h2>Ordine effettuato con successo!</h2>
+	<h3>potrebbe piacerti anche: </h3>
 	
-	<p class=titoloCategoria><strong> Consegna gratuita </strong>su tutti gli articoli !</p>
-	<div id="slider">
-		<figure>
-			<a href="home?action=gotoCategoryView&categoria=sconti"><img src="resources/images/slideshow/slide1.jpg"></a>
-			<a href="home?action=gotoCategoryView&categoria=sconti"><img src="resources/images/slideshow/slide2.PNG"></a>
-			<a href="home?action=gotoCategoryView&categoria=sconti"><img src="resources/images/slideshow/slide1.jpg"></a>
-			<a href="home?action=gotoCategoryView&categoria=sconti"><img src="resources/images/slideshow/slide2.PNG"></a>
-			<a href="home?action=gotoCategoryView&categoria=sconti"><img src="resources/images/slideshow/slide1.jpg"></a>
-		</figure>
-	</div>
-	<h1><strong>I Nostri Sconti</strong></h1>
-			<%
-				if (products != null && products.size() != 0) {
-					Iterator<?> it = products.iterator();
-					int cont=3;
-					while (it.hasNext() && cont!=0) {
-						ProductBean bean = (ProductBean) it.next();
-						--cont;
-			%>			
-			
-			<div class=prodotto>		
-				<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
-				<div class=nome><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>"><%=bean.getName()%></a></div>
-				<%if(bean.getSconto()!=0) {%>
-				<div class=prezzo>
-				<a class=collegamento href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrezzoScontato())%></a>
-				<a class=cancellato href="product?action=read&id=<%=bean.getCode()%>">€<%=bean.getPrice()%></a></div>
-				<%} %>	
-			</div>	
-			<%
-					}
-				}
-				else {
-			%>
-				<h1>Nessun prodotto disponibile nella categoria</h1>
-			<%
-				}
-			%>
-			
-			<h1><strong>Nutrizione</strong></h1>
+	<h1><strong>Nutrizione</strong></h1>
 			<%
 				if (products2 != null && products2.size() != 0) {
 					Iterator<?> it2 = products2.iterator();
@@ -134,4 +109,11 @@
 			<%
 				}
 			%>
+	
+	</div>
+	
+	<footer>
+		<%@ include file="/resources/fragment/footer.jsp" %>
+	</footer>
+</body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" 
          contentType="text/html; charset=windows-1256"
-         pageEncoding="windows-1256"
+         pageEncoding="utf-8"
          import="java.util.Collection"
          import="java.util.Iterator"
          import="it.unisa.model.*"

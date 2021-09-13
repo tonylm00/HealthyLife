@@ -1,18 +1,11 @@
 package it.unisa.control;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import it.unisa.model.ProductBean;
-import it.unisa.model.ProductDAO;
 
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -58,11 +51,13 @@ public class HomeServlet extends HttpServlet {
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminLogin.jsp");
 				dispatcher.forward(request, response);
 			}
+			
 			else if (action.equalsIgnoreCase("adminView")) 
 			{
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminView.jsp");
 				dispatcher.forward(request, response);
 			}
+			
 			else if (action.equalsIgnoreCase("goModificaInfo")) 
 			{
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/login/modificaInfo.jsp");

@@ -41,7 +41,7 @@ public class CartControl extends HttpServlet{
 					if(cart.isInCart(id))
 						cart.increaseProductQ(b);
 					else {
-						ProductBean bean= (ProductBean) model.doRetrieveByKey(id);
+						ProductBean bean= (ProductBean) ProductDAO.doRetrieveByKey(id);
 						bean.setCartQuantity(1);
 						bean.setTot(bean.getPrezzoScontato());
 						cart.addProduct(bean);
@@ -49,7 +49,7 @@ public class CartControl extends HttpServlet{
 					request.getSession().setAttribute("cart", cart);
 					if(action.equalsIgnoreCase("addCartDetails")) {
 						request.removeAttribute("product");
-						request.setAttribute("product", model.doRetrieveByKey(id));
+						request.setAttribute("product", ProductDAO.doRetrieveByKey(id));
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/DetailsView.jsp");
 						dispatcher.forward(request, response);
 					}
@@ -57,7 +57,7 @@ public class CartControl extends HttpServlet{
 					dispatcher.forward(request, response);
 				} else if (action.equalsIgnoreCase("delete")) {
 					int id = Integer.parseInt(request.getParameter("id"));
-					cart.deleteProduct(model.doRetrieveByKey(id));
+					cart.deleteProduct(ProductDAO.doRetrieveByKey(id));
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/products/CartView.jsp");
 					dispatcher.forward(request, response);
 				}

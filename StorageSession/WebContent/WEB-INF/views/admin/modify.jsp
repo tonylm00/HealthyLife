@@ -16,41 +16,44 @@
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/credenziali.css" %>
 	</style>
-	<title>HealthyLife - modify</title>
+	<title>Modifica</title>
 </head>
 <body>
 <header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
-
+<br><br>
 <div align=center>
-	<form action="../product" method="post">
+	<form action="product" method="post">
 	<fieldset><legend>MODIFICA PRODOTTO:</legend>
 		<input type="hidden" name="action" value="modify">
 		<input type="hidden" name="id" value="<%=request.getParameter("id")%>">
 		
-		<label for="nome">Name:</label><br> 
-		<input name="nome" type="text" maxlength="20" required value="<%=product.getName()%>"><br> 
+		<label for="nome">Nome:</label><br> 
+		<input name="nome" type="text" maxlength="20" required value="<%=product.getName()%>" readonly class=campo><br> 
 		
-		<label for="descrizione">Description:</label><br>
-		<textarea name="descrizione" maxlength="100" rows="3" required><%=product.getDescription()%></textarea><br>
+		<label for="descrizione">Descrizione:</label><br>
+		<textarea name="descrizione" maxlength="100" rows="3" required  class=campo ><%=product.getDescription()%></textarea><br>
 		
-		<label for="informazioni">Info:</label><br>
-		<textarea name="informazioni" maxlength="100" rows="3" required><%=product.getInfo()%></textarea><br>
+		<label for="informazioni">Informazioni:</label><br>
+		<textarea name="informazioni" maxlength="100" rows="3" required  class=campo><%=product.getInfo()%></textarea><br>
 		
-		<label for="prezzo">Price:</label><br> 
-		<input name="prezzo" type="number" min="0" step="0.01" required value="<%=product.getPrice()%>"><br>
+		<label for="prezzo">Prezzo:</label><br> 
+		<input name="prezzo" type="text" class=campo required value="<%=product.getPrice()%>"><br>
 
-		<label for="quantità">Quantity:</label><br> 
-		<input name="quantita" type="number" min="1" required value="<%=product.getQuantity()%>"><br>
+		<label for="quantità">Quantita:</label><br> 
+		<input name="quantita" type="text" class=campo required value="<%=product.getQuantity()%>"><br>
 		
 		<label for="sconto">Sconto:</label><br> 
-		<input name="sconto" type="number" min="0" step="0.01" required value="<%=product.getSconto()%>"><br>
+		<input name="sconto" type="text" class=campo required value="<%=product.getSconto()%>"><br>
 		
 		<label for="iva">IVA:</label><br> 
-		<input name="iva" type="number" min="0" step="0.1" required value="<%=product.getIva()%>"><br>
+		<input name="iva" type="text"  class=campo required value="<%=product.getIva()%>"><br>
+		
+		<label for="prezzos">Prezzo Scontato:</label><br> 
+		<input  type="text" readonly class=campo required value="<%=product.getPrezzoScontato()%>"><br>
 
-		<input type="submit" value="Modifica"><input type="reset" value="Reset">
+		<input type="submit" value="Modifica prodotto" class=scelta>
 	</fieldset></form>
 </div>
 </body>

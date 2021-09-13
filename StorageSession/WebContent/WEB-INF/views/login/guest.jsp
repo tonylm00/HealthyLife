@@ -8,10 +8,7 @@
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/credenziali.css" %>
-		 	.footer
-		 	{
-		 		position: absolute;
-		 	}
+		 	
 	</style>
 	
 </head>
@@ -38,7 +35,7 @@
 		<input id="indirizzo" name="indirizzo" type="text" class=campo required><br>
 		<input type="submit" value="Invia" class=scelta>
 	</fieldset></form><br>
-	<br><a href="login/LoginView.jsp" class=scelta>Accedi</a> <a class=scelta>o continua ad acquistare senza loggarti:</a>
+	
 	</div><br><br><br><br>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>

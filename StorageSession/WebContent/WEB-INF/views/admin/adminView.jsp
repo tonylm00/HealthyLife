@@ -2,6 +2,7 @@
 <html>
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.ProductDAO"%>
 <head>
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/styles/ProductStyle.css" type="text/css"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Vista amministratore</title>
 	<style>
@@ -54,15 +55,16 @@
 					<tr border=1>
 						<td align=center><%=bean.getCode()%></td>
 						<td align=center><%=bean.getName()%></td>
-						<td align=center><%=bean.getPrice()%></td>
+						<td align=center><%=String.format("%.2f", bean.getPrice())%> €</td>
 						<td align=center><%=bean.getQuantity()%></td>
 						<td align=center><%=bean.getSconto()%></td>
-						<td align=center><%=bean.getPrezzoScontato()%></td>
-						<td align=center><%=bean.getIva()%></td>
-						<td align=center class=az><a href="product?action=delete&id=<%=bean.getCode()%>" class=ac>Rimuovi</a></td>
-						<td align=center class=az><a href="product?action=modify&id=<%=bean.getCode()%>" class=ac>Modifica</a></td>
+						<td align=center><%=String.format("%.2f", bean.getPrezzoScontato())%> €</td>
+						<td align=center><%=bean.getIva()%>% </td>
+						<td align=center class=az><a href="product?action=delete&id=<%=bean.getCode()%>" class=ac> Rimuovi </a></td>
+						<td align=center class=az><a href="product?action=goModify&id=<%=bean.getCode()%>" class=ac> Modifica </a></td>				
 					</tr>
 		<%
+			
 				}
 			}
 			else {
@@ -77,6 +79,7 @@
 	<br><br>
 	<a href="login?action=adminInsert" class=scelta>Inserisci un nuovo prodotto al catalogo</a>
 	<a href="login?action=adminOrder" class = scelta>Visualizza ordini</a><br/><br/>
+	<a href="product?action=redirectModify" class=Scelta>Modifica un ordine</a>
 	</div>
 </body>
 </html>
