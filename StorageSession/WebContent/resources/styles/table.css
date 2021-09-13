@@ -112,24 +112,25 @@ th{
   color:white;
 }
 
-.az{
-	background-color: #ff9000;
-}
-
-.az:hover{
-	 background-color: white;
-	 color:white;
-}
-
 .ac{
-	text-decoration:none;
-	color:black;
+  width: 100%;
+  background-color: #ff9000;
+  color: white;
+  padding: 16px 25px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: none;
+  
 }
-
 .ac:hover{
 	cursor:default;
+	background-color: black;
+	color:white;
+	
 }
-
 .cancellato {	
 	
 	font-size: 18px;	
