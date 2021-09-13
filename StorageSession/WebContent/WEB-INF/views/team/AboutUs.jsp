@@ -19,23 +19,70 @@
 	<div class=about>
 		<p class=text align=center>Healthy Life si propone di diventare un punto di riferimento e-commerce per gli appassionati del mondo fitness. Per Healthy Life è importante stimolare le ambizioni delle persone indipendentemente dall’obiettivo che si vuole raggiungere. Per questo offriamo una vasta gamma di prodotti alimentari rispettando le esigenze dietetiche vegane, senza lattosio e senza glutine affinché ogni consumatore possa beneficiare di un’alimentazione di qualità.
 Intendiamo promuovere uno stile di vita sano, oltre all’alimentazione, offriamo una vasta gamma di attrezzatura per permettere un allenamento quotidiano, in casa (home gym).</p>
-		<div class=per>
-			<img src="resources/images/footer/antonioFoto.jpg" class="Tfoto">
-			<p class=nome>Antonio La Marca</p>
-			<p class=ruolo>Founder</p>
 		</div>
-		<div class=per>
-			<img src="resources/images/footer/francescoFoto.jpg" class="Tfoto">
-			<p class=nome>Francesco Amato</p>
-			<p class=ruolo>CEO</p>
-		</div>	
-		<div class=per>
-			<img src="resources/images/footer/giorgioFoto.png" class="Tfoto">
-			<p class=nome>Giorgio Iannello</p>
-			<p class=ruolo>CEO</p>
+		
+		<br><br>
+		<div class="center">
+		
+	<div class="card">
+    <div class="image">
+      <img src="resources/images/footer/antonioFoto.jpg" class="Tfoto">
+    </div>
+    <div class="details">
+      <div class="center">
+        <h1>Antonio La Marca<br><span>Founder</span></h1>
+        <p>Boss del poppin</p>
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="image">
+      <img src="resources/images/footer/francescoFoto.jpg" class="Tfoto">
+    </div>
+    <div class="details">
+      <div class="center">
+        <h1>Francesco Amato<br><span>CEO</span></h1>
+        <p>Boss del poppin</p>
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="image">
+      <img src="resources/images/footer/giorgioFoto.png" class="Tfoto">
+    </div>
+    <div class="details">
+      <div class="center">
+        <h1>Giorgio Iannello<br><span>CEO</span></h1>
+        <p>Boss del poppin</p>
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 		</div>
-	</div>
-	<br><br><br>
+		
+	
 	<footer>
 			<%@ include file="/resources/fragment/footer.jsp" %>
 		</footer>

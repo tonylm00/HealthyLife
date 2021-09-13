@@ -136,3 +136,16 @@ th{
 	text-decoration: line-through;
 	font-size:18px;
 }
+.foto:hover
+{
+	transform:scale(1.1);
+	z-index:2;
+}
+.foto
+{
+	display:block;
+	width:270px;
+	border-radius: 5px;
+	position:center;
+
+}

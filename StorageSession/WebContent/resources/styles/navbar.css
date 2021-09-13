@@ -5,18 +5,17 @@
 }
 
 .left a {
-  float: left;
+  padding: .5em .8em;
   color: white;
-  padding: 12px;
+  position: relative;
   text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
+  font-size: 20px;
+  float: left;
+  padding:12px;
   border-radius: 4px;
+  
 }
-.left a:hover {
-  background-color:#ff9000;
-  color: black;
-}
+
 
 .searchbar{
   float:right;
@@ -56,4 +55,41 @@ button{
     text-align: left;
   }
   
+}
+.left a::before,
+.left a::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
+
+.left a::before {
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid #ff9000;
+  border-right: 3px solid #ff9000;
+  transform: translate(-100%, 50%);
+}
+
+.left a:after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #ff9000;
+  border-left: 3px solid #ff9000;
+  transform: translate(100%, -50%)
+}
+
+.left a:hover:before,
+.left a:hover:after{
+  transform: translate(0,0);
+  opacity: 1;
+}
+
+.left a:hover {
+  color: #ff9000;
 }

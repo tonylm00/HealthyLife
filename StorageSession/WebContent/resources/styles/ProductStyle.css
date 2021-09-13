@@ -145,5 +145,12 @@
 	
 }
 		
-
+.table {
+	border: 1px solid black;
+	padding: 2px;
+	font-size: 20px;
+	width:80%;
+	border-bottom: none;
+	border-top: none;
+}
 		

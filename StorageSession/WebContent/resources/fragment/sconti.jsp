@@ -7,7 +7,8 @@
 	Collection<ProductBean> products4 =CategoriaDAO.doRetrieveProductsbyCategoria("HomeGym");
 	if(products == null) {
 		response.sendRedirect("product");	
-		return;}
+		return;
+	}
 	Cart cart = (Cart) request.getSession().getAttribute("cart");
 %>
 <!DOCTYPE html>
@@ -29,6 +30,7 @@
 			<a href="home?action=gotoCategoryView&categoria=sconti"><img src="resources/images/slideshow/slide1.jpg"></a>
 		</figure>
 	</div>
+	<div class="table">
 	<h1><strong>I Nostri Sconti</strong></h1>
 			<%
 				if (products != null && products.size() != 0) {
@@ -57,7 +59,7 @@
 			<%
 				}
 			%>
-			
+			<hr>
 			<h1><strong>Nutrizione</strong></h1>
 			<%
 				if (products2 != null && products2.size() != 0) {
@@ -82,7 +84,7 @@
 			<%
 				}
 			%>
-			
+			<hr>
 			<h1><strong>Accessori</strong></h1>
 			<%
 				if (products3 != null && products3.size() != 0) {
@@ -108,7 +110,7 @@
 			<%
 				}
 			%>
-			
+			<hr>
 			<h1><strong>HomeGym</strong></h1>
 			<%
 				if (products4 != null && products4.size() != 0) {
@@ -134,4 +136,5 @@
 			<%
 				}
 			%>
+			</div>
 </html>
