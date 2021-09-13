@@ -30,6 +30,7 @@
 					<th>Nome</th>
 					<th>Prezzo Unitario</th>
 					<th>Quantità</th>
+					<th>IVA</th>
 					<th>Prezzo totale articolo</th>
 				</tr>
 				<%
@@ -42,11 +43,12 @@
 					<td align=center><%=product.getName()%></td>
 					<td align=center><%=String.format("%.2f", product.getPrice())%>€</td>
 					<td align=center><%=product.getQuantity()%></td>
+					<td align=center><%=product.getIva()%></td>
 					<td align=center><%=String.format("%.2f", product.getPrice()*product.getQuantity())%>€</td>
-					
 				</tr>
 				<%}}%>
 			</table>
+			
 			</div>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
