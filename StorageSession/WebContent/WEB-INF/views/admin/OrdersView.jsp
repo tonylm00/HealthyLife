@@ -33,10 +33,10 @@
 	<h2 align=center>Elenco ordini:</h2>
 	<table align=center>
 		<tr>
-			<th>Codice</th>
+			<th>Codice ordine</th>
 			<th>Data Ordine</th>
 			<th>Prezzo Totale</th>
-			<th>Utente</th>
+			<th>Acquirente</th>
 		</tr>
 		<%
 			if (orders != null && orders.size() != 0) {
@@ -47,7 +47,7 @@
 					<tr>
 						<td align=center><%=bean.getId() %></td>
 						<td align=center><%=bean.getData()%></td>
-						<td align=center><%=bean.getPrezzoTot()%></td>
+						<td align=center><%=String.format("%.2f",bean.getPrezzoTot())%> €</td>
 						<td align=center><%if(bean.getUtente()!=null){%>
 							<%= bean.getUtente()%>
 						<%} else{%>
@@ -69,21 +69,21 @@
 	</table><br><br>
 <div align=center>
 	<form action="order" method="post">
-	<fieldset><legend>Filtra prodotti per data:</legend>
+	<fieldset><legend>Filtra ordini per data:</legend>
 		<input type="hidden" name="action" value="filterDate">
 		<input type="text" name="inizio" placeholder="DATA INIZIO (YYYY-MM-DD)" class=campo><br/><br/>
 		<input type="text" name="fine" placeholder="DATA FINE (YYYY-MM-DD)" class=campo><br/><br/>
 		<input type="submit" value="Filtra" class=scelta>
-	</fieldset></form><br/>
-	
-	
+	</fieldset></form>
+	<br>
+	<br>
 	<form action="order" method="post">
-	<fieldset><legend>Filtra prodotti per utente:</legend>
+	<fieldset><legend>Filtra ordini per utente:</legend>
 		<input type="hidden" name="action" value="filterUser" class=campo>
 		<input type="text" name="user" placeholder="mariorossi@gmail.com" class=campo><br/><br/>
 		<input type="submit" value="Filtra" class=scelta>
 	</fieldset>
 	</form>
-	</div>
+	</div><br><br>
 </body>
 </html>

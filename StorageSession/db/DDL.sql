@@ -101,7 +101,7 @@ CREATE TABLE dettaglio(
   PRIMARY KEY(id_ordine,id_prodotto),
 
   FOREIGN KEY(id_ordine) REFERENCES ordine(id)
-  on delete restrict
+  on delete cascade
   on update cascade,
   FOREIGN KEY(id_prodotto) REFERENCES prodotto(id)
   on delete restrict

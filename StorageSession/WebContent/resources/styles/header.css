@@ -39,9 +39,9 @@ body {
 
 @media screen and (max-width: 480px) {
   .header a {
-    float: none;
+
+    float: center;
     display: block;
-    text-align: left;
   }
   
   .header-right {

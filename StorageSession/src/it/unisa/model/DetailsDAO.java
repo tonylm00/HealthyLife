@@ -50,7 +50,7 @@ public class DetailsDAO {
 				 bean.setName(rs.getString("nome"));
 				 bean.setDescription(rs.getString("descrizione"));
 			 	 bean.setPrice(rs.getInt("prezzoscontato"));
-			 	 bean.setCartQuantity(rs.getInt(9));
+			 	 bean.setQuantity(rs.getInt(9));
 				 products.add(bean);
 		      }
 		   } 
@@ -96,7 +96,8 @@ public class DetailsDAO {
 					  preparedStatement=currentCon.prepareStatement(insert);
 				      preparedStatement.setInt(1, product.getCode());
 				      preparedStatement.setInt(2, ordine);
-				      preparedStatement.setInt(3, product.getCartQuantity());
+				      System.out.println("CART TOTAL QUANTITY: "+cart.getTotalQuantity());
+				      preparedStatement.setInt(3, cart.getTotalQuantity());
 				      preparedStatement.setDouble(4, product.getPrezzoScontato());
 				      preparedStatement.setDouble(5, product.getIva());
 				      

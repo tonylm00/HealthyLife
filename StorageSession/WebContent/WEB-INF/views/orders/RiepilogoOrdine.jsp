@@ -16,10 +16,7 @@
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/table.css" %>
-		 	.footer
-		 	{
-		 		position: absolute;
-		 	}
+		 	
 	</style>
 </head>
 <body>
@@ -56,9 +53,9 @@
 	</tr>
 	<%} %>
 	</table>
-	<br><br>
-	<a href=order?action=conferma class=scelta>CONFERMA ORDINE</a>
 	<br><br><br>
+	<a href=order?action=conferma class=scelta>CONFERMA ORDINE</a>
+	<br><br><br><br>
 	</div>
 <footer>
 	<%@ include file="/resources/fragment/footer.jsp" %>

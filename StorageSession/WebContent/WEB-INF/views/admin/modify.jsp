@@ -24,13 +24,14 @@
 	</header>
 <br><br>
 <div align=center>
+	<h2><%=product.getName()%></h2>
+	<h3>Codice prodotto: <%=product.getCode()%></h3>
 	<form action="product" method="post">
 	<fieldset><legend>MODIFICA PRODOTTO:</legend>
 		<input type="hidden" name="action" value="modify">
-		<input type="hidden" name="id" value="<%=request.getParameter("id")%>">
 		
-		<label for="nome">Nome:</label><br> 
-		<input name="nome" type="text" maxlength="20" required value="<%=product.getName()%>" readonly class=campo><br> 
+		<input type="hidden" name="id" value="<%=request.getParameter("id")%>"> 
+		<input name="nome" type="hidden" value="<%=product.getName()%>"><br> 
 		
 		<label for="descrizione">Descrizione:</label><br>
 		<textarea name="descrizione" maxlength="100" rows="3" required  class=campo ><%=product.getDescription()%></textarea><br>

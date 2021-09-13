@@ -59,14 +59,9 @@ public class ProductControl extends HttpServlet  {
 					request.removeAttribute("products");
 					request.setAttribute("products", ProductDAO.doRetrieveAll());
 					
-					if(request.getSession().getAttribute("adminRoles")!=null) {
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminView.jsp");
-						dispatcher.forward(request, response);
-					}
-					else {
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
-						dispatcher.forward(request, response);
-					}
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminView.jsp");
+					dispatcher.forward(request, response);
+					
 				
 					} else if (action.equalsIgnoreCase("insert")) {
 					ProductDAO.doSave(getProductbyRequest(request));

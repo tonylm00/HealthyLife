@@ -17,9 +17,9 @@ INSERT INTO prodotto (nome, descrizione, informazioni, prezzo, sconto, iva, quan
 ("Multi vitaminico","compresse multivitaminiche","confezione da 120 g","20.99","20","22","40","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/m/u/multi-vita-mine-120-compresse.jpg"),
 ("Asciugamano nero gym towell excellent style","asciugamano nero","versione piccola","9.99","0","22","12","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/a/s/asciugamano_excellent_3_1.png"),
 ("Calze tecniche per stacchi da terra","calze tecniche colore nero","altezza ginocchio","9.99","0","22","32","https://www.powerliftingshop.it/wp-content/uploads/2020/02/Calze-Powerlifting-1-300x300.jpg"),
-("Eagle Loops","cinghia per le dita","Utilizzabile per fare esercizi per le dita","19.99","0","22","6","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/f/i/file_48_17.jpg"),
+("Eagle Loops","cinghia per le dita","Utilizzabile per fare esercizi per le dita","19.99","0","22","6","https://images-na.ssl-images-amazon.com/images/I/61tgAn6-mJL.jpg"),
 ("Compat Leg sled","Leg press compatto e fluido","Utilizzabile per fare piu tipi di esercizi","1119.99","0","22","4","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/1/8/183-powertec-2018-product-only.jpg"),
-("Functional trainer deluxe","cavi incrociati","Utilizzabile immediatamente con pesi","1999.99","30","22","8","https://www.olympianstore.it/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/f/t/ftd_7.jpg");
+("Functional trainer deluxe","cavi incrociati","Utilizzabile immediatamente con pesi","1999.99","30","22","8","https://www.canalisystem.com/wp-content/uploads/2020/05/HALF-RACK-5.jpg");
 
 INSERT INTO utente VALUES
 ("antonio@gmail.com","antonio","Antonio","La Marca","Via Torquato Tasso, 42, 80039, NA","3335632103","Antonio La Marca","5336985623732975","09/22","975");

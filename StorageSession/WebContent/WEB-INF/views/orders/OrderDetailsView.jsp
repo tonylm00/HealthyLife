@@ -30,7 +30,7 @@
 					<th>Nome</th>
 					<th>Prezzo Unitario</th>
 					<th>Quantità</th>
-					<th>Prezzo totale</th>
+					<th>Prezzo totale articolo</th>
 				</tr>
 				<%
 					if (products != null && products.size() != 0) {

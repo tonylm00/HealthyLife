@@ -48,6 +48,9 @@
  	.footer-left{
  	 	float: none;
  	}
+ 	.footer-right{
+ 	display:none;
+ 	}
  	.footer
  	{
  		width: "100%";

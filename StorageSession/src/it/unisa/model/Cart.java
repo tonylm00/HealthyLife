@@ -96,4 +96,12 @@ public class Cart {
 		}
 	}
 	
+	public int getTotalQuantity() {
+		int n=0;
+		for (ProductBean prod : products) {
+			n+=prod.getCartQuantity();
+		}
+		return n;
+	}
+	
 }
