@@ -85,5 +85,6 @@
 	</fieldset>
 	</form>
 	</div><br><br>
+	<div align=center><a href=login?action=logout class=scelta>LOGOUT</a></div><br>
 </body>
 </html>

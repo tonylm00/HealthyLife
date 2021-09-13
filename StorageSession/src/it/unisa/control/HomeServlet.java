@@ -48,6 +48,7 @@ public class HomeServlet extends HttpServlet {
 			
 			else if (action.equalsIgnoreCase("admin")) 
 			{
+				request.getSession().setAttribute("adminRoles", false);
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/adminLogin.jsp");
 				dispatcher.forward(request, response);
 			}

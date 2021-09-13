@@ -15,7 +15,7 @@
 <html>
 	<head>
 		<style>
-		<%@include file="/resources/styles/ProductStyle.css"%>
+		<%@include file="/resources/styles/prodotto.css"%>
 		</style>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script> 
 	</head>
@@ -41,8 +41,8 @@
 						--cont;
 			%>			
 			
-			<div class=prodotto>		
-				<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
+			<div class=prodotti>		
+				<div><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
 				<div class=nome><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>"><%=bean.getName()%></a></div>
 				<%if(bean.getSconto()!=0) {%>
 				<div class=prezzo>
@@ -69,9 +69,9 @@
 						ProductBean bean = (ProductBean) it2.next();
 						cont2--;
 			%>			
-			<div class=prodotto>
+			<div class=prodotti>
 				<%if(bean.getSconto()==0) {%>
-				<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
+				<div ><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
 				<div class=nome><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>"><%=bean.getName()%></a></div>
 				<div class=prezzo><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrice())%></a></div>	
 				<%} %></div>
@@ -95,9 +95,9 @@
 						cont3--;
 			%>			
 			
-			<div class=prodotto>
+			<div class=prodotti>
 				<%if(bean.getSconto()==0) {%>
-				<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
+				<div><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
 				<div class=nome><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>"><%=bean.getName()%></a></div>
 				<div class=prezzo><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrice())%></a></div>	
 				<%} %></div>
@@ -121,9 +121,9 @@
 						cont4--;
 			%>			
 			
-			<div class=prodotto>
+			<div class=prodotti>
 				<%if(bean.getSconto()==0) {%>
-				<div class=foto><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
+				<div ><a href="product?action=read&id=<%=bean.getCode()%>"><img class=immagine src="<%=bean.getImmagine()%>" alt=IMG ></a></div>
 				<div class=nome><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>"><%=bean.getName()%></a></div>
 				<div class=prezzo><a class=collegamento href="product?action=read&id=<%=bean.getCode()%>">€<%=String.format("%.2f", bean.getPrice())%></a></div>	
 				<%} %></div>

@@ -104,6 +104,6 @@ CREATE TABLE dettaglio(
   on delete cascade
   on update cascade,
   FOREIGN KEY(id_prodotto) REFERENCES prodotto(id)
-  on delete restrict
+  on delete cascade
   on update cascade
 );

@@ -14,6 +14,7 @@
 		 <%@include file="/resources/styles/footer.css" %>
 		 <%@include file="/resources/styles/navbar.css" %>
 		 <%@include file="/resources/styles/table.css" %>
+		 <%@include file="/resources/styles/prodotto.css" %>
 	</style>
 	<title>HealthyLife </title>
 </head>

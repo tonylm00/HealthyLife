@@ -37,7 +37,7 @@
 			<th></th>
 			<th>Nome</th>
 			<th>Quantità</th>
-			<th>Prezzo Totale</th>
+			<th>Prezzo Totale per articolo</th>
 			<th></th>
 		</tr>
 		<tr>
@@ -47,13 +47,13 @@
 				<form action="cart">
 					<input type="hidden" name="action" value="increaseQ">
 					<input type="hidden" name="id" value="<%=beancart.getCode()%>">
-					<input type="submit" value="+" >
+					<input type="submit" class=smallButton value="  +  " >
 				</form>
 				<%=beancart.getCartQuantity()%>
 				<form action="cart">
 					<input type="hidden" name="action" value="decreaseQ">
 					<input type="hidden" name="id" value="<%=beancart.getCode()%>">
-					<input type="submit" value="-" >
+					<input type="submit" class=smallButton value="  -  " >
 				</form>
 			</td>
 			

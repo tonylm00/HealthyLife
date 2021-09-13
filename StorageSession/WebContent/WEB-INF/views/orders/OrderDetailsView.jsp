@@ -23,33 +23,36 @@
  <header>
 		<%@ include file="/resources/fragment/header.jsp" %>
 	</header>
-	<div align=center>
-	<h2>Dettagli ordine</h2>
-			<table>
-				<tr>
+	<div align=center><br><br>			
+				<%
+					if (products != null && products.size() != 0) {
+						Iterator<?> it = products.iterator();
+						%><h2>Dettaglio ordine</h2>
+						<table>
+					<tr>
 					<th>Nome</th>
 					<th>Prezzo Unitario</th>
 					<th>Quantità</th>
 					<th>IVA</th>
 					<th>Prezzo totale articolo</th>
-				</tr>
-				<%
-					if (products != null && products.size() != 0) {
-						Iterator<?> it = products.iterator();
+				</tr><% 
 						while (it.hasNext()) {
 							ProductBean product = (ProductBean) it.next();
 				%>
+				
+				
 				<tr>
 					<td align=center><%=product.getName()%></td>
-					<td align=center><%=String.format("%.2f", product.getPrice())%>€</td>
+					<td align=center><%=String.format("%.2f", product.getPrice())%> €</td>
 					<td align=center><%=product.getQuantity()%></td>
-					<td align=center><%=product.getIva()%></td>
-					<td align=center><%=String.format("%.2f", product.getPrice()*product.getQuantity())%>€</td>
+					<td align=center><%=String.format("%.0f", product.getIva())%>%</td>
+					<td align=center><%=String.format("%.2f", product.getPrice()*product.getQuantity())%> €</td>
 				</tr>
-				<%}}%>
+				<%} %>
 			</table>
-			
 			</div>
+			<%} else{ %>
+			<h1>Prodotto non più disponibile</h1><%} %>
 	<footer>
 		<%@ include file="/resources/fragment/footer.jsp" %>
 	</footer>

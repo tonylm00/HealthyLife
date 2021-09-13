@@ -1,55 +1,3 @@
-.scelta {	 
-	background-color: #a8d43e;
-	color: white;
- 	padding: 16px 25px;
-	margin: 8px 0;
-	border: none;
-	left:0;
-	border-radius: 20px;
-	cursor: pointer;
-	font-size: 18px;
-	text-decoration: none;
-}
-
-.scelta:hover {
- 	background-color: #45a049;
-	text-decoration: none;
-}
-
-.cancellato {	 
-	background-color: red;
-	color: white;
- 	padding: 16px 25px;
-	margin: 8px 0;
-	border: none;
-	left:0;
-	border-radius: 20px;
-	cursor: pointer;
-	font-size: 18px;	
-	text-decoration: line-through;
-	font-size:18px;
-}
-
-.cancellato:hover {
- 	background-color: red;
-	text-decoration: none;
-	cursor:pointer;
-}
-
-			
-.page{
-	margin-left:6%;
-	margin-right:6%;
-}
-
-.foto
-{
-	display:block;
-	width:270px;
-	border-radius: 5px;
-	position:center;
-	
-}
 .foto:hover
 {
 	transform:scale(1.1);
@@ -57,12 +5,94 @@
 	transition:0.7s;
 }
 
-.product
-{
-  margin: auto;
-  width: 100%;
-  padding: 0px;
-	
+.prodotti{
+	display: inline-block; /*questi div saranno posti uno a fianco all'altro*/
+	margin: 1%; /*un po di spazio tra i div*/
+	transition:0.7s;
 }
 
+.prodotti img{
+	display:block;
+	width:230px;
+	position:center;
+}
+
+.prodotti:hover{
+	
+	transform:scale(1.1);
+	z-index:2;
+}
+
+.nome{
+	font-size:20px;
+	float:center;
+}
+
+.prezzo{
+	font-size:20px;
+}
+
+.collegamento{
+	text-decoration:none;
+	color:black;
+}
+
+.cancellato{
+	text-decoration: line-through;
+	color: #c0c0c0;
+	font-size: 16px;
+}
+
+#slider{
+	overflow: hidden;
+}
+
+#slider figure{
+	position: relative;
+	margin: 0;
+	width: 500%;
+	left : 0;
+	animation: 20s slider infinite;
+}
+#slider figure img {
+	width: 20%;
+	float: left;
+}
+
+@keyframes slider{
+	0%{
+		left:0;
+	}
+	20%{
+		left:0;
+	}
+	25%{
+		left:-100%;
+	}
+	45%{
+		left:-100%;
+	}
+	50%{
+		left:-200%;
+	}
+	70%{
+		left:-200%;
+	}
+	75%{
+		left:-300%;
+	}
+	95%{
+		left:-300%;
+	}
+	
+}
+		
+.table {
+	border: 1px solid black;
+	padding: 1px;
+	width:95%;
+	border-bottom: none;
+	border-top: none;
+}
+		
 

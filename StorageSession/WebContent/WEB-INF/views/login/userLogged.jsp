@@ -20,12 +20,8 @@ if ((currentUser==null)||(!currentUser.isValid()))
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
       	<style>
 		 	<%@include file="/resources/styles/header.css" %>
-		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/table.css" %>
-		 	.footer
-		 	{
-		 		position: absolute;
-		 	}
+		 	
 		 </style>
          <title>Area personale</title>
       </head>
@@ -43,22 +39,25 @@ if ((currentUser==null)||(!currentUser.isValid()))
 	<br>
            <h2>Benvenuto: <%=currentUser.getName() + " " + currentUser.getSurname() %></h2>
      
-<h3>Storico ordini effettuati:</h3>
-	<table>
+
+			
+		<%
+			if (orders != null && orders.size() != 0) {
+				Iterator<?> it = orders.iterator();
+				%>
+				<h3>Storico ordini effettuati:</h3>
+			<table>
 					<tr>
 						<th>Codice </th>
 						<th>Data </th>
 						<th>Prezzo Totale</th>
-
 					</tr>
-		<%
-			if (orders != null && orders.size() != 0) {
-				Iterator<?> it = orders.iterator();
+				<% 
 				while (it.hasNext()) {
 					OrderBean bean = (OrderBean) it.next();
 		%>
 			
-					<tr>
+					<tr style="padding:3px">
 						<td align=center><%=bean.getId()%></td>
 						<td align=center><%=bean.getData()%></td>
 						<td align=center><%=bean.getPrezzoTot()%></td>
@@ -70,7 +69,7 @@ if ((currentUser==null)||(!currentUser.isValid()))
 			else {
 		%>
 		<tr>
-			<td colspan=6 align=center> Nessun ordine effettuato</td>
+			<td colspan=10 align=center> <p style="font-size:20px"><strong>Nessun ordine effettuato</strong></p></td>
 		</tr>
 		<%
 			}
@@ -78,10 +77,8 @@ if ((currentUser==null)||(!currentUser.isValid()))
 	</table><br><br><br>
 	<a href=login?action=visualizzaInfo class=scelta>VISUALIZZA INFORMAZIONI PERSONALI</a><br><br><br>
 	<a href=login?action=logout class=scelta>LOGOUT</a><br><br>
-	</div>
-	<footer>
-		<%@ include file="/resources/fragment/footer.jsp" %>
-	</footer>
+	</div><br><br>
+
       </body>
 	
    </html>

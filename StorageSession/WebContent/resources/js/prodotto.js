@@ -1,4 +1,3 @@
-
 function search(){
     var x=document.getElementById("cerca").value;
     var xhr= new XMLHttpRequest();

@@ -11,7 +11,7 @@ body{
 {
 	display: inline-block;
 	padding-top:10%;
-	padding-left:30%;
+	padding-left:25%;
 	
 }
 		
@@ -21,7 +21,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 360px;
+    width: 340px;
     height: 400px;
     background: #000;
 }

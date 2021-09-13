@@ -19,7 +19,7 @@
 		 	<%@include file="/resources/styles/header.css" %>
 		 	<%@include file="/resources/styles/footer.css" %>
 		 	<%@include file="/resources/styles/navbar.css" %>
-		 	<%@include file="/resources/styles/ProductStyle.css"%>
+		 	<%@include file="/resources/styles/prodotto.css"%>
 		 
 	</style>
 	<title>HealthyLife </title>

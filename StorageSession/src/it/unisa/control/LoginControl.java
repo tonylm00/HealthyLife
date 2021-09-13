@@ -105,6 +105,7 @@ public class LoginControl extends HttpServlet {
 			
 			else if(action.equalsIgnoreCase("logout")) {
 			    HttpSession session = request.getSession();
+			    request.getSession().setAttribute("adminRoles", false);
 				session.removeAttribute("currentSessionUser");
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
 		    	dispatcher.forward(request, response);
@@ -143,7 +144,7 @@ public class LoginControl extends HttpServlet {
 			}
 			
 			else if(action.equalsIgnoreCase("adminOrder")) {
-				if(request.getSession().getAttribute("adminRoles")!=null) {
+				if((boolean) request.getSession().getAttribute("adminRoles")!=false) {
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/admin/OrdersView.jsp");
 			    	dispatcher.forward(request, response); 
 				}
